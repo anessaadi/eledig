@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Surfaces */
+  --bg-main: #faf8f4;
+  --bg-section: #f6f2ec;
+  --card-bg: #fffcf9;
+
+  /* Text */
+  --text-primary: #2f2a26;
+  --text-secondary: #7a736c;
+
+  /* Burgundy accent (brand) — buttons, links, active states, logo only */
+  --accent: #8b1e32;
+  --accent-hover: #741728;
+  --accent-light: #eed9de;
+
+  /* Gold / champagne — fine decorative details */
+  --gold: #c8b08a;
+  --gold-light: #e6d9c3;
+
+  --border: #e7e0d6;
+}
+
+html { scroll-behavior: smooth; }
+
+/* ── Royal Bordeaux template animations ── */
+@keyframes shrink-in {
+  from { transform: scale(1); }
+  to   { transform: scale(0.9); }
+}
+@keyframes scroll-hint {
+  0%, 100% { transform: translateX(-50%) translateY(0);   opacity: 0.4; }
+  50%       { transform: translateX(-50%) translateY(8px); opacity: 1;   }
+}
+@keyframes scroll-reveal {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes envelope-up {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-100%); }
+}
+@keyframes envelope-down {
+  from { transform: translateY(0); }
+  to   { transform: translateY(100%); }
+}
+@keyframes envelope-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+@keyframes envelope-right {
+  from { transform: translateX(0); }
+  to   { transform: translateX(100%); }
+}
+
+body {
+  background: var(--bg-main);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Locale-driven font families (set on <html> via a class) */
+.locale-fr { font-family: var(--font-fr-body), Georgia, serif; }
+.locale-fr h1, .locale-fr h2, .locale-fr h3, .locale-fr .display {
+  font-family: var(--font-fr-display), Georgia, serif;
+}
+.locale-ar { font-family: var(--font-ar-body), 'Times New Roman', serif; }
+.locale-ar h1, .locale-ar h2, .locale-ar h3, .locale-ar .display {
+  font-family: var(--font-ar-display), 'Times New Roman', serif;
+}
+
+/* Thin champagne-gold divider */
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* Soft luxury hero wash */
+.hero-wash { background: linear-gradient(180deg, #faf8f4 0%, #f7f4ef 100%); }
+
+/* Product card shadow + hover lift */
+.card-lux {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.card-lux:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}

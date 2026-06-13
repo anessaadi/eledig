@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "models": "Modèles",
+    "how": "Comment ?",
+    "admin": "Admin"
+  },
+  "hero": {
+    "tagline": "Faire-part de mariage digital",
+    "title": "Des invitations qui s'ouvrent comme un secret",
+    "description": "Créez un faire-part de mariage élégant, animé et bilingue. Partagez un simple lien — vos invités vivent l'ouverture comme un instant magique.",
+    "ctaModels": "Voir les modèles",
+    "ctaHow": "Comment ça marche ?"
+  },
+  "modelsPreview": {
+    "title": "Nos modèles",
+    "subtitle": "Choisissez le style qui vous ressemble",
+    "all": "Voir tous les modèles",
+    "from": "À partir de"
+  },
+  "how": {
+    "title": "Comment ça marche",
+    "subtitle": "De votre choix au lien final, en cinq étapes",
+    "steps": {
+      "1": { "title": "Choisissez un modèle", "text": "Parcourez la collection et trouvez le design parfait." },
+      "2": { "title": "Commandez sur WhatsApp", "text": "Envoyez-nous un message, on confirme tout ensemble." },
+      "3": { "title": "Envoyez vos détails", "text": "Noms, date, lieu, texte — en français, en arabe ou les deux." },
+      "4": { "title": "On crée votre faire-part", "text": "Nous générons votre page animée avec un lien unique et privé." },
+      "5": { "title": "Partagez le lien", "text": "Diffusez-le à vos invités. Tout est prêt, partout, sur mobile." }
+    }
+  },
+  "options": {
+    "title": "Deux formules",
+    "classic": {
+      "title": "Classique",
+      "text": "Un de nos modèles, personnalisé avec vos informations. Rapide, élégant, prêt en 48h.",
+      "cta": "Voir les modèles"
+    },
+    "custom": {
+      "title": "Sur-mesure",
+      "text": "Un design entièrement créé pour vous : couleurs, illustrations et animations uniques.",
+      "cta": "Demander un devis"
+    }
+  },
+  "footer": {
+    "tagline": "Faire-part de mariage digitaux, créés avec soin.",
+    "rights": "Tous droits réservés.",
+    "follow": "Suivez-nous"
+  },
+  "models": {
+    "title": "Nos modèles",
+    "subtitle": "Chaque modèle est disponible en plusieurs couleurs et langues.",
+    "discover": "Découvrir",
+    "viewDetails": "Voir détails",
+    "colors": "Couleurs",
+    "languages": "Langues",
+    "price": "Prix"
+  },
+  "product": {
+    "colors": "Couleurs disponibles",
+    "languages": "Langues",
+    "price": "Prix",
+    "demoFr": "Démo en français",
+    "demoAr": "Démo en arabe",
+    "order": "Commander sur WhatsApp",
+    "back": "Retour aux modèles",
+    "orderMessage": "Bonjour, je souhaite commander le modèle"
+  },
+  "demo": {
+    "badge": "Démonstration",
+    "open": "Ouvrir l'invitation",
+    "note": "Ceci est une démonstration. Les commandes se font uniquement sur WhatsApp.",
+    "order": "Commander ce modèle"
+  },
+  "invitation": {
+    "open": "Ouvrir l'invitation",
+    "youAreInvited": "Vous êtes convié(e)s au mariage de",
+    "and": "&",
+    "save": "Réservez la date",
+    "when": "Quand",
+    "where": "Où",
+    "rsvp": "Confirmer votre présence",
+    "expired": "Lien expiré",
+    "expiredText": "Ce faire-part n'est plus disponible.",
+    "notFound": "Faire-part introuvable"
+  },
+  "lang": { "Français": "Français", "ar": "العربية" },
+  "admin": {
+    "title": "Espace administrateur",
+    "loginTitle": "Connexion",
+    "password": "Mot de passe",
+    "login": "Se connecter",
+    "wrong": "Mot de passe incorrect.",
+    "logout": "Déconnexion",
+    "create": "Créer un faire-part",
+    "model": "Modèle",
+    "color": "Couleur",
+    "language": "Langue du faire-part",
+    "bride": "Nom de la mariée",
+    "groom": "Nom du marié",
+    "date": "Date du mariage",
+    "time": "Heure",
+    "venue": "Lieu",
+    "city": "Ville",
+    "message": "Message personnalisé",
+    "rsvpPhone": "Téléphone RSVP",
+    "deleteAfter": "Supprimer le lien (jours après le mariage)",
+    "generate": "Générer le lien",
+    "generating": "Génération...",
+    "result": "Lien généré",
+    "copy": "Copier",
+    "copied": "Copié !",
+    "openLink": "Ouvrir"
+  }
+}
