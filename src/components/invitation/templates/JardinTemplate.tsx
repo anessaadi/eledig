@@ -26,25 +26,25 @@ type Scheme = {
 
 const SCHEMES: Record<string, Scheme> = {
   burgundy: {
-    pageBg: 'linear-gradient(180deg, #f4f9f2 0%, #daebd5 100%)',
+    pageBg: '#ffffff',
     envelopeLeft: '/templates/jardin/leftburgundy.webp', envelopeRight: '/templates/jardin/rightburgundy.webp',
-    accent: '#6b3048', accentLight: '#b88898',
-    text: '#1c2e18', dim: '#4a6a40',
-    bannerBg: '#1a3014', bannerText: '#c8e8bc', btnText: '#0a1808',
+    accent: '#9b1c3e', accentLight: '#e8a0b0',
+    text: '#111111', dim: '#555555',
+    bannerBg: '#5c1222', bannerText: '#f5e0e4', btnText: '#111111',
   },
   blue: {
-    pageBg: 'linear-gradient(180deg, #f0f8f5 0%, #d0e8e0 100%)',
+    pageBg: '#ffffff',
     envelopeLeft: '/templates/jardin/leftblue.webp', envelopeRight: '/templates/jardin/rightblue.webp',
-    accent: '#1a7060', accentLight: '#6abcaa',
-    text: '#0c1e18', dim: '#2a6050',
-    bannerBg: '#0a2018', bannerText: '#a0e0d0', btnText: '#040e0c',
+    accent: '#1a56db', accentLight: '#93b4f0',
+    text: '#111111', dim: '#555555',
+    bannerBg: '#122060', bannerText: '#bfd0f8', btnText: '#111111',
   },
   purple: {
-    pageBg: 'linear-gradient(180deg, #f5f0fa 0%, #e8d8f4 100%)',
+    pageBg: '#ffffff',
     envelopeLeft: '/templates/jardin/leftburgundy.webp', envelopeRight: '/templates/jardin/rightburgundy.webp',
-    accent: '#5a1080', accentLight: '#b080d0',
-    text: '#160822', dim: '#4a2070',
-    bannerBg: '#0e0618', bannerText: '#d0a8f0', btnText: '#080410',
+    accent: '#7b1fa2', accentLight: '#c080e0',
+    text: '#111111', dim: '#555555',
+    bannerBg: '#4a0870', bannerText: '#e0c0f0', btnText: '#111111',
   },
 };
 
@@ -100,6 +100,7 @@ export default function JardinTemplate({
   const s = SCHEMES[colorId];
   const lang = isAr ? 'AR' : 'FR';
   const heroImage = `/templates/jardin/TMP009${lang}1${colorId.toUpperCase()}.png`;
+  const closingImage = `/templates/jardin/TMP009${lang}2${colorId.toUpperCase()}.png`;
   const dir = isAr ? 'rtl' : 'ltr';
   const displayFont = isAr ? AR : FR;
   const bodyFont = isAr ? AR_BODY : FR_BODY;
@@ -185,15 +186,11 @@ export default function JardinTemplate({
           </a>
         </div>
 
-        {data.message && (
-          <div style={{ marginTop: '64px' }}>
-            <JardinFrame color={s.accent}>
-              <p style={{ fontFamily: bodyFont, fontStyle: isAr ? 'normal' : 'italic', fontSize: '15px', textAlign: 'center', lineHeight: 1.75, color: s.text }}>
-                {data.message}
-              </p>
-            </JardinFrame>
-          </div>
-        )}
+        {/* Closing image */}
+        <div style={{ marginTop: '70px', maxWidth: '420px', margin: '70px auto 0' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={closingImage} alt="Closing" style={{ width: '100%', height: 'auto' }} />
+        </div>
 
       </main>
     </div>
