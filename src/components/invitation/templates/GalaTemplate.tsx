@@ -19,39 +19,39 @@ const MONTHS_AR = [
 ];
 
 type Scheme = {
-  pageBg: string; envelopeUp: string; envelopeDown: string;
+  envelopeUp: string; envelopeDown: string;
   accent: string; accentLight: string; text: string; dim: string;
-  bannerBg: string; bannerText: string; btnText: string;
+  bannerBg: string; bannerText: string; btnBg: string; btnText: string;
 };
 
 const SCHEMES: Record<string, Scheme> = {
   burgundy: {
-    pageBg: 'linear-gradient(180deg, #f9f5f6 0%, #eedfe2 100%)',
     envelopeUp: '/templates/gala/up001.webp', envelopeDown: '/templates/gala/down001.webp',
     accent: '#700e1f', accentLight: '#c07080',
     text: '#1a0508', dim: '#7a3040',
-    bannerBg: '#180408', bannerText: '#f0d0d5', btnText: '#100205',
+    bannerBg: '#180408', bannerText: '#f0d0d5',
+    btnBg: '#700e1f', btnText: '#F7F0EA',
   },
   blue: {
-    pageBg: 'linear-gradient(180deg, #f2f4f9 0%, #dce2f4 100%)',
     envelopeUp: '/templates/gala/blueup001.webp', envelopeDown: '/templates/gala/bluedown001.webp',
     accent: '#0d2d6b', accentLight: '#7090d0',
     text: '#050d20', dim: '#304878',
-    bannerBg: '#04081a', bannerText: '#c0d0f0', btnText: '#020408',
+    bannerBg: '#04081a', bannerText: '#c0d0f0',
+    btnBg: '#0d2d6b', btnText: '#E8F0FF',
   },
   green: {
-    pageBg: 'linear-gradient(180deg, #f2f9f4 0%, #d8eedc 100%)',
     envelopeUp: '/templates/gala/up001.webp', envelopeDown: '/templates/gala/down001.webp',
     accent: '#1a5c24', accentLight: '#6aaa74',
     text: '#081808', dim: '#2a5a32',
-    bannerBg: '#060e08', bannerText: '#b0e0b8', btnText: '#030608',
+    bannerBg: '#060e08', bannerText: '#b0e0b8',
+    btnBg: '#1a5c24', btnText: '#E8F8EA',
   },
   purple: {
-    pageBg: 'linear-gradient(180deg, #f5f0fa 0%, #e4d8f2 100%)',
     envelopeUp: '/templates/gala/up001.webp', envelopeDown: '/templates/gala/down001.webp',
     accent: '#4a1070', accentLight: '#9060c0',
     text: '#0e081a', dim: '#3a1860',
-    bannerBg: '#080412', bannerText: '#c0a0e8', btnText: '#040208',
+    bannerBg: '#080412', bannerText: '#c0a0e8',
+    btnBg: '#4a1070', btnText: '#F0E8FF',
   },
 };
 
@@ -100,7 +100,9 @@ export default function GalaTemplate({
   const s = SCHEMES[colorId];
   const lang = isAr ? 'AR' : 'FR';
   const heroImage = `/templates/gala/TMP006${lang}${colorId.toUpperCase()}.png`;
-  const closingImage = `/templates/gala/TMP006${lang}2${colorId.toUpperCase()}.png`;
+  const closingImage = (colorId === 'burgundy' && !isAr)
+    ? '/templates/gala/TMP0006FR2BURGUNDY.png'
+    : `/templates/gala/TMP006${lang}2${colorId.toUpperCase()}.png`;
   const dir = isAr ? 'rtl' : 'ltr';
   const displayFont = isAr ? AR : FR;
   const bodyFont = isAr ? AR_BODY : FR_BODY;
@@ -113,7 +115,7 @@ export default function GalaTemplate({
   const mapQuery = encodeURIComponent([data.venue, data.city].filter(Boolean).join(', ') || 'Casablanca, Morocco');
 
   return (
-    <div dir={dir} style={{ background: s.pageBg, color: s.text, fontFamily: bodyFont }}>
+    <div dir={dir} style={{ background: '#ffffff', color: s.text, fontFamily: bodyFont }}>
       <GalaEnvelope upSrc={s.envelopeUp} downSrc={s.envelopeDown} />
 
       <div className="relative h-dvh w-full overflow-hidden" style={{ margin: 0 }}>
@@ -181,7 +183,7 @@ export default function GalaTemplate({
 
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '30px' }}>
           <a href={data.rsvpPhone ? `tel:${data.rsvpPhone}` : '#rsvp'}
-            style={{ fontFamily: bodyFont, fontStyle: isAr ? 'normal' : 'italic', fontSize: '15px', letterSpacing: '0.06em', textAlign: 'center', color: s.btnText, background: `linear-gradient(135deg, ${s.accentLight} 0%, ${s.accent} 100%)`, textDecoration: 'none', padding: '20px 48px', borderRadius: '2px', boxShadow: '0 6px 20px rgba(0,0,0,0.18)', display: 'inline-block', lineHeight: 1.35 }}>
+            style={{ fontFamily: bodyFont, fontStyle: isAr ? 'normal' : 'italic', fontSize: '15px', letterSpacing: '0.06em', textAlign: 'center', color: s.btnText, background: s.btnBg, textDecoration: 'none', padding: '20px 48px', borderRadius: '2px', boxShadow: '0 6px 20px rgba(0,0,0,0.22)', display: 'inline-block', lineHeight: 1.35 }}>
             {isAr ? 'اضغط هنا' : <>Cliquez<br />ici</>}
           </a>
         </div>

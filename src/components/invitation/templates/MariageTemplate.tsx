@@ -112,11 +112,11 @@ export default function MariageTemplate({
 
         {/* Decorative text overlay image */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        {/* <img
           src="/templates/mariage/textoverlay.webp"
           alt=""
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', pointerEvents: 'none' }}
-        />
+        /> */}
 
         {/* Wedding info on top */}
         <div style={{
@@ -127,7 +127,7 @@ export default function MariageTemplate({
         }}>
           <h1 style={{
             fontFamily: displayFont,
-            fontSize: 'clamp(38px, 10vw, 56px)',
+            fontSize: 'clamp(64px, 18vw, 96px)',
             fontStyle: isAr ? 'normal' : 'italic',
             color: '#ffffff',
             lineHeight: 1.05,
@@ -137,7 +137,7 @@ export default function MariageTemplate({
 
           <span style={{
             fontFamily: displayFont,
-            fontSize: 'clamp(22px, 5vw, 30px)',
+            fontSize: 'clamp(36px, 9vw, 52px)',
             fontStyle: isAr ? 'normal' : 'italic',
             color: GOLD,
             display: 'block',
@@ -149,7 +149,7 @@ export default function MariageTemplate({
 
           <h1 style={{
             fontFamily: displayFont,
-            fontSize: 'clamp(38px, 10vw, 56px)',
+            fontSize: 'clamp(64px, 18vw, 96px)',
             fontStyle: isAr ? 'normal' : 'italic',
             color: '#ffffff',
             marginTop: '6px',
@@ -160,10 +160,10 @@ export default function MariageTemplate({
 
           <p style={{
             fontFamily: bodyFont,
-            fontSize: '13px',
+            fontSize: '22px',
             letterSpacing: '0.18em',
             color: GOLD,
-            marginTop: '18px',
+            marginTop: '24px',
           }}>
             {`${day} ${monthLabel} ${year}`}
           </p>
@@ -255,18 +255,14 @@ export default function MariageTemplate({
           </a>
         </div>
 
-        {/* Closing message */}
-        {data.message && (
-          <div style={{ marginTop: '64px' }}>
-            <GoldFrame>
-              <p style={{ fontFamily: bodyFont, fontStyle: isAr ? 'normal' : 'italic', fontSize: '15px', textAlign: 'center', lineHeight: 1.75, color: TEXT }}>
-                {data.message}
-              </p>
-            </GoldFrame>
-          </div>
-        )}
 
       </main>
+
+      {/* Closing image — full width */}
+      <div style={{ marginTop: '70px' }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/templates/mariage/mariagebottom.png" alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
+      </div>
     </div>
   );
 }
