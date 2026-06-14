@@ -19,45 +19,53 @@ const HUE: Record<string, number> = {
 
 type Scheme = {
   pageBg: string;
+  dark: string;
   accent: string;
   accentLight: string;
   text: string;
   dim: string;
   bannerBg: string;
   bannerText: string;
+  btnBg: string;
   btnText: string;
 };
 
 const SCHEMES: Record<string, Scheme> = {
   burgundy: {
     pageBg:      'linear-gradient(180deg, #200810 0%, #100408 100%)',
+    dark:        '#100408',
     accent:      '#c05070',
     accentLight: '#e090a8',
     text:        '#f5e8ea',
     dim:         '#a06878',
     bannerBg:    '#200810',
     bannerText:  '#e8c0c8',
-    btnText:     '#0a0205',
+    btnBg:       '#7A1020',
+    btnText:     '#F7F0EA',
   },
   violet: {
     pageBg:      'linear-gradient(180deg, #1f1038 0%, #170d2c 100%)',
+    dark:        '#170d2c',
     accent:      '#9b5fc0',
     accentLight: '#c090e0',
     text:        '#f0eaff',
     dim:         '#9070a8',
     bannerBg:    '#0e0820',
     bannerText:  '#d8c0f0',
-    btnText:     '#050210',
+    btnBg:       '#3D0A60',
+    btnText:     '#F0E8FF',
   },
   navy: {
     pageBg:      'linear-gradient(180deg, #0d1a30 0%, #081123 100%)',
+    dark:        '#081123',
     accent:      '#4080c8',
     accentLight: '#80b0e0',
     text:        '#e8f0f8',
     dim:         '#6090b8',
     bannerBg:    '#050e1a',
     bannerText:  '#b0d0f0',
-    btnText:     '#020810',
+    btnBg:       '#0A1840',
+    btnText:     '#E8F0FF',
   },
 };
 
@@ -196,6 +204,9 @@ export default function GalaxyTemplate({
             <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
+
+        {/* Galaxy → page transition */}
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '140px', background: `linear-gradient(to bottom, transparent, ${s.dark})`, pointerEvents: 'none' }} />
       </div>
 
       {/* ── Second image — locale + color aware ─────────────────────────── */}
@@ -220,7 +231,7 @@ export default function GalaxyTemplate({
         </div>
 
         {/* Date / time banner */}
-        <div style={{ marginTop: '32px', background: s.bannerBg, borderRadius: '3px', padding: '20px 24px', textAlign: 'center', border: `1px solid ${s.accent}22` }}>
+        <div style={{ marginTop: '32px', background: s.bannerBg, borderRadius: '3px', padding: '20px 24px', textAlign: 'center', border: `1px solid ${s.accent}55` }}>
           <p style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: 'clamp(17px, 4.8vw, 22px)', letterSpacing: '0.12em', color: s.bannerText }}>
             {`${day} ${monthLabel} ${year}`}
           </p>
@@ -239,18 +250,27 @@ export default function GalaxyTemplate({
           {isAr ? 'الموقع' : 'Localisation'}
         </h2>
 
-        <iframe
-          style={{ width: '100%', maxWidth: '380px', display: 'block', margin: '24px auto 0', borderRadius: '4px', border: 'none', boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
-          title="Localisation" height="220" loading="lazy" referrerPolicy="no-referrer-when-downgrade"
-          src={`https://www.google.com/maps?q=${mapQuery}&z=13&output=embed`}
-        />
-
         {(data.venue || data.city) && (
-          <p style={{ fontFamily: bodyFont, fontSize: '14px', textAlign: 'center', marginTop: '16px', color: s.dim, letterSpacing: '0.05em', lineHeight: 1.45 }}>
-            {data.venue && <span style={{ fontWeight: 600, color: s.text }}>{data.venue}</span>}
-            {data.venue && data.city && <br />}
-            {data.city}
-          </p>
+          <div style={{ marginTop: '24px', background: s.bannerBg, border: `1px solid ${s.accent}44`, borderRadius: '4px', padding: '28px 24px', textAlign: 'center' }}>
+            {data.venue && (
+              <p style={{ fontFamily: displayFont, fontSize: 'clamp(16px, 4.5vw, 20px)', fontStyle: isAr ? 'normal' : 'italic', color: s.text, marginBottom: '6px', lineHeight: 1.2 }}>
+                {data.venue}
+              </p>
+            )}
+            {data.city && (
+              <p style={{ fontFamily: bodyFont, fontSize: '11px', letterSpacing: '0.18em', color: s.dim, marginBottom: '20px' }}>
+                {data.city.toUpperCase()}
+              </p>
+            )}
+            <a
+              href={`https://maps.google.com/?q=${mapQuery}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ fontFamily: bodyFont, fontSize: '11px', letterSpacing: '0.14em', color: s.accent, textDecoration: 'none', border: `1px solid ${s.accent}`, padding: '9px 22px', borderRadius: '2px', display: 'inline-block' }}
+            >
+              {isAr ? 'عرض الاتجاهات' : "VOIR L'ITINÉRAIRE"}
+            </a>
+          </div>
         )}
 
         {/* RSVP */}
@@ -264,7 +284,7 @@ export default function GalaxyTemplate({
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '30px' }}>
           <a
             href={data.rsvpPhone ? `tel:${data.rsvpPhone}` : '#rsvp'}
-            style={{ fontFamily: bodyFont, fontStyle: isAr ? 'normal' : 'italic', fontSize: '15px', letterSpacing: '0.06em', textAlign: 'center', color: s.btnText, background: `linear-gradient(135deg, ${s.accentLight} 0%, ${s.accent} 100%)`, textDecoration: 'none', padding: '20px 48px', borderRadius: '2px', boxShadow: `0 6px 24px ${s.accent}66`, display: 'inline-block', lineHeight: 1.35 }}
+            style={{ fontFamily: bodyFont, fontStyle: isAr ? 'normal' : 'italic', fontSize: '15px', letterSpacing: '0.06em', textAlign: 'center', color: s.btnText, background: s.btnBg, textDecoration: 'none', padding: '20px 48px', borderRadius: '2px', boxShadow: `0 6px 24px ${s.dark}cc`, display: 'inline-block', lineHeight: 1.35 }}
           >
             {isAr ? 'اضغط هنا' : <>Cliquez<br />ici</>}
           </a>
