@@ -29,6 +29,7 @@ type Scheme = {
   bannerBg: string;
   bannerText: string;
   btnText: string;
+  btnBg?: string;
 };
 
 const SCHEMES: Record<string, Scheme> = {
@@ -38,7 +39,7 @@ const SCHEMES: Record<string, Scheme> = {
     envelopeRight: '/templates/elegance/rightburgundyelegance.webp',
     accent: '#9b1c3e', accentLight: '#e8a0b0',
     text: '#3d0f18', dim: '#8a4050',
-    bannerBg: '#5c1222', bannerText: '#f5e0e4', btnText: '#1a0508',
+    bannerBg: '#5c1222', bannerText: '#f5e0e4', btnText: '#f5e0e4', btnBg: 'linear-gradient(135deg, #5c2020 0%, #311211 100%)',
   },
   blue: {
     pageBg: 'linear-gradient(180deg, #eef2ff 0%, #d8e4f8 100%)',
@@ -70,12 +71,18 @@ const SCHEMES: Record<string, Scheme> = {
 
 function EleganceDivider({ color }: { color: string }) {
   return (
-    <svg width="220" height="22" viewBox="0 0 220 22" aria-hidden="true">
-      <line x1="0" y1="11" x2="88" y2="11" stroke={color} strokeWidth="0.8" opacity="0.6" />
-      <line x1="132" y1="11" x2="220" y2="11" stroke={color} strokeWidth="0.8" opacity="0.6" />
-      <path d="M92,11 L99,4 L106,11 L113,4 L120,11 L127,4 L128,11"
-        fill="none" stroke={color} strokeWidth="1.2" strokeLinejoin="round" />
-      <circle cx="110" cy="11" r="2.5" fill={color} opacity="0.7" />
+    <svg width="200" height="24" viewBox="0 0 200 24" aria-hidden="true">
+      <line x1="0" y1="12" x2="78" y2="12" stroke={color} strokeWidth="0.8" opacity="0.6" />
+      <line x1="122" y1="12" x2="200" y2="12" stroke={color} strokeWidth="0.8" opacity="0.6" />
+      {[0, 72, 144, 216, 288].map((deg) => {
+        const rx = 100 + Math.cos((deg * Math.PI) / 180) * 5;
+        const ry = 12 + Math.sin((deg * Math.PI) / 180) * 5;
+        return (
+          <ellipse key={deg} cx={rx} cy={ry} rx={2.5} ry={4.5}
+            transform={`rotate(${deg} ${rx} ${ry})`} fill={color} opacity={0.55} />
+        );
+      })}
+      <circle cx="100" cy="12" r="2.5" fill={color} opacity={0.8} />
     </svg>
   );
 }
@@ -125,6 +132,7 @@ export default function EleganceTemplate({
   const s = SCHEMES[colorId];
   const lang = isAr ? 'AR' : 'FR';
   const heroImage = `/templates/elegance/TMP005${lang}${colorId.toUpperCase()}.png`;
+  const closingImage = `/templates/elegance/TMP005${lang}2${colorId.toUpperCase()}.png`;
   const dir = isAr ? 'rtl' : 'ltr';
   const displayFont = isAr ? AR : FR;
   const bodyFont = isAr ? AR_BODY : FR_BODY;
@@ -140,24 +148,16 @@ export default function EleganceTemplate({
   );
 
   return (
-    <div dir={dir} style={{ background: s.pageBg, color: s.text, fontFamily: bodyFont }}>
+    <div dir={dir} style={{ backgroundImage: 'url(/templates/elegance/backgroundelegance.jpg)', backgroundSize: 'cover', backgroundPosition: 'center top', backgroundRepeat: 'no-repeat', backgroundAttachment: 'fixed', color: s.text, fontFamily: bodyFont }}>
       <EleganceEnvelope leftSrc={s.envelopeLeft} rightSrc={s.envelopeRight} />
 
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <div className="relative h-dvh w-full overflow-hidden" style={{ margin: 0 }}>
+      <div className="relative w-full" style={{ margin: 0 }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={heroImage}
           alt=""
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: '50%',
-            height: '100%',
-            width: 'auto',
-            maxWidth: 'none',
-            transform: 'translateX(-50%)',
-          }}
+          style={{ width: '100%', height: 'auto', display: 'block' }}
         />
         <div
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
@@ -299,7 +299,7 @@ export default function EleganceTemplate({
               letterSpacing: '0.06em',
               textAlign: 'center',
               color: s.btnText,
-              background: `linear-gradient(135deg, ${s.accentLight} 0%, ${s.accent} 100%)`,
+              background: s.btnBg ?? `linear-gradient(135deg, ${s.accentLight} 0%, ${s.accent} 100%)`,
               textDecoration: 'none',
               padding: '20px 48px',
               borderRadius: '2px',
@@ -312,25 +312,14 @@ export default function EleganceTemplate({
           </a>
         </div>
 
-        {/* Closing message */}
-        {data.message && (
-          <div style={{ marginTop: '64px' }}>
-            <EleganceFrame color={s.accent}>
-              <p style={{
-                fontFamily: bodyFont,
-                fontStyle: isAr ? 'normal' : 'italic',
-                fontSize: '15px',
-                textAlign: 'center',
-                lineHeight: 1.75,
-                color: s.text,
-              }}>
-                {data.message}
-              </p>
-            </EleganceFrame>
-          </div>
-        )}
 
       </main>
+
+      {/* Closing image — full width like hero */}
+      <div style={{ marginTop: '70px' }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={closingImage} alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
+      </div>
     </div>
   );
 }

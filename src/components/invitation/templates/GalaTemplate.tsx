@@ -100,6 +100,7 @@ export default function GalaTemplate({
   const s = SCHEMES[colorId];
   const lang = isAr ? 'AR' : 'FR';
   const heroImage = `/templates/gala/TMP006${lang}${colorId.toUpperCase()}.png`;
+  const closingImage = `/templates/gala/TMP006${lang}2${colorId.toUpperCase()}.png`;
   const dir = isAr ? 'rtl' : 'ltr';
   const displayFont = isAr ? AR : FR;
   const bodyFont = isAr ? AR_BODY : FR_BODY;
@@ -185,17 +186,14 @@ export default function GalaTemplate({
           </a>
         </div>
 
-        {data.message && (
-          <div style={{ marginTop: '64px' }}>
-            <GalaFrame color={s.accent}>
-              <p style={{ fontFamily: bodyFont, fontStyle: isAr ? 'normal' : 'italic', fontSize: '15px', textAlign: 'center', lineHeight: 1.75, color: s.text }}>
-                {data.message}
-              </p>
-            </GalaFrame>
-          </div>
-        )}
 
       </main>
+
+      {/* Closing image — full width */}
+      <div style={{ marginTop: '70px' }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={closingImage} alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
+      </div>
     </div>
   );
 }
