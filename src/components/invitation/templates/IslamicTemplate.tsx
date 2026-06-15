@@ -36,6 +36,8 @@ type Scheme = {
   bannerBg: string;
   bannerText: string;
   btnText: string;
+  textStrong?: string;
+  cardBg?: string;
 };
 
 const SCHEMES: Record<string, Scheme> = {
@@ -60,6 +62,8 @@ const SCHEMES: Record<string, Scheme> = {
     bannerBg: '#2a1600',
     bannerText: '#e8d090',
     btnText: '#1e1000',
+    textStrong: '#1e1000',
+    cardBg: 'rgba(255,255,255,0.4)',
   },
   sky: {
     pageBg: 'linear-gradient(180deg, #e5ecf6 0%, #c8d8ee 100%)',
@@ -82,6 +86,8 @@ const SCHEMES: Record<string, Scheme> = {
     bannerBg: '#052040',
     bannerText: '#90cce0',
     btnText: '#03111e',
+    textStrong: '#030f1c',
+    cardBg: 'rgba(255,255,255,0.45)',
   },
   pink: {
     pageBg: 'linear-gradient(180deg, #fdf0f4 0%, #f5d0dc 100%)',
@@ -104,6 +110,8 @@ const SCHEMES: Record<string, Scheme> = {
     bannerBg: '#3a0818',
     bannerText: '#f0b0c0',
     btnText: '#2a0010',
+    textStrong: '#1a0008',
+    cardBg: 'rgba(255,255,255,0.45)',
   },
 };
 
@@ -303,13 +311,13 @@ export default function IslamicTemplate({
               return (
                 <React.Fragment key={i}>
                   <div style={{ textAlign: isAr ? 'left' : 'right', paddingInlineEnd: '16px', paddingBottom: isLast ? 0 : '32px' }}>
-                    <p style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: '13px', letterSpacing: '0.1em', color: s.text }}>{item.time}</p>
+                    <p style={{ fontFamily: bodyFont, fontWeight: 600, fontSize: '13px', letterSpacing: '0.02em', color: s.textStrong ?? s.text }}>{item.time}</p>
                   </div>
                   <div style={{ alignSelf: 'stretch', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingBottom: isLast ? 0 : '32px', background: `linear-gradient(to right, transparent calc(50% - 0.5px), ${s.accent}55 calc(50% - 0.5px), ${s.accent}55 calc(50% + 0.5px), transparent calc(50% + 0.5px))` }}>
                     <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: s.accent, flexShrink: 0, position: 'relative', zIndex: 1 }} />
                   </div>
                   <div style={{ textAlign: isAr ? 'right' : 'left', paddingInlineStart: '16px', paddingBottom: isLast ? 0 : '32px' }}>
-                    <p style={{ fontFamily: bodyFont, fontStyle: 'italic', fontSize: '16px', color: s.dim, lineHeight: 1.3 }}>{item.label}</p>
+                    <p style={{ fontFamily: bodyFont, fontStyle: 'italic', fontSize: '16px', color: s.textStrong ?? s.dim, lineHeight: 1.3, letterSpacing: '0.02em' }}>{item.label}</p>
                   </div>
                 </React.Fragment>
               );
@@ -378,20 +386,20 @@ export default function IslamicTemplate({
           {tl.resumeTitle}
         </h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '32px' }}>
-          <div style={{ border: `1px solid ${s.accent}33`, borderRadius: '3px', padding: '20px 24px', textAlign: 'center' }}>
-            <p style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: '11px', letterSpacing: '0.18em', color: s.dim }}>{tl.resumeDate}</p>
-            <p style={{ fontFamily: bodyFont, fontStyle: 'italic', fontSize: '18px', color: s.text, letterSpacing: '0.04em', marginTop: '8px' }}>{formattedDate}</p>
+          <div style={{ border: `1px solid ${s.accent}33`, borderRadius: '3px', padding: '20px 24px', textAlign: 'center', background: s.cardBg }}>
+            <p style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: '11px', letterSpacing: '0.18em', color: s.textStrong ?? s.dim }}>{tl.resumeDate}</p>
+            <p style={{ fontFamily: bodyFont, fontStyle: 'italic', fontWeight: 600, fontSize: '18px', color: s.textStrong ?? s.text, letterSpacing: '0.02em', marginTop: '8px' }}>{formattedDate}</p>
           </div>
           {data.time && (
-            <div style={{ border: `1px solid ${s.accent}33`, borderRadius: '3px', padding: '20px 24px', textAlign: 'center' }}>
-              <p style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: '11px', letterSpacing: '0.18em', color: s.dim }}>{tl.resumeTime}</p>
-              <p style={{ fontFamily: bodyFont, fontStyle: 'italic', fontSize: '18px', color: s.text, letterSpacing: '0.04em', marginTop: '8px' }}>{data.time}</p>
+            <div style={{ border: `1px solid ${s.accent}33`, borderRadius: '3px', padding: '20px 24px', textAlign: 'center', background: s.cardBg }}>
+              <p style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: '11px', letterSpacing: '0.18em', color: s.textStrong ?? s.dim }}>{tl.resumeTime}</p>
+              <p style={{ fontFamily: bodyFont, fontStyle: 'italic', fontWeight: 600, fontSize: '18px', color: s.textStrong ?? s.text, letterSpacing: '0.02em', marginTop: '8px' }}>{data.time}</p>
             </div>
           )}
           {(data.venue || data.city) && (
-            <div style={{ border: `1px solid ${s.accent}33`, borderRadius: '3px', padding: '20px 24px', textAlign: 'center' }}>
-              <p style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: '11px', letterSpacing: '0.18em', color: s.dim }}>{tl.resumePlace}</p>
-              <p style={{ fontFamily: bodyFont, fontStyle: 'italic', fontSize: '18px', color: s.text, letterSpacing: '0.04em', lineHeight: 1.35, marginTop: '8px' }}>
+            <div style={{ border: `1px solid ${s.accent}33`, borderRadius: '3px', padding: '20px 24px', textAlign: 'center', background: s.cardBg }}>
+              <p style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: '11px', letterSpacing: '0.18em', color: s.textStrong ?? s.dim }}>{tl.resumePlace}</p>
+              <p style={{ fontFamily: bodyFont, fontStyle: 'italic', fontWeight: 600, fontSize: '18px', color: s.textStrong ?? s.text, letterSpacing: '0.02em', lineHeight: 1.35, marginTop: '8px' }}>
                 {data.venue && data.venue}
                 {data.venue && data.city && <br />}
                 {data.city && data.city}

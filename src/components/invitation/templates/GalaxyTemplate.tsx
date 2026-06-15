@@ -37,9 +37,9 @@ const SCHEMES: Record<string, Scheme> = {
     accent:      '#c05070',
     accentLight: '#e090a8',
     text:        '#f5e8ea',
-    dim:         '#a06878',
+    dim:         '#c898a8',
     bannerBg:    '#200810',
-    bannerText:  '#e8c0c8',
+    bannerText:  '#eec8d0',
     btnBg:       '#7A1020',
     btnText:     '#F7F0EA',
   },
@@ -284,7 +284,8 @@ export default function GalaxyTemplate({
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '30px' }}>
           <a
             href={data.rsvpPhone ? `tel:${data.rsvpPhone}` : '#rsvp'}
-            style={{ fontFamily: bodyFont, fontStyle: isAr ? 'normal' : 'italic', fontSize: '15px', letterSpacing: '0.06em', textAlign: 'center', color: s.btnText, background: s.btnBg, textDecoration: 'none', padding: '20px 48px', borderRadius: '2px', boxShadow: `0 6px 24px ${s.dark}cc`, display: 'inline-block', lineHeight: 1.35 }}
+            aria-label={isAr ? 'اضغط هنا لتأكيد حضورك' : 'Cliquez ici pour confirmer votre présence'}
+            style={{ fontFamily: bodyFont, fontStyle: isAr ? 'normal' : 'italic', fontSize: '16px', letterSpacing: '0.06em', textAlign: 'center', color: s.btnText, background: s.btnBg, textDecoration: 'none', padding: '22px 56px', minHeight: '52px', borderRadius: '2px', boxShadow: `0 6px 24px ${s.dark}cc`, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', lineHeight: 1.35 }}
           >
             {isAr ? 'اضغط هنا' : <>Cliquez<br />ici</>}
           </a>
