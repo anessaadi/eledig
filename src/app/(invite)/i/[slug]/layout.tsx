@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import '../../../globals.css';
-import { playfair, cormorant, zain, elMessiri, komediaBlack } from '@/app/fonts';
+import { playfair, cormorant, zain, elMessiri, komediaBlack, arefRuqaa } from '@/app/fonts';
 
 // Invitations should never be indexed by search engines.
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default function InvitationLayout({ children }: { children: React.ReactNode }) {
-  const fontVars = `${playfair.variable} ${cormorant.variable} ${zain.variable} ${elMessiri.variable} ${komediaBlack.variable}`;
+  const fontVars = `${playfair.variable} ${cormorant.variable} ${zain.variable} ${elMessiri.variable} ${komediaBlack.variable} ${arefRuqaa.variable}`;
   return (
     <html lang="Français">
       <body className={fontVars}>{children}</body>

@@ -3,11 +3,11 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 export default function GoldenEnvelope({
-  leftSrc = '/templates/golden/left002.webp',
-  rightSrc = '/templates/golden/right002.webp',
+  upSrc = '/templates/golden/upgoldrosa.png',
+  downSrc = '/templates/golden/downgoldrosa.png',
 }: {
-  leftSrc?: string;
-  rightSrc?: string;
+  upSrc?: string;
+  downSrc?: string;
 }) {
   const [gone, setGone] = useState(false);
   useEffect(() => {
@@ -17,11 +17,11 @@ export default function GoldenEnvelope({
   if (gone) return null;
   return (
     <div className="fixed inset-0 z-50 pointer-events-none overflow-hidden">
-      <div className="absolute inset-0" style={{ zIndex: 50, animation: 'envelope-right 1s ease-in-out 1s both' }}>
-        <Image src={rightSrc} alt="" fill className="object-cover" priority />
+      <div className="absolute inset-0" style={{ zIndex: 50, animation: 'envelope-down 1s ease-in-out 1s both' }}>
+        <Image src={downSrc} alt="" fill className="object-cover" priority />
       </div>
-      <div className="absolute inset-0" style={{ zIndex: 51, animation: 'envelope-left 1s ease-in-out 1s both' }}>
-        <Image src={leftSrc} alt="" fill className="object-cover" priority />
+      <div className="absolute inset-0" style={{ zIndex: 51, animation: 'envelope-up 1s ease-in-out 1s both' }}>
+        <Image src={upSrc} alt="" fill className="object-cover" priority />
       </div>
     </div>
   );

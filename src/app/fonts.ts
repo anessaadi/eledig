@@ -36,3 +36,11 @@ export const elMessiri = El_Messiri({
   variable: '--font-ar-body',
   display: 'swap',
 });
+
+export const arefRuqaa = localFont({
+  src: '../../public/fonts/alfont_com_ArefRuqaaswashesfixed-Bold.ttf',
+  weight: '400',
+  style: 'normal',
+  variable: '--font-aref-ruqaa',
+  display: 'swap',
+});

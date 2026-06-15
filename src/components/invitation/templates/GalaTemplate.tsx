@@ -1,5 +1,6 @@
-'use client';
+﻿'use client';
 
+import React from 'react';
 import type { ReactNode } from 'react';
 import GalaEnvelope from './GalaEnvelope';
 import type { InviteData, InviteStyle } from './InvitationTemplate';
@@ -14,9 +15,43 @@ const MONTHS_FR = [
   'JUILLET', 'AOÛT', 'SEPTEMBRE', 'OCTOBRE', 'NOVEMBRE', 'DÉCEMBRE',
 ];
 const MONTHS_AR = [
-  'جانفي', 'فيفري', 'مارس', 'افريل', 'ماي', 'جوان',
-  'جويلية', 'اوت', 'سبتمبر', 'اكتوبر', 'نوفمبر', 'ديسمبر',
+  'جانفي', 'فيفري', 'مارس', 'أفريل', 'ماي', 'جوان',
+  'جويلية', 'أوت', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
 ];
+
+const DAYS_FR = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
+const DAYS_AR = ['أحد', 'إثنين', 'ثلاثاء', 'أربعاء', 'خميس', 'جمعة', 'سبت'];
+
+const PROGRAMME_FR = [
+  { time: '18h00', label: 'Cérémonie de Nikah' },
+  { time: '19h00', label: 'Dîner & Fête' },
+  { time: '20h00', label: 'Soirée dansante' },
+];
+const PROGRAMME_AR = [
+  { time: '18:00', label: 'مراسم النكاح' },
+  { time: '19:00', label: 'العشاء والاحتفال' },
+  { time: '20:00', label: 'حفل الرقص' },
+];
+const TEXT_LABELS = {
+  fr: { programme: 'Programme', resumeTitle: 'Résumé', dateLabel: 'Date', venueLabel: 'Lieu', timeLabel: 'Heure' },
+  ar: { programme: 'البرنامج', resumeTitle: 'ملخص', dateLabel: 'التاريخ', venueLabel: 'المكان', timeLabel: 'التوقيت' },
+};
+
+function buildCalendar(dateStr: string) {
+  const d = new Date(dateStr);
+  const year = d.getFullYear();
+  const month = d.getMonth();
+  const highlight = d.getDate();
+  const firstDow = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const flat: (number | null)[] = [];
+  for (let i = 0; i < firstDow; i++) flat.push(null);
+  for (let i = 1; i <= daysInMonth; i++) flat.push(i);
+  while (flat.length % 7 !== 0) flat.push(null);
+  const weeks: (number | null)[][] = [];
+  for (let i = 0; i < flat.length; i += 7) weeks.push(flat.slice(i, i + 7));
+  return { weeks, highlight };
+}
 
 type Scheme = {
   envelopeUp: string; envelopeDown: string;
@@ -26,28 +61,28 @@ type Scheme = {
 
 const SCHEMES: Record<string, Scheme> = {
   burgundy: {
-    envelopeUp: '/templates/gala/up001.webp', envelopeDown: '/templates/gala/down001.webp',
+    envelopeUp: '/templates/gala/upburgundyrosa.png', envelopeDown: '/templates/gala/downburgundyrosa.png',
     accent: '#700e1f', accentLight: '#c07080',
     text: '#1a0508', dim: '#7a3040',
     bannerBg: '#180408', bannerText: '#f0d0d5',
     btnBg: '#700e1f', btnText: '#F7F0EA',
   },
   blue: {
-    envelopeUp: '/templates/gala/blueup001.webp', envelopeDown: '/templates/gala/bluedown001.webp',
+    envelopeUp: '/templates/gala/upblue001.png', envelopeDown: '/templates/gala/downblue001.png',
     accent: '#0d2d6b', accentLight: '#7090d0',
     text: '#050d20', dim: '#304878',
     bannerBg: '#04081a', bannerText: '#c0d0f0',
     btnBg: '#0d2d6b', btnText: '#E8F0FF',
   },
   green: {
-    envelopeUp: '/templates/gala/up001.webp', envelopeDown: '/templates/gala/down001.webp',
+    envelopeUp: '/templates/gala/upgreen002.png', envelopeDown: '/templates/gala/downgreen002.png',
     accent: '#1a5c24', accentLight: '#6aaa74',
     text: '#081808', dim: '#2a5a32',
     bannerBg: '#060e08', bannerText: '#b0e0b8',
     btnBg: '#1a5c24', btnText: '#E8F8EA',
   },
   purple: {
-    envelopeUp: '/templates/gala/up001.webp', envelopeDown: '/templates/gala/down001.webp',
+    envelopeUp: '/templates/gala/uppurple002.png', envelopeDown: '/templates/gala/downpurple002.png',
     accent: '#4a1070', accentLight: '#9060c0',
     text: '#0e081a', dim: '#3a1860',
     bannerBg: '#080412', bannerText: '#c0a0e8',
@@ -86,6 +121,22 @@ function GalaFrame({ color, children }: { color: string; children: ReactNode }) 
   );
 }
 
+function Flower({ color }: { color: string }) {
+  return (
+    <svg
+      style={{ position: 'absolute', top: '3px', left: '50%', transform: 'translateX(-50%)', width: '42px', height: '42px', zIndex: 0, color }}
+      viewBox="0 0 100 100"
+      aria-hidden="true"
+    >
+      <g fill="currentColor">
+        {[0, 72, 144, 216, 288].map((deg) => (
+          <ellipse key={deg} cx="50" cy="26" rx="15" ry="24" transform={`rotate(${deg} 50 50)`} />
+        ))}
+      </g>
+    </svg>
+  );
+}
+
 export default function GalaTemplate({
   data,
   style,
@@ -112,6 +163,12 @@ export default function GalaTemplate({
   const month = d.getMonth();
   const year = d.getFullYear();
   const monthLabel = isAr ? MONTHS_AR[month] : MONTHS_FR[month];
+  const formattedDate = `${day} ${monthLabel} ${year}`;
+  const tl = TEXT_LABELS[locale];
+  const programme = isAr ? PROGRAMME_AR : PROGRAMME_FR;
+  const DAYS = isAr ? DAYS_AR : DAYS_FR;
+  const { weeks, highlight } = buildCalendar(data.date);
+  const calMonthLabel = isAr ? `${MONTHS_AR[month]} ${year}` : `${MONTHS_FR[month]} ${year}`;
   const mapQuery = encodeURIComponent([data.venue, data.city].filter(Boolean).join(', ') || 'Casablanca, Morocco');
 
   return (
@@ -137,12 +194,46 @@ export default function GalaTemplate({
 
         <div style={{ textAlign: 'center', marginTop: '56px' }}>
           <h1 style={{ fontFamily: displayFont, fontSize: 'clamp(32px, 9vw, 42px)', fontStyle: isAr ? 'normal' : 'italic', color: s.text, lineHeight: 1.1 }}>
-            {isAr ? 'احفظ التاريخ' : 'Save The Date'}
+            {isAr ? 'احفظ التاريخ' : 'Retenez la Date'}
           </h1>
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '18px' }}>
             <GalaDivider color={s.accent} />
           </div>
         </div>
+
+        {/* Calendar */}
+        <p style={{ fontFamily: bodyFont, fontStyle: isAr ? 'normal' : 'italic', fontSize: '17px', letterSpacing: '0.16em', textAlign: 'center', marginTop: '24px', color: s.dim }}>
+          {calMonthLabel}
+        </p>
+        <table style={{ width: '100%', maxWidth: '360px', margin: '16px auto 0', borderCollapse: 'collapse' }}>
+          <thead>
+            <tr>
+              {DAYS.map((d) => (
+                <th key={d} style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: '13px', letterSpacing: '0.05em', paddingBottom: '12px', textAlign: 'center', color: s.dim }}>
+                  {d}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {weeks.map((week, wi) => (
+              <tr key={wi}>
+                {week.map((d, di) =>
+                  d === highlight ? (
+                    <td key={di} style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: '15px', textAlign: 'center', padding: '10px 0', position: 'relative', color: '#ffffff' }}>
+                      <Flower color={s.accent} />
+                      <span style={{ position: 'relative', zIndex: 10 }}>{d}</span>
+                    </td>
+                  ) : (
+                    <td key={di} style={{ fontFamily: bodyFont, fontWeight: 500, fontSize: '15px', textAlign: 'center', padding: '10px 0', color: s.dim }}>
+                      {d && <span>{d}</span>}
+                    </td>
+                  )
+                )}
+              </tr>
+            ))}
+          </tbody>
+        </table>
 
         <div style={{ marginTop: '32px', background: s.bannerBg, borderRadius: '3px', padding: '20px 24px', textAlign: 'center' }}>
           <p style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: 'clamp(17px, 4.8vw, 22px)', letterSpacing: '0.12em', color: s.bannerText }}>
@@ -167,27 +258,64 @@ export default function GalaTemplate({
           src={`https://www.google.com/maps?q=${mapQuery}&z=13&output=embed`} />
 
         {(data.venue || data.city) && (
-          <p style={{ fontFamily: bodyFont, fontSize: '14px', textAlign: 'center', marginTop: '16px', color: s.dim, letterSpacing: '0.05em', lineHeight: 1.45 }}>
+          <p style={{ fontFamily: bodyFont, fontSize: '18px', textAlign: 'center', marginTop: '16px', color: s.dim, letterSpacing: '0.05em', lineHeight: 1.45 }}>
             {data.venue && <span style={{ fontWeight: 600 }}>{data.venue}</span>}
             {data.venue && data.city && <br />}
             {data.city}
           </p>
         )}
 
+        {/* Programme */}
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '44px' }}>
           <GalaDivider color={s.accent} />
         </div>
-        <h2 style={{ fontFamily: displayFont, fontSize: 'clamp(24px, 7vw, 34px)', fontStyle: isAr ? 'normal' : 'italic', textAlign: 'center', marginTop: '14px', lineHeight: 1.2, color: s.text }}>
-          {isAr ? 'أؤكد حضوري' : <>Je confirme <br /> ma présence</>}
+        <h2 style={{ fontFamily: displayFont, fontSize: 'clamp(26px, 7.5vw, 34px)', fontStyle: isAr ? 'normal' : 'italic', textAlign: 'center', marginTop: '14px', color: s.text, fontWeight: isAr ? 400 : 700, lineHeight: 1.1 }}>
+          {tl.programme}
         </h2>
-
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '30px' }}>
-          <a href={data.rsvpPhone ? `tel:${data.rsvpPhone}` : '#rsvp'}
-            style={{ fontFamily: bodyFont, fontStyle: isAr ? 'normal' : 'italic', fontSize: '15px', letterSpacing: '0.06em', textAlign: 'center', color: s.btnText, background: s.btnBg, textDecoration: 'none', padding: '20px 48px', borderRadius: '2px', boxShadow: '0 6px 20px rgba(0,0,0,0.22)', display: 'inline-block', lineHeight: 1.35 }}>
-            {isAr ? 'اضغط هنا' : <>Cliquez<br />ici</>}
-          </a>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '28px' }}>
+          <div style={{ display: 'inline-grid', gridTemplateColumns: 'max-content 10px max-content', alignItems: 'start' }} dir={dir}>
+            {programme.map((item, i) => (
+              <React.Fragment key={i}>
+                <span style={{ fontFamily: bodyFont, fontSize: '16px', color: s.dim, textAlign: isAr ? 'left' : 'right', paddingInlineEnd: '12px', paddingTop: '2px' }}>
+                  {item.time}
+                </span>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: s.accent, flexShrink: 0, marginTop: '4px' }} />
+                  {i < programme.length - 1 && (
+                    <div style={{ width: '2px', flexGrow: 1, minHeight: '32px', background: `linear-gradient(to bottom, ${s.accent}, ${s.accent}33)` }} />
+                  )}
+                </div>
+                <span style={{ fontFamily: bodyFont, fontSize: '20px', color: s.text, paddingInlineStart: '12px', paddingBottom: '20px', lineHeight: 1.3 }}>
+                  {item.label}
+                </span>
+              </React.Fragment>
+            ))}
+          </div>
         </div>
 
+        {/* Résumé */}
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '44px' }}>
+          <GalaDivider color={s.accent} />
+        </div>
+        <h2 style={{ fontFamily: displayFont, fontSize: 'clamp(26px, 7.5vw, 34px)', fontStyle: isAr ? 'normal' : 'italic', textAlign: 'center', marginTop: '14px', color: s.text, fontWeight: isAr ? 400 : 700, lineHeight: 1.1 }}>
+          {tl.resumeTitle}
+        </h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '28px' }}>
+          <div style={{ background: s.bannerBg, borderRadius: '4px', padding: '18px 20px', textAlign: 'center' }}>
+            <p style={{ fontFamily: bodyFont, fontSize: '12px', letterSpacing: '0.1em', color: s.accentLight, textTransform: 'uppercase', marginBottom: '6px' }}>{tl.dateLabel}</p>
+            <p style={{ fontFamily: bodyFont, fontSize: '18px', fontWeight: 600, color: s.bannerText }}>{formattedDate}</p>
+          </div>
+          <div style={{ background: s.bannerBg, borderRadius: '4px', padding: '18px 20px', textAlign: 'center' }}>
+            <p style={{ fontFamily: bodyFont, fontSize: '12px', letterSpacing: '0.1em', color: s.accentLight, textTransform: 'uppercase', marginBottom: '6px' }}>{tl.timeLabel}</p>
+            <p style={{ fontFamily: bodyFont, fontSize: '18px', fontWeight: 600, color: s.bannerText }}>{data.time || '—'}</p>
+          </div>
+          <div style={{ background: s.bannerBg, borderRadius: '4px', padding: '18px 20px', textAlign: 'center' }}>
+            <p style={{ fontFamily: bodyFont, fontSize: '12px', letterSpacing: '0.1em', color: s.accentLight, textTransform: 'uppercase', marginBottom: '6px' }}>{tl.venueLabel}</p>
+            <p style={{ fontFamily: bodyFont, fontSize: '18px', fontWeight: 600, color: s.bannerText }}>
+              {[data.venue, data.city].filter(Boolean).join(' — ') || '—'}
+            </p>
+          </div>
+        </div>
 
       </main>
 

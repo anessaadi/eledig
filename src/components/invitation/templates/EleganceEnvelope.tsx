@@ -20,19 +20,19 @@ export default function EleganceEnvelope({
 
   return (
     <div className="fixed inset-0 z-50 pointer-events-none overflow-hidden">
-      {/* Right panel — behind */}
+      {/* Left panel — behind */}
       <div
         className="absolute inset-0"
-        style={{ zIndex: 50, animation: 'envelope-right 1s ease-in-out 1s both' }}
-      >
-        <Image src={rightSrc} alt="" fill className="object-cover" priority />
-      </div>
-      {/* Left panel — on top */}
-      <div
-        className="absolute inset-0"
-        style={{ zIndex: 51, animation: 'envelope-left 1s ease-in-out 1s both' }}
+        style={{ zIndex: 50, animation: 'envelope-left 1s ease-in-out 1s both' }}
       >
         <Image src={leftSrc} alt="" fill className="object-cover" priority />
+      </div>
+      {/* Right panel — on top */}
+      <div
+        className="absolute inset-0"
+        style={{ zIndex: 51, animation: 'envelope-right 1s ease-in-out 1s both' }}
+      >
+        <Image src={rightSrc} alt="" fill className="object-cover" priority />
       </div>
     </div>
   );

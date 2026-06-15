@@ -1,5 +1,6 @@
-'use client';
+﻿'use client';
 
+import React from 'react';
 import type { ReactNode } from 'react';
 import EleganceEnvelope from './EleganceEnvelope';
 import type { InviteData, InviteStyle } from './InvitationTemplate';
@@ -9,13 +10,31 @@ const AR_BODY = 'var(--font-ar-body), serif';
 const FR = 'var(--font-fr-display), Georgia, serif';
 const FR_BODY = 'var(--font-fr-body), Georgia, serif';
 
+const PROGRAMME_FR = [
+  { time: '12h00', label: 'Début des festivités' },
+  { time: '14h00', label: 'Déjeuner' },
+  { time: '17h00', label: 'Cortège nuptial' },
+  { time: '19h00', label: 'Début de soirée' },
+];
+const PROGRAMME_AR = [
+  { time: '12h00', label: 'بداية الحفلة' },
+  { time: '14h00', label: 'الأكل' },
+  { time: '17h00', label: 'كورتاج' },
+  { time: '19h00', label: 'بداية السهرة' },
+];
+
+const TEXT_LABELS = {
+  fr: { programme: 'LE PROGRAMME', resumeTitle: 'EN BREF', resumeDate: 'DATE', resumeTime: 'HEURE', resumePlace: 'LIEU' },
+  ar: { programme: 'البرنامج', resumeTitle: 'ملخص', resumeDate: 'التاريخ', resumeTime: 'التوقيت', resumePlace: 'المكان' },
+};
+
 const MONTHS_FR = [
   'JANVIER', 'FÉVRIER', 'MARS', 'AVRIL', 'MAI', 'JUIN',
   'JUILLET', 'AOÛT', 'SEPTEMBRE', 'OCTOBRE', 'NOVEMBRE', 'DÉCEMBRE',
 ];
 const MONTHS_AR = [
-  'جانفي', 'فيفري', 'مارس', 'افريل', 'ماي', 'جوان',
-  'جويلية', 'اوت', 'سبتمبر', 'اكتوبر', 'نوفمبر', 'ديسمبر',
+  'جانفي', 'فيفري', 'مارس', 'أفريل', 'ماي', 'جوان',
+  'جويلية', 'أوت', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
 ];
 
 type Scheme = {
@@ -35,32 +54,32 @@ type Scheme = {
 const SCHEMES: Record<string, Scheme> = {
   burgundy: {
     pageBg: 'linear-gradient(180deg, #fdf0f2 0%, #f0d8dc 100%)',
-    envelopeLeft: '/templates/elegance/leftburgundyelegance.webp',
-    envelopeRight: '/templates/elegance/rightburgundyelegance.webp',
+    envelopeLeft: '/templates/elegance/leftelegance001.png',
+    envelopeRight: '/templates/elegance/rightelegance001.png',
     accent: '#9b1c3e', accentLight: '#e8a0b0',
     text: '#3d0f18', dim: '#8a4050',
     bannerBg: '#5c1222', bannerText: '#f5e0e4', btnText: '#f5e0e4', btnBg: 'linear-gradient(135deg, #5c2020 0%, #311211 100%)',
   },
   blue: {
     pageBg: 'linear-gradient(180deg, #eef2ff 0%, #d8e4f8 100%)',
-    envelopeLeft: '/templates/elegance/leftblueelegance.webp',
-    envelopeRight: '/templates/elegance/rightblueelegance.webp',
+    envelopeLeft: '/templates/elegance/leftelegance001.png',
+    envelopeRight: '/templates/elegance/rightelegance001.png',
     accent: '#1a56db', accentLight: '#93b4f0',
     text: '#0f1e3d', dim: '#3a5090',
     bannerBg: '#122060', bannerText: '#bfd0f8', btnText: '#050d20',
   },
   green: {
     pageBg: 'linear-gradient(180deg, #f0f9f2 0%, #d8f0dc 100%)',
-    envelopeLeft: '/templates/elegance/leftblueelegance.webp',
-    envelopeRight: '/templates/elegance/rightblueelegance.webp',
+    envelopeLeft: '/templates/elegance/leftelegance001.png',
+    envelopeRight: '/templates/elegance/rightelegance001.png',
     accent: '#2e7d32', accentLight: '#80c080',
     text: '#0f2a10', dim: '#3a6a3a',
     bannerBg: '#0a2010', bannerText: '#b0e0b0', btnText: '#040e05',
   },
   purple: {
     pageBg: 'linear-gradient(180deg, #f5f0fa 0%, #e8d8f4 100%)',
-    envelopeLeft: '/templates/elegance/leftburgundyelegance.webp',
-    envelopeRight: '/templates/elegance/rightburgundyelegance.webp',
+    envelopeLeft: '/templates/elegance/leftelegance001.png',
+    envelopeRight: '/templates/elegance/rightelegance001.png',
     accent: '#7b1fa2', accentLight: '#c080e0',
     text: '#1a0a2a', dim: '#5a3a7a',
     bannerBg: '#120820', bannerText: '#d0b0f0', btnText: '#080410',
@@ -69,20 +88,16 @@ const SCHEMES: Record<string, Scheme> = {
 
 // ─── SVG helpers ──────────────────────────────────────────────────────────────
 
-function EleganceDivider({ color }: { color: string }) {
+function IslamicDivider({ color }: { color: string }) {
   return (
-    <svg width="200" height="24" viewBox="0 0 200 24" aria-hidden="true">
-      <line x1="0" y1="12" x2="78" y2="12" stroke={color} strokeWidth="0.8" opacity="0.6" />
-      <line x1="122" y1="12" x2="200" y2="12" stroke={color} strokeWidth="0.8" opacity="0.6" />
-      {[0, 72, 144, 216, 288].map((deg) => {
-        const rx = 100 + Math.cos((deg * Math.PI) / 180) * 5;
-        const ry = 12 + Math.sin((deg * Math.PI) / 180) * 5;
-        return (
-          <ellipse key={deg} cx={rx} cy={ry} rx={2.5} ry={4.5}
-            transform={`rotate(${deg} ${rx} ${ry})`} fill={color} opacity={0.55} />
-        );
-      })}
-      <circle cx="100" cy="12" r="2.5" fill={color} opacity={0.8} />
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 632.31 32.02"
+      fill={color} aria-hidden="true"
+      style={{ width: '100%', maxWidth: '260px', height: 'auto', opacity: 0.85 }}>
+      <path d="M290.6,729.6,80.54,725.55,290.86,721l56.77,2.51v2.86Z" transform="translate(-80.54 -709.3)"/>
+      <path d="M502.78,721l210.06,4.06L502.52,729.6l-56.77-2.5v-2.87Z" transform="translate(-80.54 -709.3)"/>
+      <path d="M396.69,741.32c-3-8.1-8.09-13.69-15.88-16,7.63-3.22,13-8.46,15.88-16,2.11,7.52,7.8,12.58,15.88,16C405.53,727.13,400.38,732.77,396.69,741.32Z" transform="translate(-80.54 -709.3)"/>
+      <path d="M364.22,733.62c-1.56-4.2-4.2-7.11-8.24-8.31a14.26,14.26,0,0,0,8.24-8.32c1.1,3.91,4,6.54,8.24,8.32C368.81,726.25,366.14,729.18,364.22,733.62Z" transform="translate(-80.54 -709.3)"/>
+      <path d="M429.16,733.62c-1.57-4.2-4.2-7.11-8.24-8.31a14.26,14.26,0,0,0,8.24-8.32c1.1,3.91,4,6.54,8.24,8.32C433.74,726.25,431.07,729.18,429.16,733.62Z" transform="translate(-80.54 -709.3)"/>
     </svg>
   );
 }
@@ -143,6 +158,9 @@ export default function EleganceTemplate({
   const year = d.getFullYear();
   const monthLabel = isAr ? MONTHS_AR[month] : MONTHS_FR[month];
 
+  const formattedDate = `${String(day).padStart(2, '0')}/${String(month + 1).padStart(2, '0')}/${year}`;
+  const tl = TEXT_LABELS[locale];
+  const programme = isAr ? PROGRAMME_AR : PROGRAMME_FR;
   const mapQuery = encodeURIComponent(
     [data.venue, data.city].filter(Boolean).join(', ') || 'Casablanca, Morocco'
   );
@@ -183,13 +201,14 @@ export default function EleganceTemplate({
             fontFamily: displayFont,
             fontSize: 'clamp(32px, 9vw, 42px)',
             fontStyle: isAr ? 'normal' : 'italic',
+            fontWeight: isAr ? 400 : 700,
             color: s.text,
             lineHeight: 1.1,
           }}>
-            {isAr ? 'احفظ التاريخ' : 'Save The Date'}
+            {isAr ? 'احفظ التاريخ' : 'Retenez la Date'}
           </h1>
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '18px' }}>
-            <EleganceDivider color={s.accent} />
+            <IslamicDivider color={s.accent} />
           </div>
         </div>
 
@@ -226,7 +245,7 @@ export default function EleganceTemplate({
 
         {/* Localisation */}
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '44px' }}>
-          <EleganceDivider color={s.accent} />
+          <IslamicDivider color={s.accent} />
         </div>
         <h2 style={{
           fontFamily: displayFont,
@@ -260,7 +279,7 @@ export default function EleganceTemplate({
         {(data.venue || data.city) && (
           <p style={{
             fontFamily: bodyFont,
-            fontSize: '14px',
+            fontSize: '18px',
             textAlign: 'center',
             marginTop: '16px',
             color: s.dim,
@@ -273,45 +292,63 @@ export default function EleganceTemplate({
           </p>
         )}
 
-        {/* RSVP */}
+        {/* Programme */}
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '44px' }}>
-          <EleganceDivider color={s.accent} />
+          <IslamicDivider color={s.accent} />
         </div>
-        <h2 style={{
-          fontFamily: displayFont,
-          fontSize: 'clamp(24px, 7vw, 34px)',
-          fontStyle: isAr ? 'normal' : 'italic',
-          textAlign: 'center',
-          marginTop: '14px',
-          lineHeight: 1.2,
-          color: s.text,
-        }}>
-          {isAr ? 'أؤكد حضوري' : <>Je confirme <br /> ma présence</>}
+        <h2 style={{ fontFamily: displayFont, fontSize: 'clamp(28px, 8vw, 36px)', fontStyle: isAr ? 'normal' : 'italic', fontWeight: isAr ? 400 : 700, textAlign: 'center', marginTop: '14px', color: s.text, lineHeight: 1.1 }}>
+          {tl.programme}
         </h2>
-
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '30px' }}>
-          <a
-            href={data.rsvpPhone ? `tel:${data.rsvpPhone}` : '#rsvp'}
-            style={{
-              fontFamily: bodyFont,
-              fontStyle: isAr ? 'normal' : 'italic',
-              fontSize: '15px',
-              letterSpacing: '0.06em',
-              textAlign: 'center',
-              color: s.btnText,
-              background: s.btnBg ?? `linear-gradient(135deg, ${s.accentLight} 0%, ${s.accent} 100%)`,
-              textDecoration: 'none',
-              padding: '20px 48px',
-              borderRadius: '2px',
-              boxShadow: '0 6px 20px rgba(0,0,0,0.18)',
-              display: 'inline-block',
-              lineHeight: 1.35,
-            }}
-          >
-            {isAr ? 'اضغط هنا' : <>Cliquez<br />ici</>}
-          </a>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '36px' }}>
+          <div style={{ display: 'inline-grid', gridTemplateColumns: 'max-content 10px max-content', alignItems: 'center' }}>
+            {programme.map((item, i) => {
+              const isLast = i === programme.length - 1;
+              return (
+                <React.Fragment key={i}>
+                  <div style={{ textAlign: isAr ? 'left' : 'right', paddingInlineEnd: '16px', paddingBottom: isLast ? 0 : '32px' }}>
+                    <p style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: '16px', letterSpacing: '0.1em', color: s.text }}>{item.time}</p>
+                  </div>
+                  <div style={{ alignSelf: 'stretch', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingBottom: isLast ? 0 : '32px', background: `linear-gradient(to right, transparent calc(50% - 0.5px), ${s.accent}44 calc(50% - 0.5px), ${s.accent}44 calc(50% + 0.5px), transparent calc(50% + 0.5px))` }}>
+                    <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: s.accent, flexShrink: 0, position: 'relative', zIndex: 1 }} />
+                  </div>
+                  <div style={{ textAlign: isAr ? 'right' : 'left', paddingInlineStart: '16px', paddingBottom: isLast ? 0 : '32px' }}>
+                    <p style={{ fontFamily: bodyFont, fontStyle: 'italic', fontSize: '20px', color: s.dim, lineHeight: 1.3 }}>{item.label}</p>
+                  </div>
+                </React.Fragment>
+              );
+            })}
+          </div>
         </div>
 
+        {/* Résumé */}
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '44px' }}>
+          <IslamicDivider color={s.accent} />
+        </div>
+        <h2 style={{ fontFamily: displayFont, fontSize: 'clamp(28px, 8vw, 36px)', fontStyle: isAr ? 'normal' : 'italic', fontWeight: isAr ? 400 : 700, textAlign: 'center', marginTop: '14px', color: s.text, lineHeight: 1.1 }}>
+          {tl.resumeTitle}
+        </h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '32px' }}>
+          <div style={{ borderRadius: '3px', padding: '20px 24px', textAlign: 'center', background: s.bannerBg }}>
+            <p style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: '11px', letterSpacing: '0.18em', color: '#c9a055' }}>{tl.resumeDate}</p>
+            <p style={{ fontFamily: bodyFont, fontStyle: 'italic', fontSize: '18px', color: s.bannerText, letterSpacing: '0.04em', marginTop: '8px' }}>{formattedDate}</p>
+          </div>
+          {data.time && (
+            <div style={{ borderRadius: '3px', padding: '20px 24px', textAlign: 'center', background: s.bannerBg }}>
+              <p style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: '11px', letterSpacing: '0.18em', color: '#c9a055' }}>{tl.resumeTime}</p>
+              <p style={{ fontFamily: bodyFont, fontStyle: 'italic', fontSize: '18px', color: s.bannerText, letterSpacing: '0.04em', marginTop: '8px' }}>{data.time}</p>
+            </div>
+          )}
+          {(data.venue || data.city) && (
+            <div style={{ borderRadius: '3px', padding: '20px 24px', textAlign: 'center', background: s.bannerBg }}>
+              <p style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: '11px', letterSpacing: '0.18em', color: '#c9a055' }}>{tl.resumePlace}</p>
+              <p style={{ fontFamily: bodyFont, fontStyle: 'italic', fontSize: '18px', color: s.bannerText, letterSpacing: '0.04em', lineHeight: 1.35, marginTop: '8px' }}>
+                {data.venue && data.venue}
+                {data.venue && data.city && <br />}
+                {data.city && data.city}
+              </p>
+            </div>
+          )}
+        </div>
 
       </main>
 

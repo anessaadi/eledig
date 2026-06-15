@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import type { ReactNode } from 'react';
@@ -97,8 +97,8 @@ const MONTHS_FR = [
   'JUILLET', 'AOÛT', 'SEPTEMBRE', 'OCTOBRE', 'NOVEMBRE', 'DÉCEMBRE',
 ];
 const MONTHS_AR = [
-  'جانفي', 'فيفري', 'مارس', 'افريل', 'ماي', 'جوان',
-  'جويلية', 'اوت', 'سبتمبر', 'اكتوبر', 'نوفمبر', 'ديسمبر',
+  'جانفي', 'فيفري', 'مارس', 'أفريل', 'ماي', 'جوان',
+  'جويلية', 'أوت', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
 ];
 
 function StarDivider({ color }: { color: string }) {
@@ -249,7 +249,7 @@ export default function GalaxyTemplate({
         {/* Save The Date */}
         <div style={{ textAlign: 'center', marginTop: '56px' }}>
           <h2 style={{ fontFamily: displayFont, fontSize: 'clamp(32px, 9vw, 42px)', fontStyle: isAr ? 'normal' : 'italic', color: s.text, lineHeight: 1.1 }}>
-            {isAr ? 'احفظ التاريخ' : 'Save The Date'}
+            {isAr ? 'احفظ التاريخ' : 'Retenez la Date'}
           </h2>
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '18px' }}>
             <StarDivider color={s.accent} />

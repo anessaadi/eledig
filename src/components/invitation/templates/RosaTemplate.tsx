@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import RosaEnvelope from './RosaEnvelope';
@@ -10,15 +10,15 @@ const FR = 'var(--font-fr-display), Georgia, serif';
 const FR_BODY = 'var(--font-fr-body), Georgia, serif';
 
 const DAYS_FR = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
-const DAYS_AR = ['أحد', 'اثن', 'ثلا', 'أرب', 'خمي', 'جمع', 'سبت'];
+const DAYS_AR = ['أحد', 'إثنين', 'ثلاثاء', 'أربعاء', 'خميس', 'جمعة', 'سبت'];
 
 const MONTHS_FR = [
   'JANVIER', 'FÉVRIER', 'MARS', 'AVRIL', 'MAI', 'JUIN',
   'JUILLET', 'AOÛT', 'SEPTEMBRE', 'OCTOBRE', 'NOVEMBRE', 'DÉCEMBRE',
 ];
 const MONTHS_AR = [
-  'جانفي', 'فيفري', 'مارس', 'افريل', 'ماي', 'جوان',
-  'جويلية', 'اوت', 'سبتمبر', 'اكتوبر', 'نوفمبر', 'ديسمبر',
+  'جانفي', 'فيفري', 'مارس', 'أفريل', 'ماي', 'جوان',
+  'جويلية', 'أوت', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
 ];
 
 const PROGRAMME_FR = [
@@ -36,7 +36,7 @@ const PROGRAMME_AR = [
 
 const TEXT = {
   fr: {
-    saveTheDate: 'SAVE THE DATE',
+    saveTheDate: 'Retenez la Date',
     startingAt: (t: string) => `À PARTIR DE ${t.toUpperCase()}`,
     localisation: 'LOCALISATION',
     programme: 'LE PROGRAMME',

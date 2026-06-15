@@ -3,7 +3,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
 import '../../globals.css';
 import { routing } from '@/i18n/routing';
-import { playfair, cormorant, zain, elMessiri, komediaBlack } from '@/app/fonts';
+import { playfair, cormorant, zain, elMessiri, komediaBlack, arefRuqaa } from '@/app/fonts';
 import { notFound } from 'next/navigation';
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export default async function PreviewLayout({
 
   const messages = await getMessages();
   const dir = locale === 'ar' ? 'rtl' : 'ltr';
-  const fontVars = `${playfair.variable} ${cormorant.variable} ${zain.variable} ${elMessiri.variable} ${komediaBlack.variable}`;
+  const fontVars = `${playfair.variable} ${cormorant.variable} ${zain.variable} ${elMessiri.variable} ${komediaBlack.variable} ${arefRuqaa.variable}`;
   const localeClass = locale === 'ar' ? 'locale-ar' : 'locale-fr';
 
   return (

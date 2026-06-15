@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import type { ReactNode } from 'react';
@@ -15,8 +15,8 @@ const MONTHS_FR = [
   'JUILLET', 'AOÛT', 'SEPTEMBRE', 'OCTOBRE', 'NOVEMBRE', 'DÉCEMBRE',
 ];
 const MONTHS_AR = [
-  'جانفي', 'فيفري', 'مارس', 'افريل', 'ماي', 'جوان',
-  'جويلية', 'اوت', 'سبتمبر', 'اكتوبر', 'نوفمبر', 'ديسمبر',
+  'جانفي', 'فيفري', 'مارس', 'أفريل', 'ماي', 'جوان',
+  'جويلية', 'أوت', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
 ];
 
 type Scheme = {
@@ -261,7 +261,7 @@ export default function IslamicTemplate({
               lineHeight: 1.1,
             }}
           >
-            {isAr ? 'احفظ التاريخ' : 'Save The Date'}
+            {isAr ? 'احفظ التاريخ' : 'Retenez la Date'}
           </h1>
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '18px' }}>
             <IslamicDecoration color={s.accent} />

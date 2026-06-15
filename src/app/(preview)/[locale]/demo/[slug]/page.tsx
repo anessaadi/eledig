@@ -37,6 +37,9 @@ export default async function DemoPage({
   const DATE_OVERRIDES: Record<string, string> = {
     'islamic-or': '2026-08-03',
     'rosa': '2026-08-06',
+    'elegance': '2026-08-05',
+    'kabyle': '2026-07-25',
+    'golden': '2026-08-27',
   };
   const inviteDate = DATE_OVERRIDES[slug] ?? new Date(Date.now() + 1000 * 60 * 60 * 24 * 60).toISOString();
   const templateEl = (
