@@ -11,8 +11,8 @@ const MONTHS_FR = [
   'JUILLET', 'AOÛT', 'SEPTEMBRE', 'OCTOBRE', 'NOVEMBRE', 'DÉCEMBRE',
 ];
 const MONTHS_AR = [
-  'يناير', 'فبراير', 'مارس', 'أبريل', 'ماي', 'يونيو',
-  'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
+  'جانفي', 'فيفري', 'مارس', 'افريل', 'ماي', 'جوان',
+  'جويلية', 'اوت', 'سبتمبر', 'اكتوبر', 'نوفمبر', 'ديسمبر',
 ];
 
 const SERIF_FR = 'var(--font-fr-body), Georgia, serif';
@@ -30,7 +30,7 @@ const PROGRAMME_AR = [
   { time: '12h00', label: 'بداية الحفلة' },
   { time: '14h00', label: 'الأكل' },
   { time: '17h00', label: 'كورتاج' },
-  { time: '19h00', label: 'بداية السهرة' },
+  { time: '19h00', label: 'بداية الحفلة' },
 ];
 
 const TEXT = {

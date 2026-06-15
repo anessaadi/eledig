@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import RosaEnvelope from './RosaEnvelope';
 import type { InviteData, InviteStyle } from './InvitationTemplate';
 
@@ -16,8 +17,21 @@ const MONTHS_FR = [
   'JUILLET', 'AOÛT', 'SEPTEMBRE', 'OCTOBRE', 'NOVEMBRE', 'DÉCEMBRE',
 ];
 const MONTHS_AR = [
-  'يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو',
-  'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
+  'جانفي', 'فيفري', 'مارس', 'افريل', 'ماي', 'جوان',
+  'جويلية', 'اوت', 'سبتمبر', 'اكتوبر', 'نوفمبر', 'ديسمبر',
+];
+
+const PROGRAMME_FR = [
+  { time: '12h00', label: 'Début des festivités' },
+  { time: '14h00', label: 'Déjeuner' },
+  { time: '17h00', label: 'Cortège nuptial' },
+  { time: '19h00', label: 'Début de soirée' },
+];
+const PROGRAMME_AR = [
+  { time: '12h00', label: 'بداية الحفلة' },
+  { time: '14h00', label: 'الأكل' },
+  { time: '17h00', label: 'كورتاج' },
+  { time: '19h00', label: 'بداية السهرة' },
 ];
 
 const TEXT = {
@@ -25,15 +39,21 @@ const TEXT = {
     saveTheDate: 'SAVE THE DATE',
     startingAt: (t: string) => `À PARTIR DE ${t.toUpperCase()}`,
     localisation: 'LOCALISATION',
-    rsvpTitle: 'JE CONFIRME\nMA PRÉSENCE',
-    rsvpBtn: 'CLIQUEZ\nICI',
+    programme: 'LE PROGRAMME',
+    resumeTitle: 'EN BREF',
+    resumeDate: 'DATE',
+    resumeTime: 'HEURE',
+    resumePlace: 'LIEU',
   },
   ar: {
     saveTheDate: 'احفظ التاريخ',
     startingAt: (t: string) => `ابتداءً من ${t}`,
     localisation: 'الموقع',
-    rsvpTitle: 'أؤكد\nحضوري',
-    rsvpBtn: 'اضغط\nهنا',
+    programme: 'البرنامج',
+    resumeTitle: 'ملخص',
+    resumeDate: 'التاريخ',
+    resumeTime: 'التوقيت',
+    resumePlace: 'المكان',
   },
 };
 
@@ -175,23 +195,11 @@ export default function RosaTemplate({
       <RosaEnvelope upSrc={scheme.envelopeUp} downSrc={scheme.envelopeDown} />
 
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <div className="relative flex h-dvh w-full items-center justify-center overflow-hidden">
+      <div className="relative w-full">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={heroImage}
-          alt="Save the date"
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: '50%',
-            height: '100%',
-            width: 'auto',
-            maxWidth: 'none',
-            transform: 'translateX(-50%)',
-          }}
-        />
+        <img src={heroImage} alt="Save the date" style={{ width: '100%', height: 'auto', display: 'block' }} />
         <div
-          className="absolute bottom-8 left-1/2 flex flex-col items-center gap-1"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
           style={{ animation: 'scroll-reveal 0.5s ease 2s both, scroll-hint 1.6s ease-in-out 2.5s infinite' }}
         >
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: CREAM }} aria-hidden="true">
@@ -274,21 +282,56 @@ export default function RosaTemplate({
           </p>
         )}
 
-        {/* RSVP */}
-        <h2 style={{ fontFamily: DISPLAY, fontWeight: isAr ? 400 : 700, fontSize: 'clamp(28px, 8vw, 34px)', textAlign: 'center', lineHeight: 1.12, letterSpacing: isAr ? '0.01em' : '0.02em', marginTop: '70px' }}>
-          {t.rsvpTitle.split('\n').map((line, i) => (
-            <span key={i}>{line}{i === 0 && <br />}</span>
-          ))}
+        {/* Programme */}
+        <h2 style={{ fontFamily: DISPLAY, fontWeight: isAr ? 400 : 600, letterSpacing: isAr ? '0.01em' : '0.04em', textAlign: 'center', lineHeight: 1.1, fontSize: 'clamp(30px, 8.5vw, 34px)', marginTop: '60px' }}>
+          {t.programme}
         </h2>
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '36px' }}>
-          <a
-            style={{ fontFamily: SERIF, fontStyle: 'italic', fontSize: '17px', letterSpacing: isAr ? '0.01em' : '0.04em', textAlign: 'center', lineHeight: 1.15, color: DARK, background: CREAM, textDecoration: 'underline', textUnderlineOffset: '3px', padding: '22px 46px', borderRadius: '2px', boxShadow: '0 8px 22px rgba(0,0,0,0.35)', display: 'inline-block' }}
-            href={data.rsvpPhone ? `tel:${data.rsvpPhone}` : '#rsvp'}
-          >
-            {t.rsvpBtn.split('\n').map((line, i) => (
-              <span key={i}>{line}{i === 0 && <br />}</span>
-            ))}
-          </a>
+          <div style={{ display: 'inline-grid', gridTemplateColumns: 'max-content 10px max-content', alignItems: 'center' }}>
+            {(isAr ? PROGRAMME_AR : PROGRAMME_FR).map((item, i) => {
+              const isLast = i === PROGRAMME_FR.length - 1;
+              return (
+                <React.Fragment key={i}>
+                  <div style={{ textAlign: isAr ? 'left' : 'right', paddingInlineEnd: '16px', paddingBottom: isLast ? 0 : '32px' }}>
+                    <p style={{ fontFamily: SERIF, fontWeight: 700, fontSize: '13px', letterSpacing: '0.1em', color: CREAM }}>{item.time}</p>
+                  </div>
+                  <div style={{ alignSelf: 'stretch', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingBottom: isLast ? 0 : '32px', background: `linear-gradient(to right, transparent calc(50% - 0.5px), ${CREAM}44 calc(50% - 0.5px), ${CREAM}44 calc(50% + 0.5px), transparent calc(50% + 0.5px))` }}>
+                    <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: CREAM, flexShrink: 0, position: 'relative', zIndex: 1 }} />
+                  </div>
+                  <div style={{ textAlign: isAr ? 'right' : 'left', paddingInlineStart: '16px', paddingBottom: isLast ? 0 : '32px' }}>
+                    <p style={{ fontFamily: SERIF, fontStyle: 'italic', fontSize: '16px', color: DIM, lineHeight: 1.3 }}>{item.label}</p>
+                  </div>
+                </React.Fragment>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Résumé */}
+        <h2 style={{ fontFamily: DISPLAY, fontWeight: isAr ? 400 : 600, letterSpacing: isAr ? '0.01em' : '0.04em', textAlign: 'center', lineHeight: 1.1, fontSize: 'clamp(30px, 8.5vw, 34px)', marginTop: '60px' }}>
+          {t.resumeTitle}
+        </h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '32px' }}>
+          <div style={{ border: `1px solid ${CREAM}33`, borderRadius: '3px', padding: '20px 24px', textAlign: 'center', background: 'rgba(255,255,255,0.07)' }}>
+            <p style={{ fontFamily: SERIF, fontWeight: 700, fontSize: '11px', letterSpacing: '0.18em', color: DIM }}>{t.resumeDate}</p>
+            <p style={{ fontFamily: SERIF, fontStyle: 'italic', fontSize: '18px', color: CREAM, letterSpacing: '0.04em', marginTop: '8px' }}>{formattedDate}</p>
+          </div>
+          {data.time && (
+            <div style={{ border: `1px solid ${CREAM}33`, borderRadius: '3px', padding: '20px 24px', textAlign: 'center', background: 'rgba(255,255,255,0.07)' }}>
+              <p style={{ fontFamily: SERIF, fontWeight: 700, fontSize: '11px', letterSpacing: '0.18em', color: DIM }}>{t.resumeTime}</p>
+              <p style={{ fontFamily: SERIF, fontStyle: 'italic', fontSize: '18px', color: CREAM, letterSpacing: '0.04em', marginTop: '8px' }}>{data.time}</p>
+            </div>
+          )}
+          {(data.venue || data.city) && (
+            <div style={{ border: `1px solid ${CREAM}33`, borderRadius: '3px', padding: '20px 24px', textAlign: 'center', background: 'rgba(255,255,255,0.07)' }}>
+              <p style={{ fontFamily: SERIF, fontWeight: 700, fontSize: '11px', letterSpacing: '0.18em', color: DIM }}>{t.resumePlace}</p>
+              <p style={{ fontFamily: SERIF, fontStyle: 'italic', fontSize: '18px', color: CREAM, letterSpacing: '0.04em', lineHeight: 1.35, marginTop: '8px' }}>
+                {data.venue && data.venue}
+                {data.venue && data.city && <br />}
+                {data.city && data.city}
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Closing image */}

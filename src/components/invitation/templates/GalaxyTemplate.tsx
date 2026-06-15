@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import type { ReactNode } from 'react';
 import GalaxyEnvelope from './GalaxyEnvelope';
 import type { InviteData, InviteStyle } from './InvitationTemplate';
@@ -28,20 +29,22 @@ type Scheme = {
   bannerText: string;
   btnBg: string;
   btnText: string;
+  envelopeUp: string;
 };
 
 const SCHEMES: Record<string, Scheme> = {
   burgundy: {
-    pageBg:      'linear-gradient(180deg, #200810 0%, #100408 100%)',
-    dark:        '#100408',
-    accent:      '#c05070',
-    accentLight: '#e090a8',
-    text:        '#f5e8ea',
-    dim:         '#c898a8',
-    bannerBg:    '#200810',
-    bannerText:  '#eec8d0',
-    btnBg:       '#7A1020',
-    btnText:     '#F7F0EA',
+    pageBg:          'linear-gradient(180deg, #200810 0%, #100408 100%)',
+    dark:            '#100408',
+    accent:          '#c05070',
+    accentLight:     '#e090a8',
+    text:          '#f5e8ea',
+    dim:           '#c898a8',
+    bannerBg:      '#200810',
+    bannerText:    '#eec8d0',
+    btnBg:         '#7A1020',
+    btnText:       '#F7F0EA',
+    envelopeUp:    '/templates/galaxy/up001.webp',
   },
   violet: {
     pageBg:      'linear-gradient(180deg, #1f1038 0%, #170d2c 100%)',
@@ -54,6 +57,7 @@ const SCHEMES: Record<string, Scheme> = {
     bannerText:  '#d8c0f0',
     btnBg:       '#3D0A60',
     btnText:     '#F0E8FF',
+    envelopeUp:  '/templates/galaxy/uppurple001.png',
   },
   navy: {
     pageBg:      'linear-gradient(180deg, #0d1a30 0%, #081123 100%)',
@@ -66,7 +70,26 @@ const SCHEMES: Record<string, Scheme> = {
     bannerText:  '#b0d0f0',
     btnBg:       '#0A1840',
     btnText:     '#E8F0FF',
+    envelopeUp:  '/templates/galaxy/upnavy001.png',
   },
+};
+
+const PROGRAMME_FR = [
+  { time: '12h00', label: 'Début des festivités' },
+  { time: '14h00', label: 'Déjeuner' },
+  { time: '17h00', label: 'Cortège nuptial' },
+  { time: '19h00', label: 'Début de soirée' },
+];
+const PROGRAMME_AR = [
+  { time: '12h00', label: 'بداية الحفلة' },
+  { time: '14h00', label: 'الأكل' },
+  { time: '17h00', label: 'كورتاج' },
+  { time: '19h00', label: 'بداية الحفلة' },
+];
+
+const TEXT_LABELS = {
+  fr: { programme: 'LE PROGRAMME', resumeTitle: 'EN BREF', resumeDate: 'DATE', resumeTime: 'HEURE', resumePlace: 'LIEU' },
+  ar: { programme: 'البرنامج', resumeTitle: 'ملخص', resumeDate: 'التاريخ', resumeTime: 'التوقيت', resumePlace: 'المكان' },
 };
 
 const MONTHS_FR = [
@@ -74,8 +97,8 @@ const MONTHS_FR = [
   'JUILLET', 'AOÛT', 'SEPTEMBRE', 'OCTOBRE', 'NOVEMBRE', 'DÉCEMBRE',
 ];
 const MONTHS_AR = [
-  'يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو',
-  'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
+  'جانفي', 'فيفري', 'مارس', 'افريل', 'ماي', 'جوان',
+  'جويلية', 'اوت', 'سبتمبر', 'اكتوبر', 'نوفمبر', 'ديسمبر',
 ];
 
 function StarDivider({ color }: { color: string }) {
@@ -142,13 +165,16 @@ export default function GalaxyTemplate({
   const year = d.getFullYear();
   const monthLabel = isAr ? MONTHS_AR[month] : MONTHS_FR[month];
 
+  const formattedDate = `${String(day).padStart(2, '0')}/${String(month + 1).padStart(2, '0')}/${year}`;
+  const tl = TEXT_LABELS[locale];
+  const programme = isAr ? PROGRAMME_AR : PROGRAMME_FR;
   const mapQuery = encodeURIComponent(
     [data.venue, data.city].filter(Boolean).join(', ') || 'Casablanca, Morocco'
   );
 
   return (
     <div dir={dir} style={{ background: s.pageBg, color: s.text, fontFamily: bodyFont }}>
-      <GalaxyEnvelope />
+      <GalaxyEnvelope upSrc={s.envelopeUp} />
 
       {/* ── Hero — rotated horizontal video ─────────────────────────────── */}
       <div style={{ position: 'relative', height: '100dvh', width: '100%', overflow: 'hidden' }}>
@@ -179,7 +205,7 @@ export default function GalaxyTemplate({
         {/* Text overlay image (covers full screen, no rotation) */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/templates/galaxy/textoverlay.webp"
+          src={`/templates/galaxy/tmp003${isAr ? 'AR' : 'FR'}1textoverlay.png`}
           alt=""
           style={{
             position: 'absolute',
@@ -194,7 +220,7 @@ export default function GalaxyTemplate({
 
         {/* Scroll indicator */}
         <div
-          className="absolute bottom-8 left-1/2 flex flex-col items-center gap-1"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
           style={{ animation: 'scroll-reveal 0.5s ease 2s both, scroll-hint 1.6s ease-in-out 2.5s infinite' }}
         >
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: s.accentLight }} aria-hidden="true">
@@ -231,7 +257,7 @@ export default function GalaxyTemplate({
         </div>
 
         {/* Date / time banner */}
-        <div style={{ marginTop: '32px', background: s.bannerBg, borderRadius: '3px', padding: '20px 24px', textAlign: 'center', border: `1px solid ${s.accent}55` }}>
+        <div style={{ marginTop: '32px', background: 'rgba(255,255,255,0.07)', borderRadius: '3px', padding: '20px 24px', textAlign: 'center', border: `1px solid ${s.accent}55` }}>
           <p style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: 'clamp(17px, 4.8vw, 22px)', letterSpacing: '0.12em', color: s.bannerText }}>
             {`${day} ${monthLabel} ${year}`}
           </p>
@@ -251,7 +277,7 @@ export default function GalaxyTemplate({
         </h2>
 
         {(data.venue || data.city) && (
-          <div style={{ marginTop: '24px', background: s.bannerBg, border: `1px solid ${s.accent}44`, borderRadius: '4px', padding: '28px 24px', textAlign: 'center' }}>
+          <div style={{ marginTop: '24px', background: 'rgba(255,255,255,0.07)', border: `1px solid ${s.accent}44`, borderRadius: '4px', padding: '28px 24px', textAlign: 'center' }}>
             {data.venue && (
               <p style={{ fontFamily: displayFont, fontSize: 'clamp(16px, 4.5vw, 20px)', fontStyle: isAr ? 'normal' : 'italic', color: s.text, marginBottom: '6px', lineHeight: 1.2 }}>
                 {data.venue}
@@ -268,29 +294,68 @@ export default function GalaxyTemplate({
               rel="noopener noreferrer"
               style={{ fontFamily: bodyFont, fontSize: '11px', letterSpacing: '0.14em', color: s.accent, textDecoration: 'none', border: `1px solid ${s.accent}`, padding: '9px 22px', borderRadius: '2px', display: 'inline-block' }}
             >
-              {isAr ? 'عرض الاتجاهات' : "VOIR L'ITINÉRAIRE"}
+              {isAr ? 'عرض الاتجاهات' : "VOIR LA LOCALISATION"}
             </a>
           </div>
         )}
 
-        {/* RSVP */}
+        {/* Programme */}
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '44px' }}>
           <StarDivider color={s.accent} />
         </div>
-        <h2 style={{ fontFamily: displayFont, fontSize: 'clamp(24px, 7vw, 34px)', fontStyle: isAr ? 'normal' : 'italic', textAlign: 'center', marginTop: '14px', lineHeight: 1.2, color: s.text }}>
-          {isAr ? 'أؤكد حضوري' : <>Je confirme <br /> ma présence</>}
+        <h2 style={{ fontFamily: displayFont, fontSize: 'clamp(28px, 8vw, 36px)', fontStyle: isAr ? 'normal' : 'italic', textAlign: 'center', marginTop: '14px', color: s.text, lineHeight: 1.1 }}>
+          {tl.programme}
         </h2>
-
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '30px' }}>
-          <a
-            href={data.rsvpPhone ? `tel:${data.rsvpPhone}` : '#rsvp'}
-            aria-label={isAr ? 'اضغط هنا لتأكيد حضورك' : 'Cliquez ici pour confirmer votre présence'}
-            style={{ fontFamily: bodyFont, fontStyle: isAr ? 'normal' : 'italic', fontSize: '16px', letterSpacing: '0.06em', textAlign: 'center', color: s.btnText, background: s.btnBg, textDecoration: 'none', padding: '22px 56px', minHeight: '52px', borderRadius: '2px', boxShadow: `0 6px 24px ${s.dark}cc`, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', lineHeight: 1.35 }}
-          >
-            {isAr ? 'اضغط هنا' : <>Cliquez<br />ici</>}
-          </a>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '36px' }}>
+          <div style={{ display: 'inline-grid', gridTemplateColumns: 'max-content 10px max-content', alignItems: 'center' }}>
+            {programme.map((item, i) => {
+              const isLast = i === programme.length - 1;
+              return (
+                <React.Fragment key={i}>
+                  <div style={{ textAlign: isAr ? 'left' : 'right', paddingInlineEnd: '16px', paddingBottom: isLast ? 0 : '32px' }}>
+                    <p style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: '13px', letterSpacing: '0.1em', color: s.text }}>{item.time}</p>
+                  </div>
+                  <div style={{ alignSelf: 'stretch', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingBottom: isLast ? 0 : '32px', background: `linear-gradient(to right, transparent calc(50% - 0.5px), ${s.accent}44 calc(50% - 0.5px), ${s.accent}44 calc(50% + 0.5px), transparent calc(50% + 0.5px))` }}>
+                    <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: s.accent, flexShrink: 0, position: 'relative', zIndex: 1 }} />
+                  </div>
+                  <div style={{ textAlign: isAr ? 'right' : 'left', paddingInlineStart: '16px', paddingBottom: isLast ? 0 : '32px' }}>
+                    <p style={{ fontFamily: bodyFont, fontStyle: 'italic', fontSize: '16px', color: s.dim, lineHeight: 1.3 }}>{item.label}</p>
+                  </div>
+                </React.Fragment>
+              );
+            })}
+          </div>
         </div>
 
+        {/* Résumé */}
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '44px' }}>
+          <StarDivider color={s.accent} />
+        </div>
+        <h2 style={{ fontFamily: displayFont, fontSize: 'clamp(28px, 8vw, 36px)', fontStyle: isAr ? 'normal' : 'italic', textAlign: 'center', marginTop: '14px', color: s.text, lineHeight: 1.1 }}>
+          {tl.resumeTitle}
+        </h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '32px' }}>
+          <div style={{ border: `1px solid ${s.accent}33`, borderRadius: '3px', padding: '20px 24px', textAlign: 'center', background: 'rgba(255,255,255,0.07)' }}>
+            <p style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: '11px', letterSpacing: '0.18em', color: s.dim }}>{tl.resumeDate}</p>
+            <p style={{ fontFamily: bodyFont, fontStyle: 'italic', fontSize: '18px', color: s.text, letterSpacing: '0.04em', marginTop: '8px' }}>{formattedDate}</p>
+          </div>
+          {data.time && (
+            <div style={{ border: `1px solid ${s.accent}33`, borderRadius: '3px', padding: '20px 24px', textAlign: 'center', background: 'rgba(255,255,255,0.07)' }}>
+              <p style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: '11px', letterSpacing: '0.18em', color: s.dim }}>{tl.resumeTime}</p>
+              <p style={{ fontFamily: bodyFont, fontStyle: 'italic', fontSize: '18px', color: s.text, letterSpacing: '0.04em', marginTop: '8px' }}>{data.time}</p>
+            </div>
+          )}
+          {(data.venue || data.city) && (
+            <div style={{ border: `1px solid ${s.accent}33`, borderRadius: '3px', padding: '20px 24px', textAlign: 'center', background: 'rgba(255,255,255,0.07)' }}>
+              <p style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: '11px', letterSpacing: '0.18em', color: s.dim }}>{tl.resumePlace}</p>
+              <p style={{ fontFamily: bodyFont, fontStyle: 'italic', fontSize: '18px', color: s.text, letterSpacing: '0.04em', lineHeight: 1.35, marginTop: '8px' }}>
+                {data.venue && data.venue}
+                {data.venue && data.city && <br />}
+                {data.city && data.city}
+              </p>
+            </div>
+          )}
+        </div>
 
       </main>
 
