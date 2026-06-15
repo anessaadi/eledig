@@ -1,3 +1,4 @@
+import React from 'react';
 import Image from 'next/image';
 import RoyalBordeauxEnvelope from './RoyalBordeauxEnvelope';
 import type { InviteData, InviteStyle } from './InvitationTemplate';
@@ -19,20 +20,39 @@ const DISPLAY_FR = 'var(--font-fr-display), "Times New Roman", serif';
 const SERIF_AR = 'var(--font-ar-body), serif';
 const DISPLAY_AR = 'var(--font-ar-display), serif';
 
+const PROGRAMME_FR = [
+  { time: '12h00', label: 'Début des festivités' },
+  { time: '14h00', label: 'Déjeuner' },
+  { time: '17h00', label: 'Cortège nuptial' },
+  { time: '19h00', label: 'Début de soirée' },
+];
+const PROGRAMME_AR = [
+  { time: '12h00', label: 'بداية الحفلة' },
+  { time: '14h00', label: 'الأكل' },
+  { time: '17h00', label: 'كورتاج' },
+  { time: '19h00', label: 'بداية السهرة' },
+];
+
 const TEXT = {
   fr: {
-    saveTheDate: 'SAVE THE DATE',
+    saveTheDate: 'RETENEZ LA DATE',
     startingAt: (t: string) => `À PARTIR DE ${t.toUpperCase()}`,
+    programme: 'LE PROGRAMME',
     localisation: 'LOCALISATION',
-    rsvpTitle: 'JE CONFIRME\nMA PRÉSENCE',
-    rsvpBtn: 'CLIQUEZ\nICI',
+    resumeTitle: 'EN BREF',
+    resumeDate: 'DATE',
+    resumeTime: 'HEURE',
+    resumePlace: 'LIEU',
   },
   ar: {
-    saveTheDate: 'احفظ حضوركم',
+    saveTheDate: 'احفظ التاريخ',
     startingAt: (t: string) => `ابتداءً من ${t}`,
+    programme: 'البرنامج',
     localisation: 'الموقع',
-    rsvpTitle: 'أؤكد\nحضوري',
-    rsvpBtn: 'اضغط\nهنا',
+    resumeTitle: 'ملخص',
+    resumeDate: 'التاريخ',
+    resumeTime: 'التوقيت',
+    resumePlace: 'المكان',
   },
 };
 
@@ -51,7 +71,7 @@ const SCHEMES: Record<string, Scheme> = {
   blue: {
     bg: 'radial-gradient(ellipse 140% 100% at 50% 30%, #0d3578 0%, #072b60 40%, #020f28 100%)',
     cream: '#e8eef8', dim: '#8ca4c8', dark: '#072b60',
-    envelopeDown: '/templates/royal-bordeaux/bluedown001.webp',
+    envelopeDown: '/templates/royal-bordeaux/down001.webp',
     envelopeUp:   '/templates/royal-bordeaux/blueup001.webp',
   },
   green: {
@@ -151,7 +171,7 @@ export default function RoyalBordeauxTemplate({
         />
         {/* Scroll indicator — appears after envelope (1.5s) + shrink (2s) = 3.5s */}
         <div
-          className="absolute bottom-8 left-1/2 flex flex-col items-center gap-1"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
           style={{ animation: 'scroll-reveal 0.5s ease 3.5s both, scroll-hint 1.6s ease-in-out 4s infinite' }}
         >
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: CREAM }} aria-hidden="true">
@@ -214,6 +234,40 @@ export default function RoyalBordeauxTemplate({
           </p>
         )}
 
+        {/* Programme */}
+        <h2 style={{ fontFamily: DISPLAY, fontWeight: isAr ? 400 : 600, letterSpacing: isAr ? '0.01em' : '0.04em', textAlign: 'center', lineHeight: 1.1, fontSize: 'clamp(30px, 8.5vw, 34px)', marginTop: '60px' }}>
+          {t.programme}
+        </h2>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '36px' }}>
+          <div style={{ display: 'inline-grid', gridTemplateColumns: 'max-content 10px max-content', alignItems: 'center' }}>
+            {(isAr ? PROGRAMME_AR : PROGRAMME_FR).map((item, i) => {
+              const isLast = i === (isAr ? PROGRAMME_AR : PROGRAMME_FR).length - 1;
+              return (
+                <React.Fragment key={i}>
+                  {/* col1 — visually LEFT in LTR, visually RIGHT in RTL */}
+                  <div style={{ textAlign: isAr ? 'left' : 'right', paddingInlineEnd: '16px', paddingBottom: isLast ? 0 : '32px' }}>
+                    <p style={{ fontFamily: SERIF, fontWeight: 700, fontSize: '13px', letterSpacing: '0.1em', color: CREAM }}>{item.time}</p>
+                  </div>
+                  <div style={{
+                    alignSelf: 'stretch',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    paddingBottom: isLast ? 0 : '32px',
+                    background: `linear-gradient(to right, transparent calc(50% - 0.5px), ${CREAM}44 calc(50% - 0.5px), ${CREAM}44 calc(50% + 0.5px), transparent calc(50% + 0.5px))`,
+                  }}>
+                    <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: CREAM, flexShrink: 0, position: 'relative', zIndex: 1 }} />
+                  </div>
+                  {/* col3 — visually RIGHT in LTR, visually LEFT in RTL */}
+                  <div style={{ textAlign: isAr ? 'right' : 'left', paddingInlineStart: '16px', paddingBottom: isLast ? 0 : '32px' }}>
+                    <p style={{ fontFamily: SERIF, fontStyle: 'italic', fontSize: '16px', color: DIM, lineHeight: 1.3 }}>{item.label}</p>
+                  </div>
+                </React.Fragment>
+              );
+            })}
+          </div>
+        </div>
+
         {/* Localisation */}
         <h2 style={{ fontFamily: DISPLAY, fontWeight: isAr ? 400 : 600, letterSpacing: isAr ? '0.01em' : '0.04em', textAlign: 'center', lineHeight: 1.1, fontSize: 'clamp(30px, 8.5vw, 34px)', marginTop: '60px' }}>
           {t.localisation}
@@ -234,21 +288,44 @@ export default function RoyalBordeauxTemplate({
           </p>
         )}
 
-        {/* RSVP */}
-        <h2 style={{ fontFamily: DISPLAY, fontWeight: isAr ? 400 : 700, fontSize: 'clamp(28px, 8vw, 34px)', textAlign: 'center', lineHeight: 1.12, letterSpacing: isAr ? '0.01em' : '0.02em', marginTop: '70px' }}>
-          {t.rsvpTitle.split('\n').map((line, i) => (
-            <span key={i}>{line}{i === 0 && <br />}</span>
-          ))}
+        {/* Résumé */}
+        <h2 style={{ fontFamily: DISPLAY, fontWeight: isAr ? 400 : 600, letterSpacing: isAr ? '0.01em' : '0.04em', textAlign: 'center', lineHeight: 1.1, fontSize: 'clamp(30px, 8.5vw, 34px)', marginTop: '60px' }}>
+          {t.resumeTitle}
         </h2>
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '36px' }}>
-          <a
-            style={{ fontFamily: SERIF, fontStyle: 'italic', fontSize: '17px', letterSpacing: isAr ? '0.01em' : '0.04em', textAlign: 'center', lineHeight: 1.15, color: BURGUNDY, background: CREAM, textDecoration: 'underline', textUnderlineOffset: '3px', padding: '22px 46px', borderRadius: '2px', boxShadow: '0 8px 22px rgba(0,0,0,0.35)', display: 'inline-block' }}
-            href={data.rsvpPhone ? `tel:${data.rsvpPhone}` : '#rsvp'}
-          >
-            {t.rsvpBtn.split('\n').map((line, i) => (
-              <span key={i}>{line}{i === 0 && <br />}</span>
-            ))}
-          </a>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '32px' }}>
+          {/* Date card */}
+          <div style={{ border: `1px solid ${CREAM}33`, borderRadius: '3px', padding: '20px 24px', textAlign: 'center' }}>
+            <p style={{ fontFamily: SERIF, fontWeight: 700, fontSize: '11px', letterSpacing: '0.18em', color: DIM }}>
+              {t.resumeDate}
+            </p>
+            <p style={{ fontFamily: SERIF, fontStyle: 'italic', fontSize: '18px', color: CREAM, letterSpacing: '0.04em', marginTop: '8px' }}>
+              {formattedDate}
+            </p>
+          </div>
+          {/* Time card */}
+          {data.time && (
+            <div style={{ border: `1px solid ${CREAM}33`, borderRadius: '3px', padding: '20px 24px', textAlign: 'center' }}>
+              <p style={{ fontFamily: SERIF, fontWeight: 700, fontSize: '11px', letterSpacing: '0.18em', color: DIM }}>
+                {t.resumeTime}
+              </p>
+              <p style={{ fontFamily: SERIF, fontStyle: 'italic', fontSize: '18px', color: CREAM, letterSpacing: '0.04em', marginTop: '8px' }}>
+                {data.time}
+              </p>
+            </div>
+          )}
+          {/* Place card */}
+          {(data.venue || data.city) && (
+            <div style={{ border: `1px solid ${CREAM}33`, borderRadius: '3px', padding: '20px 24px', textAlign: 'center' }}>
+              <p style={{ fontFamily: SERIF, fontWeight: 700, fontSize: '11px', letterSpacing: '0.18em', color: DIM }}>
+                {t.resumePlace}
+              </p>
+              <p style={{ fontFamily: SERIF, fontStyle: 'italic', fontSize: '18px', color: CREAM, letterSpacing: '0.04em', lineHeight: 1.35, marginTop: '8px' }}>
+                {data.venue && data.venue}
+                {data.venue && data.city && <br />}
+                {data.city && data.city}
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Closing image */}

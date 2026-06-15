@@ -29,7 +29,7 @@ const TEXT = {
     rsvpBtn: 'CLIQUEZ\nICI',
   },
   ar: {
-    saveTheDate: 'احفظ حضوركم',
+    saveTheDate: 'احفظ التاريخ',
     startingAt: (t: string) => `ابتداءً من ${t}`,
     localisation: 'الموقع',
     rsvpTitle: 'أؤكد\nحضوري',

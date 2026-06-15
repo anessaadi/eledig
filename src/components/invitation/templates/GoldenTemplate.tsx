@@ -57,15 +57,14 @@ const SCHEMES: Record<string, Scheme> = {
 
 function GoldenDivider({ color }: { color: string }) {
   return (
-    <svg width="220" height="22" viewBox="0 0 220 22" aria-hidden="true">
-      <line x1="0" y1="11" x2="82" y2="11" stroke={color} strokeWidth="0.8" opacity="0.55" />
-      <line x1="138" y1="11" x2="220" y2="11" stroke={color} strokeWidth="0.8" opacity="0.55" />
-      {/* ornate flourish */}
-      <circle cx="110" cy="11" r="4" fill={color} opacity="0.75" />
-      <circle cx="96" cy="11" r="2" fill={color} opacity="0.45" />
-      <circle cx="124" cy="11" r="2" fill={color} opacity="0.45" />
-      <path d="M88,11 Q94,4 100,11" fill="none" stroke={color} strokeWidth="1" opacity="0.5" />
-      <path d="M120,11 Q126,4 132,11" fill="none" stroke={color} strokeWidth="1" opacity="0.5" />
+    <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 632.31 32.02"
+      fill={color} aria-hidden="true"
+      style={{ width: '100%', maxWidth: '260px', height: 'auto', opacity: 0.85 }}>
+      <path d="M290.6,729.6,80.54,725.55,290.86,721l56.77,2.51v2.86Z" transform="translate(-80.54 -709.3)"/>
+      <path d="M502.78,721l210.06,4.06L502.52,729.6l-56.77-2.5v-2.87Z" transform="translate(-80.54 -709.3)"/>
+      <path d="M396.69,741.32c-3-8.1-8.09-13.69-15.88-16,7.63-3.22,13-8.46,15.88-16,2.11,7.52,7.8,12.58,15.88,16C405.53,727.13,400.38,732.77,396.69,741.32Z" transform="translate(-80.54 -709.3)"/>
+      <path d="M364.22,733.62c-1.56-4.2-4.2-7.11-8.24-8.31a14.26,14.26,0,0,0,8.24-8.32c1.1,3.91,4,6.54,8.24,8.32C368.81,726.25,366.14,729.18,364.22,733.62Z" transform="translate(-80.54 -709.3)"/>
+      <path d="M429.16,733.62c-1.57-4.2-4.2-7.11-8.24-8.31a14.26,14.26,0,0,0,8.24-8.32c1.1,3.91,4,6.54,8.24,8.32C433.74,726.25,431.07,729.18,429.16,733.62Z" transform="translate(-80.54 -709.3)"/>
     </svg>
   );
 }
@@ -103,6 +102,7 @@ export default function GoldenTemplate({
   const s = SCHEMES[colorId];
   const lang = isAr ? 'AR' : 'FR';
   const heroImage = `/templates/golden/TMP007${lang}${colorId.toUpperCase()}.png`;
+  const closingImage = `/templates/golden/TMP007${lang}2${colorId.toUpperCase()}.png`;
   const dir = isAr ? 'rtl' : 'ltr';
   const displayFont = isAr ? AR : FR;
   const bodyFont = isAr ? AR_BODY : FR_BODY;
@@ -118,19 +118,9 @@ export default function GoldenTemplate({
     <div dir={dir} style={{ background: s.pageBg, color: s.text, fontFamily: bodyFont }}>
       <GoldenEnvelope leftSrc={s.envelopeLeft} rightSrc={s.envelopeRight} />
 
-      <div className="relative h-dvh w-full overflow-hidden" style={{ margin: 0 }}>
+      <div className="relative w-full">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={heroImage} alt="" style={{ position: 'absolute', top: 0, left: '50%', height: '100%', width: 'auto', maxWidth: 'none', transform: 'translateX(-50%)' }} />
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2" style={{ animation: 'scroll-reveal 0.5s ease 2s both, scroll-hint 1.6s ease-in-out 2.5s infinite' }}>
-          <div className="flex flex-col items-center gap-1">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: '#fff' }} aria-hidden="true">
-              <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: '#fff', opacity: 0.5 }} className="-mt-4" aria-hidden="true">
-              <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
-        </div>
+        <img src={heroImage} alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
       </div>
 
       <main style={{ maxWidth: '480px', margin: '0 auto', padding: '0 24px 72px' }}>
@@ -188,17 +178,14 @@ export default function GoldenTemplate({
           </a>
         </div>
 
-        {data.message && (
-          <div style={{ marginTop: '64px' }}>
-            <GoldenFrame color={s.accent}>
-              <p style={{ fontFamily: bodyFont, fontStyle: isAr ? 'normal' : 'italic', fontSize: '15px', textAlign: 'center', lineHeight: 1.75, color: s.text }}>
-                {data.message}
-              </p>
-            </GoldenFrame>
-          </div>
-        )}
 
       </main>
+
+      {/* Closing image — full width */}
+      <div style={{ marginTop: '70px' }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={closingImage} alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
+      </div>
     </div>
   );
 }

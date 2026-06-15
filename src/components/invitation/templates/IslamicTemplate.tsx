@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import type { ReactNode } from 'react';
 import IslamicEnvelope from './IslamicEnvelope';
 import type { InviteData, InviteStyle } from './InvitationTemplate';
@@ -106,6 +107,24 @@ const SCHEMES: Record<string, Scheme> = {
   },
 };
 
+const PROGRAMME_FR = [
+  { time: '12h00', label: 'Début des festivités' },
+  { time: '14h00', label: 'Déjeuner' },
+  { time: '17h00', label: 'Cortège nuptial' },
+  { time: '19h00', label: 'Début de soirée' },
+];
+const PROGRAMME_AR = [
+  { time: '12h00', label: 'بداية الحفلة' },
+  { time: '14h00', label: 'الأكل' },
+  { time: '17h00', label: 'كورتاج' },
+  { time: '19h00', label: 'بداية السهرة' },
+];
+
+const TEXT_LABELS = {
+  fr: { programme: 'LE PROGRAMME', resumeTitle: 'EN BREF', resumeDate: 'DATE', resumeTime: 'HEURE', resumePlace: 'LIEU' },
+  ar: { programme: 'البرنامج', resumeTitle: 'ملخص', resumeDate: 'التاريخ', resumeTime: 'التوقيت', resumePlace: 'المكان' },
+};
+
 // ─── SVG helpers ──────────────────────────────────────────────────────────────
 
 function IslamicDecoration({ color }: { color: string }) {
@@ -183,6 +202,10 @@ export default function IslamicTemplate({
   const year = d.getFullYear();
   const monthLabel = isAr ? MONTHS_AR[month] : MONTHS_FR[month];
 
+  const formattedDate = `${String(day).padStart(2, '0')}/${String(month + 1).padStart(2, '0')}/${year}`;
+  const tl = TEXT_LABELS[locale];
+  const programme = isAr ? PROGRAMME_AR : PROGRAMME_FR;
+
   const mapQuery = encodeURIComponent(
     [data.venue, data.city].filter(Boolean).join(', ') || 'Casablanca, Morocco'
   );
@@ -191,25 +214,12 @@ export default function IslamicTemplate({
     <div dir={dir} style={{ background: s.pageBg, color: s.text, fontFamily: bodyFont }}>
       <IslamicEnvelope leftSrc={s.envelopeLeft} rightSrc={s.envelopeRight} />
 
-      {/* ── Hero — full viewport height, width overflow hidden ───────────── */}
-      <div className="relative h-dvh w-full overflow-hidden" style={{ margin: 0 }}>
+      {/* ── Hero — full phone width ──────────────────────────────────────── */}
+      <div className="relative w-full">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={images.heroImage}
-          alt=""
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: '50%',
-            height: '100%',
-            width: 'auto',
-            maxWidth: 'none',
-            transform: 'translateX(-50%)',
-          }}
-        />
-        {/* Scroll indicator */}
+        <img src={images.heroImage} alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
         <div
-          className="absolute bottom-8 left-1/2 flex flex-col items-center gap-1"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
           style={{ animation: 'scroll-reveal 0.5s ease 2s both, scroll-hint 1.6s ease-in-out 2.5s infinite' }}
         >
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: '#fff' }} aria-hidden="true">
@@ -279,6 +289,34 @@ export default function IslamicTemplate({
           </div>
         )}
 
+        {/* Programme */}
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '44px' }}>
+          <IslamicDecoration color={s.accent} />
+        </div>
+        <h2 style={{ fontFamily: displayFont, fontSize: 'clamp(28px, 8vw, 36px)', fontStyle: isAr ? 'normal' : 'italic', textAlign: 'center', marginTop: '14px', color: s.text, lineHeight: 1.1 }}>
+          {tl.programme}
+        </h2>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '36px' }}>
+          <div style={{ display: 'inline-grid', gridTemplateColumns: 'max-content 10px max-content', alignItems: 'center' }}>
+            {programme.map((item, i) => {
+              const isLast = i === programme.length - 1;
+              return (
+                <React.Fragment key={i}>
+                  <div style={{ textAlign: isAr ? 'left' : 'right', paddingInlineEnd: '16px', paddingBottom: isLast ? 0 : '32px' }}>
+                    <p style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: '13px', letterSpacing: '0.1em', color: s.text }}>{item.time}</p>
+                  </div>
+                  <div style={{ alignSelf: 'stretch', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingBottom: isLast ? 0 : '32px', background: `linear-gradient(to right, transparent calc(50% - 0.5px), ${s.accent}55 calc(50% - 0.5px), ${s.accent}55 calc(50% + 0.5px), transparent calc(50% + 0.5px))` }}>
+                    <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: s.accent, flexShrink: 0, position: 'relative', zIndex: 1 }} />
+                  </div>
+                  <div style={{ textAlign: isAr ? 'right' : 'left', paddingInlineStart: '16px', paddingBottom: isLast ? 0 : '32px' }}>
+                    <p style={{ fontFamily: bodyFont, fontStyle: 'italic', fontSize: '16px', color: s.dim, lineHeight: 1.3 }}>{item.label}</p>
+                  </div>
+                </React.Fragment>
+              );
+            })}
+          </div>
+        </div>
+
         {/* Localisation */}
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '44px' }}>
           <IslamicDecoration color={s.accent} />
@@ -332,45 +370,34 @@ export default function IslamicTemplate({
           </p>
         )}
 
-        {/* RSVP */}
+        {/* Résumé */}
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '44px' }}>
           <IslamicDecoration color={s.accent} />
         </div>
-        <h2
-          style={{
-            fontFamily: displayFont,
-            fontSize: 'clamp(24px, 7vw, 34px)',
-            fontStyle: isAr ? 'normal' : 'italic',
-            textAlign: 'center',
-            marginTop: '14px',
-            lineHeight: 1.2,
-            color: s.text,
-          }}
-        >
-          {isAr ? 'أؤكد حضوري' : <>Je confirme <br /> ma présence</>}
+        <h2 style={{ fontFamily: displayFont, fontSize: 'clamp(24px, 7vw, 34px)', fontStyle: isAr ? 'normal' : 'italic', textAlign: 'center', marginTop: '14px', lineHeight: 1.2, color: s.text }}>
+          {tl.resumeTitle}
         </h2>
-
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '30px' }}>
-          <a
-            href={data.rsvpPhone ? `tel:${data.rsvpPhone}` : '#rsvp'}
-            style={{
-              fontFamily: bodyFont,
-              fontStyle: isAr ? 'normal' : 'italic',
-              fontSize: '15px',
-              letterSpacing: '0.06em',
-              textAlign: 'center',
-              color: s.btnText,
-              background: `linear-gradient(135deg, ${s.accentLight} 0%, ${s.accent} 100%)`,
-              textDecoration: 'none',
-              padding: '20px 48px',
-              borderRadius: '2px',
-              boxShadow: '0 6px 20px rgba(0,0,0,0.18)',
-              display: 'inline-block',
-              lineHeight: 1.35,
-            }}
-          >
-            {isAr ? 'اضغط هنا' : <>Cliquez<br />ici</>}
-          </a>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '32px' }}>
+          <div style={{ border: `1px solid ${s.accent}33`, borderRadius: '3px', padding: '20px 24px', textAlign: 'center' }}>
+            <p style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: '11px', letterSpacing: '0.18em', color: s.dim }}>{tl.resumeDate}</p>
+            <p style={{ fontFamily: bodyFont, fontStyle: 'italic', fontSize: '18px', color: s.text, letterSpacing: '0.04em', marginTop: '8px' }}>{formattedDate}</p>
+          </div>
+          {data.time && (
+            <div style={{ border: `1px solid ${s.accent}33`, borderRadius: '3px', padding: '20px 24px', textAlign: 'center' }}>
+              <p style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: '11px', letterSpacing: '0.18em', color: s.dim }}>{tl.resumeTime}</p>
+              <p style={{ fontFamily: bodyFont, fontStyle: 'italic', fontSize: '18px', color: s.text, letterSpacing: '0.04em', marginTop: '8px' }}>{data.time}</p>
+            </div>
+          )}
+          {(data.venue || data.city) && (
+            <div style={{ border: `1px solid ${s.accent}33`, borderRadius: '3px', padding: '20px 24px', textAlign: 'center' }}>
+              <p style={{ fontFamily: bodyFont, fontWeight: 700, fontSize: '11px', letterSpacing: '0.18em', color: s.dim }}>{tl.resumePlace}</p>
+              <p style={{ fontFamily: bodyFont, fontStyle: 'italic', fontSize: '18px', color: s.text, letterSpacing: '0.04em', lineHeight: 1.35, marginTop: '8px' }}>
+                {data.venue && data.venue}
+                {data.venue && data.city && <br />}
+                {data.city && data.city}
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Closing message */}

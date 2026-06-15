@@ -30,15 +30,18 @@ const MONTHS_AR = [
 function GoldDivider({ light = false }: { light?: boolean }) {
   const c = light ? '#e8d098' : GOLD;
   return (
-    <svg width="200" height="20" viewBox="0 0 200 20" aria-hidden="true">
-      <line x1="0" y1="10" x2="76" y2="10" stroke={c} strokeWidth="0.8" opacity="0.7" />
-      <line x1="124" y1="10" x2="200" y2="10" stroke={c} strokeWidth="0.8" opacity="0.7" />
-      <path d="M84,10 L90,4 L96,10 L90,16 Z" fill={c} opacity="0.8" />
-      <circle cx="100" cy="10" r="3.5" fill={c} opacity="0.9" />
-      <path d="M104,10 L110,4 L116,10 L110,16 Z" fill={c} opacity="0.8" />
+    <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 632.31 32.02"
+      fill={c} aria-hidden="true"
+      style={{ width: '100%', maxWidth: '260px', height: 'auto', opacity: 0.85 }}>
+      <path d="M290.6,729.6,80.54,725.55,290.86,721l56.77,2.51v2.86Z" transform="translate(-80.54 -709.3)"/>
+      <path d="M502.78,721l210.06,4.06L502.52,729.6l-56.77-2.5v-2.87Z" transform="translate(-80.54 -709.3)"/>
+      <path d="M396.69,741.32c-3-8.1-8.09-13.69-15.88-16,7.63-3.22,13-8.46,15.88-16,2.11,7.52,7.8,12.58,15.88,16C405.53,727.13,400.38,732.77,396.69,741.32Z" transform="translate(-80.54 -709.3)"/>
+      <path d="M364.22,733.62c-1.56-4.2-4.2-7.11-8.24-8.31a14.26,14.26,0,0,0,8.24-8.32c1.1,3.91,4,6.54,8.24,8.32C368.81,726.25,366.14,729.18,364.22,733.62Z" transform="translate(-80.54 -709.3)"/>
+      <path d="M429.16,733.62c-1.57-4.2-4.2-7.11-8.24-8.31a14.26,14.26,0,0,0,8.24-8.32c1.1,3.91,4,6.54,8.24,8.32C433.74,726.25,431.07,729.18,429.16,733.62Z" transform="translate(-80.54 -709.3)"/>
     </svg>
   );
 }
+
 
 function GoldFrame({ children }: { children: ReactNode }) {
   return (
@@ -160,10 +163,10 @@ export default function MariageTemplate({
 
           <p style={{
             fontFamily: bodyFont,
-            fontSize: '22px',
+            fontSize: '17px',
             letterSpacing: '0.18em',
             color: GOLD,
-            marginTop: '24px',
+            marginTop: '18px',
           }}>
             {`${day} ${monthLabel} ${year}`}
           </p>

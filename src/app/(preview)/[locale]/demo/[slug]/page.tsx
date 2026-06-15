@@ -12,10 +12,10 @@ export function generateStaticParams() {
 const SAMPLE = {
   fr: { bride: 'Amel', groom: 'Yanis', venue: 'Salle Les Jardins', city: 'Tlemcen',
         message: "C'est avec joie que nous vous invitons à partager ce moment unique.",
-        time: '19h00', rsvpPhone: '+213000000000' },
+        time: '12h00', rsvpPhone: '+213000000000' },
   ar: { bride: 'أمل', groom: 'يانيس', venue: 'قاعة الحدائق', city: 'تلمسان',
         message: 'يسعدنا أن ندعوكم لمشاركتنا هذه اللحظة المميزة.',
-        time: '19:00', rsvpPhone: '+213000000000' },
+        time: '12:00', rsvpPhone: '+213000000000' },
 };
 
 export default async function DemoPage({
@@ -34,7 +34,10 @@ export default async function DemoPage({
   const color = (searchParams.color ? model.colors.find((c) => c.id === searchParams.color) : null) ?? model.colors[0];
   const s = SAMPLE[demoLang];
 
-  const inviteDate = new Date(Date.now() + 1000 * 60 * 60 * 24 * 60).toISOString();
+  const DATE_OVERRIDES: Record<string, string> = {
+    'islamic-or': '2026-08-03',
+  };
+  const inviteDate = DATE_OVERRIDES[slug] ?? new Date(Date.now() + 1000 * 60 * 60 * 24 * 60).toISOString();
   const templateEl = (
     <InvitationTemplate
       locale={demoLang}
