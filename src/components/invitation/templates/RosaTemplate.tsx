@@ -30,9 +30,9 @@ const PROGRAMME_FR = [
 ];
 const PROGRAMME_AR = [
   { time: '12h00', label: 'مراسم النكاح' },
-  { time: '14h00', label: '?????' },
-  { time: '17h00', label: '??????' },
-  { time: '19h00', label: 'مراسم النكاح' },
+  { time: '14h00', label: 'الغداء' },
+  { time: '17h00', label: 'الكورتاج' },
+  { time: '19h00', label: 'بداية السهرة' },
 ];
 
 const TEXT = {
@@ -47,14 +47,14 @@ const TEXT = {
     resumePlace: 'LIEU',
   },
   ar: {
-    saveTheDate: '???? ???????',
-    startingAt: (t: string) => `??????? ?? ${t}`,
-    localisation: '??????',
+    saveTheDate: 'احتفظ بالموعد',
+    startingAt: (t: string) => `انطلاقاً من ${t}`,
+    localisation: 'الموقع',
     programme: 'البرنامج',
     resumeTitle: 'ملخص',
-    resumeDate: '???????',
-    resumeTime: '???????',
-    resumePlace: '??????',
+    resumeDate: 'التاريخ',
+    resumeTime: 'التوقيت',
+    resumePlace: 'المكان',
   },
 };
 
@@ -93,8 +93,8 @@ const SCHEMES: Record<string, Scheme> = {
     dim: '#c8a8d8',
     dark: '#2d0a52',
     accent: '#f3e5f5',
-    envelopeUp: '/templates/rosa/upburgundyrosa.webp',
-    envelopeDown: '/templates/rosa/downburgundyrosa.webp',
+    envelopeUp: '/templates/rosa/uppurple002.webp',
+    envelopeDown: '/templates/rosa/downpurple002.webp',
   },
   gold: {
     bg: 'radial-gradient(ellipse 140% 100% at 50% 30%, #6b4a00 0%, #4a3200 40%, #2a1e00 100%)',
@@ -123,23 +123,6 @@ function buildCalendar(dateStr: string) {
   return { weeks, highlight, month, year, day: highlight };
 }
 
-function FlowerDivider({ color }: { color: string }) {
-  return (
-    <svg width="200" height="24" viewBox="0 0 200 24" aria-hidden="true">
-      <line x1="0" y1="12" x2="78" y2="12" stroke={color} strokeWidth="0.8" opacity="0.6" />
-      <line x1="122" y1="12" x2="200" y2="12" stroke={color} strokeWidth="0.8" opacity="0.6" />
-      {[0, 72, 144, 216, 288].map((deg) => {
-        const rx = 100 + Math.cos((deg * Math.PI) / 180) * 5;
-        const ry = 12 + Math.sin((deg * Math.PI) / 180) * 5;
-        return (
-          <ellipse key={deg} cx={rx} cy={ry} rx={2.5} ry={4.5}
-            transform={`rotate(${deg} ${rx} ${ry})`} fill={color} opacity={0.55} />
-        );
-      })}
-      <circle cx="100" cy="12" r="2.5" fill={color} opacity={0.8} />
-    </svg>
-  );
-}
 
 function Flower({ color }: { color: string }) {
   return (
@@ -185,9 +168,6 @@ export default function RosaTemplate({
   const { weeks, highlight, month, year, day } = buildCalendar(data.date);
   const formattedDate = `${String(day).padStart(2, '0')}/${String(month + 1).padStart(2, '0')}/${year}`;
   const monthLabel = isAr ? `${MONTHS_AR[month]} ${year}` : `${MONTHS_FR[month]} ${year}`;
-  const mapQuery = encodeURIComponent(
-    [data.venue, data.city].filter(Boolean).join(', ') || 'Casablanca, Morocco'
-  );
 
   return (
     <div

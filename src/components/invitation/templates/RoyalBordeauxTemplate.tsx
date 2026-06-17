@@ -29,9 +29,9 @@ const PROGRAMME_FR = [
 ];
 const PROGRAMME_AR = [
   { time: '12h00', label: 'مراسم النكاح' },
-  { time: '14h00', label: '?????' },
-  { time: '17h00', label: '??????' },
-  { time: '19h00', label: 'مراسم النكاح' },
+  { time: '14h00', label: 'الغداء' },
+  { time: '17h00', label: 'الكورتاج' },
+  { time: '19h00', label: 'بداية السهرة' },
 ];
 
 const TEXT = {
@@ -46,14 +46,14 @@ const TEXT = {
     resumePlace: 'LIEU',
   },
   ar: {
-    saveTheDate: '???? ???????',
-    startingAt: (t: string) => `??????? ?? ${t}`,
+    saveTheDate: 'احتفظ بالموعد',
+    startingAt: (t: string) => `انطلاقاً من ${t}`,
     programme: 'البرنامج',
-    localisation: '??????',
+    localisation: 'الموقع',
     resumeTitle: 'ملخص',
-    resumeDate: '???????',
-    resumeTime: '???????',
-    resumePlace: '??????',
+    resumeDate: 'التاريخ',
+    resumeTime: 'التوقيت',
+    resumePlace: 'المكان',
   },
 };
 

@@ -36,7 +36,7 @@ const MAP: Record<string, Record<string, string[]>> = {
   rosa: {
     burgundy: ['/templates/rosa/upburgundyrosa.webp', '/templates/rosa/downburgundyrosa.webp'],
     blue:     ['/templates/rosa/upbluerosa.webp',     '/templates/rosa/downbluerosa.webp'],
-    purple:   ['/templates/rosa/upburgundyrosa.webp', '/templates/rosa/downburgundyrosa.webp'],
+    purple:   ['/templates/rosa/uppurple002.webp',    '/templates/rosa/downpurple002.webp'],
     gold:     ['/templates/rosa/upgoldrosa.webp',      '/templates/rosa/downgoldrosa.webp'],
     _default: ['/templates/rosa/upburgundyrosa.webp', '/templates/rosa/downburgundyrosa.webp'],
   },

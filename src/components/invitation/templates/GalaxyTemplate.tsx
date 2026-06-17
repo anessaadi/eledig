@@ -139,7 +139,10 @@ export default function GalaxyTemplate({
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
-    v.muted = true;       // React doesn't always set the muted DOM property — Safari requires it
+    v.muted = true;
+    v.setAttribute('muted', '');       // iOS requires the HTML attribute, not just the JS property
+    v.setAttribute('playsinline', ''); // belt-and-suspenders for older iOS WebKit
+    v.load();                          // force iOS to re-evaluate autoplay eligibility
     v.play().catch(() => {});
   }, []);
   const dir = isAr ? 'rtl' : 'ltr';

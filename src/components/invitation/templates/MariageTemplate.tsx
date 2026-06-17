@@ -143,6 +143,9 @@ export default function MariageTemplate({
     const v = videoRef.current;
     if (!v) return;
     v.muted = true;
+    v.setAttribute('muted', '');
+    v.setAttribute('playsinline', '');
+    v.load();
     v.play().catch(() => {});
   }, []);
 
@@ -247,7 +250,7 @@ export default function MariageTemplate({
           {isAr && (
             <>
               <p style={{ fontFamily: bodyFont, fontSize: '17px', letterSpacing: '0.2em', color: 'rgba(255,255,255,0.65)', marginTop: '14px' }}>
-                ??? ??????
+                حفل الزفاف
               </p>
             </>
           )}
