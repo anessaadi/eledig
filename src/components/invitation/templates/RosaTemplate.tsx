@@ -23,16 +23,16 @@ const MONTHS_AR = [
 ];
 
 const PROGRAMME_FR = [
-  { time: '12h00', label: 'Début des festivités' },
-  { time: '14h00', label: 'Déjeuner' },
-  { time: '17h00', label: 'Cortège nuptial' },
-  { time: '19h00', label: 'Début de soirée' },
+  { time: '10h00', label: 'Début de la soirée' },
+  { time: '12h00', label: 'Le Dîner' },
+  { time: '14h00', label: 'Le Cortège' },
+  { time: '20h00', label: 'Clôture de la soirée' },
 ];
 const PROGRAMME_AR = [
-  { time: '12h00', label: 'مراسم النكاح' },
-  { time: '14h00', label: 'الغداء' },
-  { time: '17h00', label: 'الكورتاج' },
-  { time: '19h00', label: 'بداية السهرة' },
+  { time: '10h00', label: 'بداية الحفلة' },
+  { time: '12h00', label: 'الأكل' },
+  { time: '14h00', label: 'الكورتاج' },
+  { time: '20h00', label: 'نهاية الحفلة' },
 ];
 
 const TEXT = {
