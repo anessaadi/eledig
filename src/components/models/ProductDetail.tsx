@@ -1,8 +1,25 @@
 'use client';
 import { useState } from 'react';
 import Image from 'next/image';
-import { ButtonLink } from '@/components/ui/Button';
 import type { Model } from '@/data/models';
+
+function ExternalLinkIcon() {
+  return (
+    <svg
+      className="inline-block h-3 w-3 ml-1 opacity-50"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+      />
+    </svg>
+  );
+}
 
 export default function ProductDetail({
   model,
@@ -23,158 +40,140 @@ export default function ProductDetail({
 }) {
   const [selectedId, setSelectedId] = useState(model.colors[0].id);
 
-  const imgFor = (colorId: string) =>
-    model.productNum
-      ? `/productpics/template ${model.productNum} ${colorId}.webp`
-      : (model.image ?? '/logo.webp');
-
-  // Put selected color first, then the rest
-  const orderedColors = [
-    model.colors.find((c) => c.id === selectedId)!,
-    ...model.colors.filter((c) => c.id !== selectedId),
-  ].slice(0, 3);
+  const product = {
+    name:        model.name[locale],
+    description: model.description[locale],
+    price:       model.price.toLocaleString('fr-FR'),
+    currency:    locale === 'ar' ? 'دج' : 'DZD',
+    features:    locale === 'ar'
+      ? ['رابط شخصي', 'التوصيل خلال 24 ساعة', 'دعم واتساب']
+      : ['Lien personnalisé', 'Livraison sous 24h', 'Support WhatsApp'],
+    languages:   model.languages.map((l) => (l === 'fr' ? 'Français' : 'العربية')),
+    colors:      model.colors,
+    demoFrHref:  `/fr/demo/${model.slug}?lang=fr&color=${selectedId}`,
+    demoArHref:  `/ar/demo/${model.slug}?lang=ar&color=${selectedId}`,
+    hasAr:       model.languages.includes('ar'),
+    image:       model.productNum
+      ? `/productpics/template ${model.productNum} ${selectedId}.webp`
+      : (model.image ?? '/logo.webp'),
+  };
 
   return (
-    <div className="mt-8 max-w-lg mx-auto">
-      {/* 3-image gallery */}
-      {orderedColors.length === 1 ? (
-        <div className="relative aspect-[3/4] w-full overflow-hidden rounded-3xl bg-sand">
-          <Image
-            src={imgFor(orderedColors[0].id)}
-            alt={model.name[locale]}
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-      ) : (
-        <div className="flex gap-2 h-[420px]">
-          {/* Main large image */}
-          <div
-            className="relative flex-[2] overflow-hidden rounded-3xl bg-sand cursor-pointer"
-            onClick={() => setSelectedId(orderedColors[0].id)}
-          >
+    <>
+      {/* Extra bottom padding so the sticky CTA never covers content */}
+      <div className="mt-8 max-w-lg mx-auto pb-28">
+
+        {/* ── Block A: Hero ── */}
+        <section>
+          <div className="relative aspect-square w-full overflow-hidden rounded-3xl bg-sand">
             <Image
-              key={orderedColors[0].id}
-              src={imgFor(orderedColors[0].id)}
-              alt={orderedColors[0].label[locale]}
+              key={selectedId}
+              src={product.image}
+              alt={product.name}
               fill
               className="object-cover"
               priority
             />
           </div>
 
-          {/* Side smaller images */}
-          <div className="flex flex-col gap-2 flex-1">
-            {orderedColors.slice(1, 3).map((c) => (
-              <div
+          {/* Color picker */}
+          <div className="mt-4 flex justify-center gap-3">
+            {product.colors.map((c) => (
+              <button
                 key={c.id}
+                title={c.label[locale]}
                 onClick={() => setSelectedId(c.id)}
-                className="relative flex-1 overflow-hidden rounded-2xl bg-sand cursor-pointer opacity-70 hover:opacity-100 transition-opacity"
-              >
-                <Image
-                  src={imgFor(c.id)}
-                  alt={c.label[locale]}
-                  fill
-                  className="object-cover"
-                />
-              </div>
+                className={`h-7 w-7 rounded-full border-2 transition-all ${
+                  c.id === selectedId ? 'border-ink scale-110' : 'border-transparent'
+                }`}
+                style={{ background: c.hex }}
+              />
             ))}
           </div>
-        </div>
-      )}
+        </section>
 
-      {/* Color dots */}
-      <div className="mt-4 flex justify-center gap-3">
-        {model.colors.map((c) => (
-          <button
-            key={c.id}
-            title={c.label[locale]}
-            onClick={() => setSelectedId(c.id)}
-            className={`h-7 w-7 rounded-full border-2 transition-all ${
-              c.id === selectedId ? 'border-ink scale-110' : 'border-transparent'
-            }`}
-            style={{ background: c.hex }}
-          />
-        ))}
-      </div>
+        {/* ── Block B: Info ── */}
+        <section className="mt-8">
+          <h1 className="display text-4xl text-ink">{product.name}</h1>
+          <p className="mt-3 leading-relaxed text-muted">{product.description}</p>
 
-      {/* Name & description */}
-      <div className="mt-6">
-        <h1 className="display text-4xl text-ink">{model.name[locale]}</h1>
-        <p className="mt-3 leading-relaxed text-muted">{model.description[locale]}</p>
-      </div>
+          {/* Price */}
+          <div className="mt-5 flex items-baseline gap-2">
+            <span className="display text-5xl font-bold text-ink">{product.price}</span>
+            <span className="text-lg font-semibold text-muted">{product.currency}</span>
+          </div>
 
-      {/* Languages */}
-      <div className="mt-6">
-        <p className="text-xs uppercase tracking-[0.3em] text-muted">{labels.languages}</p>
-        <div className="mt-2 flex gap-2">
-          {model.languages.map((l) => (
-            <span
-              key={l}
-              className="rounded-full border border-line px-4 py-1.5 text-xs uppercase tracking-wider text-ink"
-            >
-              {l === 'fr' ? 'Français' : 'العربية'}
-            </span>
-          ))}
-        </div>
-      </div>
+          {/* Language pills */}
+          <div className="mt-4 flex gap-2">
+            {product.languages.map((l) => (
+              <span
+                key={l}
+                className="rounded-full border border-line px-4 py-1.5 text-xs uppercase tracking-wider text-ink"
+              >
+                {l}
+              </span>
+            ))}
+          </div>
+        </section>
 
-      {/* Price box */}
-      <div className="mt-6 rounded-2xl border border-line p-5 flex gap-4 justify-between items-start">
-        <div>
-          <p className="display text-5xl text-ink">{model.price.toLocaleString('fr-FR')}</p>
-          <p className="mt-1 text-sm text-muted font-medium">DZD</p>
-        </div>
-        <ul className="text-sm text-muted space-y-1.5 text-right">
-          {locale === 'ar' ? (
-            <>
-              <li>✓ رابط شخصي</li>
-              <li>✓ التوصيل خلال 24 ساعة</li>
-              <li>✓ دعم واتساب</li>
-            </>
-          ) : (
-            <>
-              <li>✓ Lien personnalisé</li>
-              <li>✓ Livraison sous 24h</li>
-              <li>✓ Support WhatsApp</li>
-            </>
-          )}
-        </ul>
-      </div>
+        {/* ── Block C: Value / Features ── */}
+        <section className="mt-8 rounded-2xl border border-line p-5">
+          <ul className="space-y-3">
+            {product.features.map((f) => (
+              <li key={f} className="flex items-center gap-3 text-sm text-ink">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent text-xs">
+                  ✓
+                </span>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </section>
 
-      {/* Demo buttons */}
-      <div className="mt-8">
-        <p className="text-center text-xs uppercase tracking-[0.3em] text-muted mb-4">
-          Voir la démo &mdash; نموذج الدعوة
-        </p>
-        <div className="space-y-3">
-          <a
-            href={`/fr/demo/${model.slug}?lang=fr&color=${selectedId}`}
-            className="flex items-center justify-between w-full rounded-2xl border border-line px-5 py-4 text-ink transition-colors hover:border-accent hover:text-accent"
-          >
-            <span className="text-sm font-medium">Version française</span>
-            <span className="text-xs text-muted">Voir en FR →</span>
-          </a>
-          {model.languages.includes('ar') && (
+        {/* ── Block D: Demo buttons ── */}
+        <section className="mt-8">
+          <p className="text-center text-xs uppercase tracking-[0.3em] text-muted mb-4">
+            Voir la démo &mdash; نموذج الدعوة
+          </p>
+          <div className="space-y-3">
             <a
-              href={`/ar/demo/${model.slug}?lang=ar&color=${selectedId}`}
+              href={product.demoFrHref}
+              target="_blank"
+              rel="noreferrer"
               className="flex items-center justify-between w-full rounded-2xl border border-line px-5 py-4 text-ink transition-colors hover:border-accent hover:text-accent"
-              dir="rtl"
             >
-              <span className="text-sm font-medium">النسخة العربية</span>
-              <span className="text-xs text-muted">← مشاهدة</span>
+              <span className="text-sm font-medium">Version française</span>
+              <span className="text-xs text-muted">Voir en FR <ExternalLinkIcon /></span>
             </a>
-          )}
-        </div>
+
+            {product.hasAr && (
+              <a
+                href={product.demoArHref}
+                target="_blank"
+                rel="noreferrer"
+                dir="rtl"
+                className="flex items-center justify-between w-full rounded-2xl border border-line px-5 py-4 text-ink transition-colors hover:border-accent hover:text-accent"
+              >
+                <span className="text-sm font-medium">النسخة العربية</span>
+                <span className="text-xs text-muted"><ExternalLinkIcon /> مشاهدة</span>
+              </a>
+            )}
+          </div>
+        </section>
       </div>
 
-      {/* Order button */}
-      <div className="mt-6 mb-10">
-        <ButtonLink href={labels.orderHref} variant="solid" className="w-full justify-center">
+      {/* ── Sticky CTA: Order button ── */}
+      <div
+        className="fixed bottom-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-sm px-4 py-3"
+        style={{ boxShadow: '0 -2px 10px rgba(0,0,0,0.1)' }}
+      >
+        <a
+          href={labels.orderHref}
+          className="flex w-full items-center justify-center rounded-2xl bg-accent px-6 py-4 text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
+        >
           {labels.order}
-        </ButtonLink>
+        </a>
       </div>
-    </div>
+    </>
   );
 }
