@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { MapBlock } from '../MapBlock';
 import type { ReactNode } from 'react';
 import MariageEnvelope from './MariageEnvelope';
@@ -138,6 +138,14 @@ export default function MariageTemplate({
   const displayFont = isAr ? AR : FR;
   const bodyFont = isAr ? AR_BODY : FR_BODY;
 
+  const videoRef = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = true;
+    v.play().catch(() => {});
+  }, []);
+
   const d = new Date(data.date);
   const day = d.getDate();
   const month = d.getMonth();
@@ -162,10 +170,12 @@ export default function MariageTemplate({
       <div style={{ position: 'relative', height: '100dvh', width: '100%', overflow: 'hidden' }}>
         {/* Video background */}
         <video
+          ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
+          preload="auto"
           style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
         >
           <source src="/templates/mariage/weddingvideo.mp4" type="video/mp4" />

@@ -1,7 +1,6 @@
 ﻿'use client';
 
 import React, { useRef, useEffect } from 'react';
-import type { ReactNode } from 'react';
 import GalaxyEnvelope from './GalaxyEnvelope';
 import { MapBlock } from '../MapBlock';
 import type { InviteData, InviteStyle } from './InvitationTemplate';
@@ -119,29 +118,6 @@ function StarDivider({ color }: { color: string }) {
   );
 }
 
-function GalaxyFrame({ color, children }: { color: string; children: ReactNode }) {
-  return (
-    <div style={{ position: 'relative', padding: '34px 26px' }}>
-      <svg
-        viewBox="0 0 320 180"
-        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        <rect x="8" y="8" width="304" height="164" rx="2" ry="2"
-          fill="none" stroke={color} strokeWidth="1.4" opacity="0.6" />
-        {/* corner stars */}
-        {([[8, 8], [312, 8], [8, 172], [312, 172]] as [number, number][]).map(([cx, cy], i) => (
-          <polygon key={i}
-            points={`${cx},${cy - 6} ${cx + 2},${cy - 2} ${cx + 6},${cy - 2} ${cx + 3},${cy + 1} ${cx + 4},${cy + 6} ${cx},${cy + 3} ${cx - 4},${cy + 6} ${cx - 3},${cy + 1} ${cx - 6},${cy - 2} ${cx - 2},${cy - 2}`}
-            fill={color} opacity="0.6"
-          />
-        ))}
-      </svg>
-      <div style={{ position: 'relative', zIndex: 1 }}>{children}</div>
-    </div>
-  );
-}
 
 export default function GalaxyTemplate({
   data,
@@ -161,7 +137,10 @@ export default function GalaxyTemplate({
 
   const videoRef = useRef<HTMLVideoElement>(null);
   useEffect(() => {
-    videoRef.current?.play().catch(() => {});
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = true;       // React doesn't always set the muted DOM property — Safari requires it
+    v.play().catch(() => {});
   }, []);
   const dir = isAr ? 'rtl' : 'ltr';
   const displayFont = isAr ? AR : FR;

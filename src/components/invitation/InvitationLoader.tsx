@@ -15,6 +15,7 @@ export default function InvitationLoader({
   waitFor?: string[];
 }) {
   const [ready, setReady] = useState(false);
+  const [fading, setFading] = useState(false);
   const [overlayGone, setOverlayGone] = useState(false);
 
   useEffect(() => {
@@ -22,7 +23,6 @@ export default function InvitationLoader({
     function reveal() { if (!cancelled) setReady(true); }
 
     if (waitFor.length > 0) {
-      // Only wait for the specific envelope images
       let loaded = 0;
       const pending = waitFor.map((src) => {
         const img = new Image();
@@ -33,9 +33,8 @@ export default function InvitationLoader({
         img.src = src;
         return img;
       });
-      // If all already cached, complete will fire synchronously before this runs
       if (loaded >= waitFor.length) { reveal(); return; }
-      const timeout = setTimeout(reveal, 3000);
+      const timeout = setTimeout(reveal, 4000);
       return () => { cancelled = true; clearTimeout(timeout); void pending; };
     }
 
@@ -46,7 +45,7 @@ export default function InvitationLoader({
     }
     if (checkImages()) { reveal(); return; }
 
-    const timeout = setTimeout(reveal, 3000);
+    const timeout = setTimeout(reveal, 4000);
     const imgs = Array.from(document.images).filter((img) => !img.complete);
     if (imgs.length === 0) { reveal(); clearTimeout(timeout); return; }
 
@@ -60,10 +59,12 @@ export default function InvitationLoader({
   }, []);
 
   useEffect(() => {
-    if (ready) {
-      const t = setTimeout(() => setOverlayGone(true), 600);
-      return () => clearTimeout(t);
-    }
+    if (!ready) return;
+    // Wait 400ms after ready so the envelope has time to render and paint from cache,
+    // then start the fade, then remove from DOM after the transition completes.
+    const t1 = setTimeout(() => setFading(true), 400);
+    const t2 = setTimeout(() => setOverlayGone(true), 1000);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
   }, [ready]);
 
   return (
@@ -80,9 +81,9 @@ export default function InvitationLoader({
             alignItems: 'center',
             justifyContent: 'center',
             background: bg,
-            opacity: ready ? 0 : 1,
+            opacity: fading ? 0 : 1,
             transition: 'opacity 0.5s ease-out',
-            pointerEvents: ready ? 'none' : 'auto',
+            pointerEvents: fading ? 'none' : 'auto',
           }}
         >
           <style>{`@keyframes _loader-spin { to { transform: rotate(360deg); } }`}</style>
