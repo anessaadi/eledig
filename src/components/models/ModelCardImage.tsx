@@ -7,12 +7,10 @@ export default function ModelCardImage({
   productNum,
   colors,
   name,
-  fallback,
 }: {
   productNum: string;
   colors: ModelColor[];
   name: string;
-  fallback: string;
 }) {
   const [index, setIndex] = useState(0);
 
@@ -22,16 +20,19 @@ export default function ModelCardImage({
     return () => clearInterval(id);
   }, [colors.length]);
 
-  const src = `/productpics/template ${productNum} ${colors[index].id}.webp`;
-
   return (
-    <Image
-      key={src}
-      src={src}
-      alt={name}
-      fill
-      className="object-cover transition-opacity duration-500"
-      onError={(e) => { (e.currentTarget as HTMLImageElement).src = fallback; }}
-    />
+    <>
+      {colors.map((c, i) => (
+        <Image
+          key={c.id}
+          src={`/productpics/template ${productNum} ${c.id}.webp`}
+          alt={i === 0 ? name : ''}
+          fill
+          className="object-cover transition-opacity duration-500"
+          style={{ opacity: i === index ? 1 : 0 }}
+          priority={i === 0}
+        />
+      ))}
+    </>
   );
 }
