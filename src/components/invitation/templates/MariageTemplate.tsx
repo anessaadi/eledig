@@ -5,6 +5,7 @@ import { MapBlock } from '../MapBlock';
 import type { ReactNode } from 'react';
 import MariageEnvelope from './MariageEnvelope';
 import type { InviteData, InviteStyle } from './InvitationTemplate';
+import { useInvitationReady } from '@/components/invitation/InvitationReadyContext';
 
 const FR = 'var(--font-fr-display), Georgia, serif';
 const FR_BODY = 'var(--font-fr-body), Georgia, serif';
@@ -138,16 +139,27 @@ export default function MariageTemplate({
   const displayFont = isAr ? AR : FR;
   const bodyFont = isAr ? AR_BODY : FR_BODY;
 
+  const ready = useInvitationReady();
   const videoRef = useRef<HTMLVideoElement>(null);
+
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
     v.muted = true;
     v.setAttribute('muted', '');
     v.setAttribute('playsinline', '');
+    v.setAttribute('webkit-playsinline', '');
+    const tryPlay = () => v.play().catch(() => {});
+    v.addEventListener('loadedmetadata', tryPlay, { once: true });
     v.load();
-    v.play().catch(() => {});
+    return () => v.removeEventListener('loadedmetadata', tryPlay);
   }, []);
+
+  // Retry when loading overlay is gone — iOS blocks play() on covered elements
+  useEffect(() => {
+    if (!ready) return;
+    videoRef.current?.play().catch(() => {});
+  }, [ready]);
 
   const d = new Date(data.date);
   const day = d.getDate();

@@ -4,6 +4,7 @@ import React, { useRef, useEffect } from 'react';
 import GalaxyEnvelope from './GalaxyEnvelope';
 import { MapBlock } from '../MapBlock';
 import type { InviteData, InviteStyle } from './InvitationTemplate';
+import { useInvitationReady } from '@/components/invitation/InvitationReadyContext';
 
 const FR = 'var(--font-fr-display), Georgia, serif';
 const FR_BODY = 'var(--font-fr-body), Georgia, serif';
@@ -135,16 +136,27 @@ export default function GalaxyTemplate({
   const hue = HUE[colorId] ?? 0;
   const s = SCHEMES[colorId] ?? SCHEMES.burgundy;
 
+  const ready = useInvitationReady();
   const videoRef = useRef<HTMLVideoElement>(null);
+
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
     v.muted = true;
-    v.setAttribute('muted', '');       // iOS requires the HTML attribute, not just the JS property
-    v.setAttribute('playsinline', ''); // belt-and-suspenders for older iOS WebKit
-    v.load();                          // force iOS to re-evaluate autoplay eligibility
-    v.play().catch(() => {});
+    v.setAttribute('muted', '');
+    v.setAttribute('playsinline', '');
+    v.setAttribute('webkit-playsinline', '');
+    const tryPlay = () => v.play().catch(() => {});
+    v.addEventListener('loadedmetadata', tryPlay, { once: true });
+    v.load();
+    return () => v.removeEventListener('loadedmetadata', tryPlay);
   }, []);
+
+  // Retry when the loading overlay is gone — iOS blocks play() on covered elements
+  useEffect(() => {
+    if (!ready) return;
+    videoRef.current?.play().catch(() => {});
+  }, [ready]);
   const dir = isAr ? 'rtl' : 'ltr';
   const displayFont = isAr ? AR : FR;
   const bodyFont = isAr ? AR_BODY : FR_BODY;
