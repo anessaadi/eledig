@@ -18,7 +18,6 @@ export default async function ModelCard({ model, locale }: { model: Model; local
               productNum={model.productNum}
               colors={model.colors}
               name={model.name[locale]}
-              fallback={model.image ?? '/logo.webp'}
             />
           ) : model.image ? (
             <Image
