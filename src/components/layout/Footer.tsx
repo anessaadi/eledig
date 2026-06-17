@@ -9,7 +9,7 @@ export default async function Footer() {
     <footer className="border-t border-line bg-sand">
       <div className="mx-auto max-w-6xl px-5 py-14">
         <div className="flex flex-col items-center gap-5 text-center">
-          <Image src="/logo.png" alt="L'élégance digitale" width={60} height={60} className="rounded-lg" />
+          <Image src="/logo.webp" alt="L'élégance digitale" width={60} height={60} className="rounded-lg" />
           <p className="display text-2xl text-accent">L&apos;élégance digitale</p>
           <p className="max-w-md text-muted">{t('tagline')}</p>
           <div className="divider-gold w-40" />

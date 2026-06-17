@@ -1,8 +1,11 @@
 import { notFound } from 'next/navigation';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import ReactDOM from 'react-dom';
 import { MODELS, getModel } from '@/data/models';
+import { getEnvelopeImageUrls } from '@/lib/envelopePreloads';
 import EnvelopeReveal from '@/components/invitation/EnvelopeReveal';
 import InvitationTemplate from '@/components/invitation/templates/InvitationTemplate';
+import InvitationLoader from '@/components/invitation/InvitationLoader';
 
 export function generateStaticParams() {
   return MODELS.map((m) => ({ slug: m.slug }));
@@ -34,6 +37,11 @@ export default async function DemoPage({
   const color = (searchParams.color ? model.colors.find((c) => c.id === searchParams.color) : null) ?? model.colors[0];
   const s = SAMPLE[demoLang];
 
+  for (const src of getEnvelopeImageUrls(model.variant, color.id)) {
+    (ReactDOM as unknown as { preload: (href: string, opts: { as: string; fetchPriority: string }) => void })
+      .preload(src, { as: 'image', fetchPriority: 'high' });
+  }
+
   const DATE_OVERRIDES: Record<string, string> = {
     'islamic-or': '2026-08-03',
     'rosa': '2026-08-06',
@@ -42,12 +50,16 @@ export default async function DemoPage({
     'golden': '2026-08-27',
   };
   const inviteDate = DATE_OVERRIDES[slug] ?? new Date(Date.now() + 1000 * 60 * 60 * 24 * 60).toISOString();
+  const envelopeUrls = getEnvelopeImageUrls(model.variant, color.id);
+
   const templateEl = (
-    <InvitationTemplate
-      locale={demoLang}
-      data={{ ...s, date: inviteDate }}
-      style={{ variant: model.variant, bg: color.bg, ink: color.ink, accent: color.hex, colorId: color.id }}
-    />
+    <InvitationLoader bg={color.bg} accent={color.hex} waitFor={envelopeUrls}>
+      <InvitationTemplate
+        locale={demoLang}
+        data={{ ...s, date: inviteDate }}
+        style={{ variant: model.variant, bg: color.bg, ink: color.ink, accent: color.hex, colorId: color.id }}
+      />
+    </InvitationLoader>
   );
 
   // These variants have their own built-in envelope animation.

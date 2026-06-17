@@ -1,6 +1,7 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
+import { MapBlock } from '../MapBlock';
 import type { ReactNode } from 'react';
 import IslamicEnvelope from './IslamicEnvelope';
 import type { InviteData, InviteStyle } from './InvitationTemplate';
@@ -15,8 +16,8 @@ const MONTHS_FR = [
   'JUILLET', 'AOÛT', 'SEPTEMBRE', 'OCTOBRE', 'NOVEMBRE', 'DÉCEMBRE',
 ];
 const MONTHS_AR = [
-  'جانفي', 'فيفري', 'مارس', 'أفريل', 'ماي', 'جوان',
-  'جويلية', 'أوت', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
+  'يناير', 'فيفري', 'مارس', 'أبريل', 'ماي', 'جوان',
+  'جويلية', 'آوت', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
 ];
 
 type Scheme = {
@@ -43,15 +44,15 @@ type Scheme = {
 const SCHEMES: Record<string, Scheme> = {
   gold: {
     pageBg: '#f9f1e6',
-    heroImage: '/templates/islamic/TMP002FR1GOLD.png',
-    secondImage: '/templates/islamic/TMP002FR2GOLD.png',
-    dateBg: '/templates/islamic/TMP002DATEBACKGROUND.png',
+    heroImage: '/templates/islamic/TMP002FR1GOLD.webp',
+    secondImage: '/templates/islamic/TMP002FR2GOLD.webp',
+    dateBg: '/templates/islamic/TMP002DATEBACKGROUND.webp',
     dateBgText: '#3d2b0a',
-    closingImage: '/templates/islamic/TMP002FR3GOLD.png',
+    closingImage: '/templates/islamic/TMP002FR3GOLD.webp',
     arImages: {
-      heroImage:    '/templates/islamic/TMP002AR1GOLD.png',
-      secondImage:  '/templates/islamic/TMP002AR2GOLD.png',
-      closingImage: '/templates/islamic/TMP002AR3GOLD.png',
+      heroImage:    '/templates/islamic/TMP002AR1GOLD.webp',
+      secondImage:  '/templates/islamic/TMP002AR2GOLD.webp',
+      closingImage: '/templates/islamic/TMP002AR3GOLD.webp',
     },
     envelopeLeft: '/templates/islamic/left002.webp',
     envelopeRight: '/templates/islamic/right002.webp',
@@ -67,15 +68,15 @@ const SCHEMES: Record<string, Scheme> = {
   },
   sky: {
     pageBg: 'linear-gradient(180deg, #e5ecf6 0%, #c8d8ee 100%)',
-    heroImage: '/templates/islamic/TMP002FR1SKY.png',
-    secondImage: '/templates/islamic/TMP002FR2SKY.png',
-    dateBg: '/templates/islamic/TMP002DATEBACKGROUNDSKY.png',
+    heroImage: '/templates/islamic/TMP002FR1SKY.webp',
+    secondImage: '/templates/islamic/TMP002FR2SKY.webp',
+    dateBg: '/templates/islamic/TMP002DATEBACKGROUNDSKY.webp',
     dateBgText: '#091e30',
-    closingImage: '/templates/islamic/TMP002FR3BLUE.png',
+    closingImage: '/templates/islamic/TMP002FR3BLUE.webp',
     arImages: {
-      heroImage:    '/templates/islamic/TMP002AR1BLUE.png',
-      secondImage:  '/templates/islamic/TMP002AR2SKY.png',
-      closingImage: '/templates/islamic/TMP002AR3BLUE.png',
+      heroImage:    '/templates/islamic/TMP002AR1BLUE.webp',
+      secondImage:  '/templates/islamic/TMP002AR2SKY.webp',
+      closingImage: '/templates/islamic/TMP002AR3BLUE.webp',
     },
     envelopeLeft: '/templates/islamic/blueleft002.webp',
     envelopeRight: '/templates/islamic/blueright002.webp',
@@ -91,18 +92,18 @@ const SCHEMES: Record<string, Scheme> = {
   },
   pink: {
     pageBg: 'linear-gradient(180deg, #fdf0f4 0%, #f5d0dc 100%)',
-    heroImage: '/templates/islamic/TMP002FR1PINK.png',
-    secondImage: '/templates/islamic/TMP002FR2PINK.png',
-    dateBg: '/templates/islamic/TMP002DATEBACKGROUNDPINK.png',
+    heroImage: '/templates/islamic/TMP002FR1PINK.webp',
+    secondImage: '/templates/islamic/TMP002FR2PINK.webp',
+    dateBg: '/templates/islamic/TMP002DATEBACKGROUNDPINK.webp',
     dateBgText: '#5a1028',
-    closingImage: '/templates/islamic/TMP002FR3PINK.png',
+    closingImage: '/templates/islamic/TMP002FR3PINK.webp',
     arImages: {
-      heroImage:    '/templates/islamic/TMP002AR1PINK.png',
-      secondImage:  '/templates/islamic/TMP002AR2PINK.png',
-      closingImage: '/templates/islamic/TMP002AR3PINK.png',
+      heroImage:    '/templates/islamic/TMP002AR1PINK.webp',
+      secondImage:  '/templates/islamic/TMP002AR2PINK.webp',
+      closingImage: '/templates/islamic/TMP002AR3PINK.webp',
     },
-    envelopeLeft: '/templates/islamic/pinkleft002.png',
-    envelopeRight: '/templates/islamic/pinkright002.png',
+    envelopeLeft: '/templates/islamic/pinkleft002.webp',
+    envelopeRight: '/templates/islamic/pinkright002.webp',
     accent: '#c06080',
     accentLight: '#f0b0c0',
     text: '#5a1028',
@@ -123,9 +124,9 @@ const PROGRAMME_FR = [
 ];
 const PROGRAMME_AR = [
   { time: '12h00', label: 'بداية الحفلة' },
-  { time: '14h00', label: 'الأكل' },
-  { time: '17h00', label: 'كورتاج' },
-  { time: '19h00', label: 'بداية الحفلة' },
+  { time: '14h00', label: 'وليمة' },
+  { time: '17h00', label: 'الموكب' },
+  { time: '19h00', label: 'بداية السهرة' },
 ];
 
 const TEXT_LABELS = {
@@ -133,7 +134,7 @@ const TEXT_LABELS = {
   ar: { programme: 'البرنامج', resumeTitle: 'ملخص', resumeDate: 'التاريخ', resumeTime: 'التوقيت', resumePlace: 'المكان' },
 };
 
-// ─── SVG helpers ──────────────────────────────────────────────────────────────
+// --- SVG helpers --------------------------------------------------------------
 
 function IslamicDecoration({ color }: { color: string }) {
   return (
@@ -185,16 +186,18 @@ function OrnateFrame({ color, children }: { color: string; children: ReactNode }
   );
 }
 
-// ─── Main component ───────────────────────────────────────────────────────────
+// --- Main component -----------------------------------------------------------
 
 export default function IslamicTemplate({
   data,
   style,
   locale,
+  customImages,
 }: {
   data: InviteData;
   style: InviteStyle;
   locale: 'fr' | 'ar';
+  customImages?: Record<string, string>;
 }) {
   const isAr = locale === 'ar';
   const schemeKey = (style.colorId && SCHEMES[style.colorId]) ? style.colorId : 'gold';
@@ -212,7 +215,7 @@ export default function IslamicTemplate({
 
   const formattedDate = `${String(day).padStart(2, '0')}/${String(month + 1).padStart(2, '0')}/${year}`;
   const tl = TEXT_LABELS[locale];
-  const programme = isAr ? PROGRAMME_AR : PROGRAMME_FR;
+  const programme = data.programme?.length ? data.programme : (isAr ? PROGRAMME_AR : PROGRAMME_FR);
 
   const mapQuery = encodeURIComponent(
     [data.venue, data.city].filter(Boolean).join(', ') || 'Casablanca, Morocco'
@@ -222,10 +225,10 @@ export default function IslamicTemplate({
     <div dir={dir} style={{ background: s.pageBg, color: s.text, fontFamily: bodyFont }}>
       <IslamicEnvelope leftSrc={s.envelopeLeft} rightSrc={s.envelopeRight} />
 
-      {/* ── Hero — full phone width ──────────────────────────────────────── */}
+      {/* -- Hero � full phone width ---------------------------------------- */}
       <div className="relative w-full">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={images.heroImage} alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        <img src={customImages?.heroImage ?? images.heroImage} alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
         <div
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
           style={{ animation: 'scroll-reveal 0.5s ease 2s both, scroll-hint 1.6s ease-in-out 2.5s infinite' }}
@@ -239,7 +242,7 @@ export default function IslamicTemplate({
         </div>
       </div>
 
-      {/* ── Second image ─────────────────────────────────────────────────── */}
+      {/* -- Second image --------------------------------------------------- */}
       {images.secondImage && (
         <div style={{ maxWidth: '480px', margin: '40px auto 0', padding: '0 24px' }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -247,7 +250,7 @@ export default function IslamicTemplate({
         </div>
       )}
 
-      {/* ── Page content ─────────────────────────────────────────────────── */}
+      {/* -- Page content --------------------------------------------------- */}
       <main style={{ maxWidth: '480px', margin: '0 auto', padding: '0 24px 72px' }}>
 
         {/* Save The Date */}
@@ -279,7 +282,7 @@ export default function IslamicTemplate({
               </p>
               {data.time && (
                 <p style={{ fontFamily: bodyFont, fontSize: 'clamp(14px, 4vw, 18px)', letterSpacing: '0.12em', color: s.dateBgText ?? s.text, margin: 0, opacity: 0.85 }}>
-                  {isAr ? `ابتداءً من ${data.time}` : `À PARTIR DE ${data.time.toUpperCase()}`}
+                  {isAr ? `اعتبارا من ${data.time}` : `À PARTIR DE ${data.time.toUpperCase()}`}
                 </p>
               )}
             </div>
@@ -291,7 +294,7 @@ export default function IslamicTemplate({
             </p>
             {data.time && (
               <p style={{ fontFamily: FR_BODY, fontSize: 'clamp(14px, 4vw, 18px)', letterSpacing: '0.15em', color: s.bannerText, marginTop: '7px', opacity: 0.8 }}>
-                {isAr ? `ابتداءً من ${data.time}` : `À PARTIR DE ${data.time.toUpperCase()}`}
+                {isAr ? `اعتبارا من ${data.time}` : `À PARTIR DE ${data.time.toUpperCase()}`}
               </p>
             )}
           </div>
@@ -342,23 +345,7 @@ export default function IslamicTemplate({
         >
           {isAr ? 'الموقع' : 'Localisation'}
         </h2>
-
-        <iframe
-          style={{
-            width: '100%',
-            maxWidth: '380px',
-            display: 'block',
-            margin: '24px auto 0',
-            borderRadius: '4px',
-            border: 'none',
-            boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
-          }}
-          title="Localisation"
-          height="220"
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          src={`https://www.google.com/maps?q=${mapQuery}&z=13&output=embed`}
-        />
+        <MapBlock mapUrl={data.mapUrl} mapLinkUrl={data.mapLinkUrl} />
 
         {(data.venue || data.city) && (
           <p
@@ -378,7 +365,7 @@ export default function IslamicTemplate({
           </p>
         )}
 
-        {/* Résumé */}
+        {/* R�sum� */}
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '44px' }}>
           <IslamicDecoration color={s.accent} />
         </div>
@@ -412,24 +399,7 @@ export default function IslamicTemplate({
         {images.closingImage ? (
           <div style={{ marginTop: '64px' }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={images.closingImage} alt="" style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '4px' }} />
-          </div>
-        ) : data.message ? (
-          <div style={{ marginTop: '64px' }}>
-            <OrnateFrame color={s.accent}>
-              <p
-                style={{
-                  fontFamily: bodyFont,
-                  fontStyle: isAr ? 'normal' : 'italic',
-                  fontSize: '15px',
-                  textAlign: 'center',
-                  lineHeight: 1.75,
-                  color: s.text,
-                }}
-              >
-                {data.message}
-              </p>
-            </OrnateFrame>
+            <img src={customImages?.closingImage ?? images.closingImage} alt="" style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '4px' }} />
           </div>
         ) : null}
 

@@ -1,6 +1,7 @@
 ﻿'use client';
 
 import React from 'react';
+import { MapBlock } from '../MapBlock';
 import type { ReactNode } from 'react';
 import KabyleEnvelope from './KabyleEnvelope';
 import type { InviteData, InviteStyle } from './InvitationTemplate';
@@ -15,8 +16,8 @@ const MONTHS_FR = [
   'JUILLET', 'AOÛT', 'SEPTEMBRE', 'OCTOBRE', 'NOVEMBRE', 'DÉCEMBRE',
 ];
 const MONTHS_AR = [
-  'جانفي', 'فيفري', 'مارس', 'أفريل', 'ماي', 'جوان',
-  'جويلية', 'أوت', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
+  'يناير', 'فيفري', 'مارس', 'أبريل', 'ماي', 'جوان',
+  'جويلية', 'آوت', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
 ];
 
 const DAYS_FR = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
@@ -30,7 +31,7 @@ const PROGRAMME_FR = [
 const PROGRAMME_AR = [
   { time: '18:00', label: 'مراسم النكاح' },
   { time: '19:00', label: 'العشاء والاحتفال' },
-  { time: '20:00', label: 'حفل الرقص' },
+  { time: '20:00', label: 'رقص جماعي' },
 ];
 const TEXT_LABELS = {
   fr: { programme: 'Programme', resumeTitle: 'Résumé', dateLabel: 'Date', venueLabel: 'Lieu', timeLabel: 'Heure' },
@@ -155,14 +156,16 @@ export default function KabyleTemplate({
   data,
   style,
   locale,
+  customImages,
 }: {
   data: InviteData;
   style: InviteStyle;
   locale: 'fr' | 'ar';
+  customImages?: Record<string, string>;
 }) {
   const isAr = locale === 'ar';
-  const heroImage = `/templates/kabyle/TMP008${isAr ? 'AR' : 'FR'}BEIGE.png`;
-  const closingImage = `/templates/kabyle/TMP008${isAr ? 'AR' : 'FR'}2BEIGE.png`;
+  const heroImage = `/templates/kabyle/TMP008${isAr ? 'AR' : 'FR'}BEIGE.webp`;
+  const closingImage = `/templates/kabyle/TMP008${isAr ? 'AR' : 'FR'}2BEIGE.webp`;
   const dir = isAr ? 'rtl' : 'ltr';
   const displayFont = isAr ? AR : FR;
   const bodyFont = isAr ? AR_BODY : FR_BODY;
@@ -174,7 +177,7 @@ export default function KabyleTemplate({
   const monthLabel = isAr ? MONTHS_AR[month] : MONTHS_FR[month];
   const formattedDate = `${day} ${monthLabel} ${year}`;
   const tl = TEXT_LABELS[locale];
-  const programme = isAr ? PROGRAMME_AR : PROGRAMME_FR;
+  const programme = data.programme?.length ? data.programme : (isAr ? PROGRAMME_AR : PROGRAMME_FR);
   const DAYS = isAr ? DAYS_AR : DAYS_FR;
   const { weeks, highlight } = buildCalendar(data.date);
   const calMonthLabel = isAr ? `${MONTHS_AR[month]} ${year}` : `${MONTHS_FR[month]} ${year}`;
@@ -184,13 +187,13 @@ export default function KabyleTemplate({
   );
 
   return (
-    <div dir={dir} style={{ backgroundImage: 'url(/templates/kabyle/backgroundkabyle.png)', backgroundSize: 'cover', backgroundPosition: 'center top', backgroundRepeat: 'no-repeat', backgroundAttachment: 'fixed', color: S.text, fontFamily: bodyFont }}>
+    <div dir={dir} style={{ backgroundImage: 'url(/templates/kabyle/backgroundkabyle.webp)', backgroundSize: 'cover', backgroundPosition: 'center top', backgroundRepeat: 'no-repeat', backgroundAttachment: 'fixed', color: S.text, fontFamily: bodyFont }}>
       <KabyleEnvelope upSrc={S.envelopeUp} downSrc={S.envelopeDown} />
 
       {/* Hero */}
       <div className="relative w-full" style={{ margin: 0 }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={heroImage} alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        <img src={customImages?.heroImage ?? heroImage} alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
         <div className="absolute bottom-32 left-1/2 -translate-x-1/2" style={{ animation: 'scroll-reveal 0.5s ease 2s both, scroll-hint 1.6s ease-in-out 2.5s infinite' }}>
           <div className="flex flex-col items-center gap-1">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: '#000000' }} aria-hidden="true">
@@ -254,7 +257,7 @@ export default function KabyleTemplate({
           </p>
           {data.time && (
             <p style={{ fontFamily: FR_BODY, fontSize: '12px', letterSpacing: '0.15em', color: S.bannerText, marginTop: '7px', opacity: 0.8 }}>
-              {isAr ? `ابتداءً من ${data.time}` : `À PARTIR DE ${data.time.toUpperCase()}`}
+              {isAr ? `اعتبارا من ${data.time}` : `À PARTIR DE ${data.time.toUpperCase()}`}
             </p>
           )}
         </div>
@@ -265,12 +268,7 @@ export default function KabyleTemplate({
         <h2 style={{ fontFamily: displayFont, fontSize: 'clamp(28px, 8vw, 36px)', fontStyle: isAr ? 'normal' : 'italic', textAlign: 'center', marginTop: '14px', color: S.text, lineHeight: 1.1 }}>
           {isAr ? 'الموقع' : 'Localisation'}
         </h2>
-
-        <iframe
-          style={{ width: '100%', maxWidth: '380px', display: 'block', margin: '24px auto 0', borderRadius: '4px', border: 'none', boxShadow: '0 8px 24px rgba(0,0,0,0.12)' }}
-          title="Localisation" height="220" loading="lazy" referrerPolicy="no-referrer-when-downgrade"
-          src={`https://www.google.com/maps?q=${mapQuery}&z=13&output=embed`}
-        />
+        <MapBlock mapUrl={data.mapUrl} mapLinkUrl={data.mapLinkUrl} />
 
         {(data.venue || data.city) && (
           <p style={{ fontFamily: bodyFont, fontSize: '14px', textAlign: 'center', marginTop: '16px', color: S.dim, letterSpacing: '0.05em', lineHeight: 1.45 }}>
@@ -337,7 +335,7 @@ export default function KabyleTemplate({
       {/* Closing image — full width */}
       <div style={{ marginTop: '70px' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={closingImage} alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        <img src={customImages?.closingImage ?? closingImage} alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
       </div>
     </div>
   );

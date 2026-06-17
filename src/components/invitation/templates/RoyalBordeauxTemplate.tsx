@@ -1,4 +1,5 @@
 ﻿import React from 'react';
+import { MapBlock } from '../MapBlock';
 import Image from 'next/image';
 import RoyalBordeauxEnvelope from './RoyalBordeauxEnvelope';
 import type { InviteData, InviteStyle } from './InvitationTemplate';
@@ -11,8 +12,8 @@ const MONTHS_FR = [
   'JUILLET', 'AOÛT', 'SEPTEMBRE', 'OCTOBRE', 'NOVEMBRE', 'DÉCEMBRE',
 ];
 const MONTHS_AR = [
-  'جانفي', 'فيفري', 'مارس', 'أفريل', 'ماي', 'جوان',
-  'جويلية', 'أوت', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
+  'يناير', 'فيفري', 'مارس', 'أبريل', 'ماي', 'جوان',
+  'جويلية', 'آوت', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
 ];
 
 const SERIF_FR = 'var(--font-fr-body), Georgia, serif';
@@ -27,10 +28,10 @@ const PROGRAMME_FR = [
   { time: '19h00', label: 'Début de soirée' },
 ];
 const PROGRAMME_AR = [
-  { time: '12h00', label: 'بداية الحفلة' },
-  { time: '14h00', label: 'الأكل' },
-  { time: '17h00', label: 'كورتاج' },
-  { time: '19h00', label: 'بداية الحفلة' },
+  { time: '12h00', label: 'مراسم النكاح' },
+  { time: '14h00', label: '?????' },
+  { time: '17h00', label: '??????' },
+  { time: '19h00', label: 'مراسم النكاح' },
 ];
 
 const TEXT = {
@@ -45,14 +46,14 @@ const TEXT = {
     resumePlace: 'LIEU',
   },
   ar: {
-    saveTheDate: 'احفظ التاريخ',
-    startingAt: (t: string) => `ابتداءً من ${t}`,
+    saveTheDate: '???? ???????',
+    startingAt: (t: string) => `??????? ?? ${t}`,
     programme: 'البرنامج',
-    localisation: 'الموقع',
+    localisation: '??????',
     resumeTitle: 'ملخص',
-    resumeDate: 'التاريخ',
-    resumeTime: 'التوقيت',
-    resumePlace: 'المكان',
+    resumeDate: '???????',
+    resumeTime: '???????',
+    resumePlace: '??????',
   },
 };
 
@@ -78,13 +79,13 @@ const SCHEMES: Record<string, Scheme> = {
     bg: 'radial-gradient(ellipse 140% 100% at 50% 30%, #0a3d1f 0%, #072b15 40%, #031409 100%)',
     cream: '#e8f5e9', dim: '#a8c8a8', dark: '#072b15',
     envelopeDown: '/templates/royal-bordeaux/down001.webp',
-    envelopeUp:   '/templates/royal-bordeaux/upgreen001.png',
+    envelopeUp:   '/templates/royal-bordeaux/upgreen001.webp',
   },
   purple: {
     bg: 'radial-gradient(ellipse 140% 100% at 50% 30%, #3b0764 0%, #2d0a52 40%, #150328 100%)',
     cream: '#f3e5f5', dim: '#c8a8d8', dark: '#2d0a52',
     envelopeDown: '/templates/royal-bordeaux/down001.webp',
-    envelopeUp:   '/templates/royal-bordeaux/uppurple001.png',
+    envelopeUp:   '/templates/royal-bordeaux/uppurple001.webp',
   },
 };
 
@@ -124,10 +125,12 @@ export default function RoyalBordeauxTemplate({
   data,
   style,
   locale,
+  customImages,
 }: {
   data: InviteData;
   style: InviteStyle;
   locale: 'fr' | 'ar';
+  customImages?: Record<string, string>;
 }) {
   const isAr = locale === 'ar';
   const SERIF = isAr ? SERIF_AR : SERIF_FR;
@@ -139,8 +142,8 @@ export default function RoyalBordeauxTemplate({
   const scheme = SCHEMES[colorId];
   const { bg: BG, cream: CREAM, dim: DIM, dark: BURGUNDY } = scheme;
   const lang = isAr ? 'AR' : 'FR';
-  const heroImage = `/templates/royal-bordeaux/TMP001${lang}1${colorId.toUpperCase()}.png`;
-  const closingImage = `/templates/royal-bordeaux/TMP001${lang}2${colorId.toUpperCase()}.png`;
+  const heroImage = `/templates/royal-bordeaux/TMP001${lang}1${colorId.toUpperCase()}.webp`;
+  const closingImage = `/templates/royal-bordeaux/TMP001${lang}2${colorId.toUpperCase()}.webp`;
 
   const { weeks, highlight, month, year, day } = buildCalendar(data.date);
   const formattedDate = `${String(day).padStart(2, '0')}/${String(month + 1).padStart(2, '0')}/${year}`;
@@ -160,7 +163,7 @@ export default function RoyalBordeauxTemplate({
       {/* Hero — full viewport height, image shrinks to 90% */}
       <div className="relative flex h-dvh w-full items-center justify-center overflow-hidden">
         <Image
-          src={heroImage}
+          src={customImages?.heroImage ?? heroImage}
           alt="Save the date"
           width={390}
           height={844}
@@ -272,14 +275,7 @@ export default function RoyalBordeauxTemplate({
         <h2 style={{ fontFamily: DISPLAY, fontWeight: isAr ? 400 : 600, letterSpacing: isAr ? '0.01em' : '0.04em', textAlign: 'center', lineHeight: 1.1, fontSize: 'clamp(30px, 8.5vw, 34px)', marginTop: '60px' }}>
           {t.localisation}
         </h2>
-        <iframe
-          style={{ width: '100%', maxWidth: '380px', display: 'block', margin: '28px auto 0', borderRadius: '4px', boxShadow: '0 14px 40px rgba(0,0,0,0.4)', border: 'none' }}
-          title="Localisation"
-          height="240"
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          src={`https://www.google.com/maps?q=${mapQuery}&z=13&output=embed`}
-        />
+        <MapBlock mapUrl={data.mapUrl} mapLinkUrl={data.mapLinkUrl} />
         {(data.venue || data.city) && (
           <p style={{ fontFamily: SERIF, fontStyle: 'italic', fontSize: '16px', textAlign: 'center', marginTop: '18px', color: DIM, lineHeight: 1.3, letterSpacing: '0.04em' }}>
             {data.venue && data.venue.toUpperCase()}
@@ -331,7 +327,7 @@ export default function RoyalBordeauxTemplate({
         {/* Closing image */}
         <div style={{ marginTop: '70px', maxWidth: '420px', margin: '70px auto 0' }}>
           <Image
-            src={closingImage}
+            src={customImages?.closingImage ?? closingImage}
             alt="Closing"
             width={420}
             height={600}

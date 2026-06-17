@@ -1,6 +1,7 @@
 ﻿'use client';
 
 import React from 'react';
+import { MapBlock } from '../MapBlock';
 import type { ReactNode } from 'react';
 import EleganceEnvelope from './EleganceEnvelope';
 import type { InviteData, InviteStyle } from './InvitationTemplate';
@@ -18,8 +19,8 @@ const PROGRAMME_FR = [
 ];
 const PROGRAMME_AR = [
   { time: '12h00', label: 'بداية الحفلة' },
-  { time: '14h00', label: 'الأكل' },
-  { time: '17h00', label: 'كورتاج' },
+  { time: '14h00', label: 'وليمة' },
+  { time: '17h00', label: 'الموكب' },
   { time: '19h00', label: 'بداية السهرة' },
 ];
 
@@ -33,8 +34,8 @@ const MONTHS_FR = [
   'JUILLET', 'AOÛT', 'SEPTEMBRE', 'OCTOBRE', 'NOVEMBRE', 'DÉCEMBRE',
 ];
 const MONTHS_AR = [
-  'جانفي', 'فيفري', 'مارس', 'أفريل', 'ماي', 'جوان',
-  'جويلية', 'أوت', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
+  'يناير', 'فيفري', 'مارس', 'أبريل', 'ماي', 'جوان',
+  'جويلية', 'آوت', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
 ];
 
 type Scheme = {
@@ -54,39 +55,39 @@ type Scheme = {
 const SCHEMES: Record<string, Scheme> = {
   burgundy: {
     pageBg: 'linear-gradient(180deg, #fdf0f2 0%, #f0d8dc 100%)',
-    envelopeLeft: '/templates/elegance/leftelegance001.png',
-    envelopeRight: '/templates/elegance/rightelegance001.png',
+    envelopeLeft: '/templates/elegance/leftelegance001.webp',
+    envelopeRight: '/templates/elegance/rightelegance001.webp',
     accent: '#9b1c3e', accentLight: '#e8a0b0',
     text: '#3d0f18', dim: '#8a4050',
     bannerBg: '#5c1222', bannerText: '#f5e0e4', btnText: '#f5e0e4', btnBg: 'linear-gradient(135deg, #5c2020 0%, #311211 100%)',
   },
   blue: {
     pageBg: 'linear-gradient(180deg, #eef2ff 0%, #d8e4f8 100%)',
-    envelopeLeft: '/templates/elegance/leftelegance001.png',
-    envelopeRight: '/templates/elegance/rightelegance001.png',
+    envelopeLeft: '/templates/elegance/leftelegance001.webp',
+    envelopeRight: '/templates/elegance/rightelegance001.webp',
     accent: '#1a56db', accentLight: '#93b4f0',
     text: '#0f1e3d', dim: '#3a5090',
     bannerBg: '#122060', bannerText: '#bfd0f8', btnText: '#050d20',
   },
   green: {
     pageBg: 'linear-gradient(180deg, #f0f9f2 0%, #d8f0dc 100%)',
-    envelopeLeft: '/templates/elegance/leftelegance001.png',
-    envelopeRight: '/templates/elegance/rightelegance001.png',
+    envelopeLeft: '/templates/elegance/leftelegance001.webp',
+    envelopeRight: '/templates/elegance/rightelegance001.webp',
     accent: '#2e7d32', accentLight: '#80c080',
     text: '#0f2a10', dim: '#3a6a3a',
     bannerBg: '#0a2010', bannerText: '#b0e0b0', btnText: '#040e05',
   },
   purple: {
     pageBg: 'linear-gradient(180deg, #f5f0fa 0%, #e8d8f4 100%)',
-    envelopeLeft: '/templates/elegance/leftelegance001.png',
-    envelopeRight: '/templates/elegance/rightelegance001.png',
+    envelopeLeft: '/templates/elegance/leftelegance001.webp',
+    envelopeRight: '/templates/elegance/rightelegance001.webp',
     accent: '#7b1fa2', accentLight: '#c080e0',
     text: '#1a0a2a', dim: '#5a3a7a',
     bannerBg: '#120820', bannerText: '#d0b0f0', btnText: '#080410',
   },
 };
 
-// ─── SVG helpers ──────────────────────────────────────────────────────────────
+// --- SVG helpers --------------------------------------------------------------
 
 function IslamicDivider({ color }: { color: string }) {
   return (
@@ -131,23 +132,25 @@ function EleganceFrame({ color, children }: { color: string; children: ReactNode
   );
 }
 
-// ─── Main component ───────────────────────────────────────────────────────────
+// --- Main component -----------------------------------------------------------
 
 export default function EleganceTemplate({
   data,
   style,
   locale,
+  customImages,
 }: {
   data: InviteData;
   style: InviteStyle;
   locale: 'fr' | 'ar';
+  customImages?: Record<string, string>;
 }) {
   const isAr = locale === 'ar';
   const colorId = (style.colorId && SCHEMES[style.colorId]) ? style.colorId : 'burgundy';
   const s = SCHEMES[colorId];
   const lang = isAr ? 'AR' : 'FR';
-  const heroImage = `/templates/elegance/TMP005${lang}${colorId.toUpperCase()}.png`;
-  const closingImage = `/templates/elegance/TMP005${lang}2${colorId.toUpperCase()}.png`;
+  const heroImage = `/templates/elegance/TMP005${lang}${colorId.toUpperCase()}.webp`;
+  const closingImage = `/templates/elegance/TMP005${lang}2${colorId.toUpperCase()}.webp`;
   const dir = isAr ? 'rtl' : 'ltr';
   const displayFont = isAr ? AR : FR;
   const bodyFont = isAr ? AR_BODY : FR_BODY;
@@ -160,20 +163,20 @@ export default function EleganceTemplate({
 
   const formattedDate = `${String(day).padStart(2, '0')}/${String(month + 1).padStart(2, '0')}/${year}`;
   const tl = TEXT_LABELS[locale];
-  const programme = isAr ? PROGRAMME_AR : PROGRAMME_FR;
+  const programme = data.programme?.length ? data.programme : (isAr ? PROGRAMME_AR : PROGRAMME_FR);
   const mapQuery = encodeURIComponent(
     [data.venue, data.city].filter(Boolean).join(', ') || 'Casablanca, Morocco'
   );
 
   return (
-    <div dir={dir} style={{ backgroundImage: 'url(/templates/elegance/backgroundelegance.jpg)', backgroundSize: 'cover', backgroundPosition: 'center top', backgroundRepeat: 'no-repeat', backgroundAttachment: 'fixed', color: s.text, fontFamily: bodyFont }}>
-      <EleganceEnvelope leftSrc={s.envelopeLeft} rightSrc={s.envelopeRight} />
+    <div dir={dir} style={{ backgroundImage: 'url(/templates/elegance/backgroundelegance.webp)', backgroundSize: 'cover', backgroundPosition: 'center top', backgroundRepeat: 'no-repeat', backgroundAttachment: 'fixed', color: s.text, fontFamily: bodyFont }}>
+      <EleganceEnvelope leftSrc={customImages?.envelopeLeft ?? s.envelopeLeft} rightSrc={customImages?.envelopeRight ?? s.envelopeRight} />
 
-      {/* ── Hero ─────────────────────────────────────────────────────────── */}
+      {/* -- Hero ----------------------------------------------------------- */}
       <div className="relative w-full" style={{ margin: 0 }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={heroImage}
+          src={customImages?.heroImage ?? heroImage}
           alt=""
           style={{ width: '100%', height: 'auto', display: 'block' }}
         />
@@ -192,7 +195,7 @@ export default function EleganceTemplate({
         </div>
       </div>
 
-      {/* ── Page content ─────────────────────────────────────────────────── */}
+      {/* -- Page content --------------------------------------------------- */}
       <main style={{ maxWidth: '480px', margin: '0 auto', padding: '0 24px 72px' }}>
 
         {/* Save The Date */}
@@ -238,7 +241,7 @@ export default function EleganceTemplate({
               marginTop: '7px',
               opacity: 0.8,
             }}>
-              {isAr ? `ابتداءً من ${data.time}` : `À PARTIR DE ${data.time.toUpperCase()}`}
+              {isAr ? `اعتبارا من ${data.time}` : `À PARTIR DE ${data.time.toUpperCase()}`}
             </p>
           )}
         </div>
@@ -258,23 +261,7 @@ export default function EleganceTemplate({
         }}>
           {isAr ? 'الموقع' : 'Localisation'}
         </h2>
-
-        <iframe
-          style={{
-            width: '100%',
-            maxWidth: '380px',
-            display: 'block',
-            margin: '24px auto 0',
-            borderRadius: '4px',
-            border: 'none',
-            boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
-          }}
-          title="Localisation"
-          height="220"
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          src={`https://www.google.com/maps?q=${mapQuery}&z=13&output=embed`}
-        />
+        <MapBlock mapUrl={data.mapUrl} mapLinkUrl={data.mapLinkUrl} />
 
         {(data.venue || data.city) && (
           <p style={{
@@ -320,7 +307,7 @@ export default function EleganceTemplate({
           </div>
         </div>
 
-        {/* Résumé */}
+        {/* R�sum� */}
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '44px' }}>
           <IslamicDivider color={s.accent} />
         </div>
@@ -352,10 +339,10 @@ export default function EleganceTemplate({
 
       </main>
 
-      {/* Closing image — full width like hero */}
+      {/* Closing image � full width like hero */}
       <div style={{ marginTop: '70px' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={closingImage} alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        <img src={customImages?.closingImage ?? closingImage} alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
       </div>
     </div>
   );

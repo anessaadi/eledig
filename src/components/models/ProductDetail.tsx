@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Image from 'next/image';
 import { ButtonLink } from '@/components/ui/Button';
 import type { Model } from '@/data/models';
 
@@ -21,85 +22,148 @@ export default function ProductDetail({
   };
 }) {
   const [selectedId, setSelectedId] = useState(model.colors[0].id);
-  const selected = model.colors.find((c) => c.id === selectedId) ?? model.colors[0];
+
+  const imgFor = (colorId: string) =>
+    model.productNum
+      ? `/productpics/template ${model.productNum} ${colorId}.webp`
+      : (model.image ?? '/logo.webp');
+
+  // Put selected color first, then the rest
+  const orderedColors = [
+    model.colors.find((c) => c.id === selectedId)!,
+    ...model.colors.filter((c) => c.id !== selectedId),
+  ].slice(0, 3);
 
   return (
-    <div className="mt-8 grid gap-10 md:grid-cols-2">
-      {/* Color preview cards */}
-      <div className="grid grid-cols-2 gap-4">
+    <div className="mt-8 max-w-lg mx-auto">
+      {/* 3-image gallery */}
+      {orderedColors.length === 1 ? (
+        <div className="relative aspect-[3/4] w-full overflow-hidden rounded-3xl bg-sand">
+          <Image
+            src={imgFor(orderedColors[0].id)}
+            alt={model.name[locale]}
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      ) : (
+        <div className="flex gap-2 h-[420px]">
+          {/* Main large image */}
+          <div
+            className="relative flex-[2] overflow-hidden rounded-3xl bg-sand cursor-pointer"
+            onClick={() => setSelectedId(orderedColors[0].id)}
+          >
+            <Image
+              key={orderedColors[0].id}
+              src={imgFor(orderedColors[0].id)}
+              alt={orderedColors[0].label[locale]}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+
+          {/* Side smaller images */}
+          <div className="flex flex-col gap-2 flex-1">
+            {orderedColors.slice(1, 3).map((c) => (
+              <div
+                key={c.id}
+                onClick={() => setSelectedId(c.id)}
+                className="relative flex-1 overflow-hidden rounded-2xl bg-sand cursor-pointer opacity-70 hover:opacity-100 transition-opacity"
+              >
+                <Image
+                  src={imgFor(c.id)}
+                  alt={c.label[locale]}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Color dots */}
+      <div className="mt-4 flex justify-center gap-3">
         {model.colors.map((c) => (
           <button
             key={c.id}
+            title={c.label[locale]}
             onClick={() => setSelectedId(c.id)}
-            className={`overflow-hidden rounded-2xl border-2 transition-all ${c.id === selectedId ? 'border-accent' : 'border-line'}`}
-          >
-            <div
-              className="grid aspect-[4/5] place-items-center p-5 text-center"
-              style={{ background: c.bg, color: c.ink }}
-            >
-              <div>
-                <p className="display text-2xl">{model.name[locale]}</p>
-                <div className="mx-auto my-2 h-px w-10" style={{ background: c.ink, opacity: 0.4 }} />
-                <p className="text-[0.65rem] uppercase tracking-widest" style={{ opacity: 0.7 }}>
-                  {c.label[locale]}
-                </p>
-              </div>
-            </div>
-          </button>
+            className={`h-7 w-7 rounded-full border-2 transition-all ${
+              c.id === selectedId ? 'border-ink scale-110' : 'border-transparent'
+            }`}
+            style={{ background: c.hex }}
+          />
         ))}
       </div>
 
-      {/* Details */}
-      <div>
-        <h1 className="display text-4xl text-ink md:text-5xl">{model.name[locale]}</h1>
-        <p className="mt-5 leading-relaxed text-muted">{model.description[locale]}</p>
+      {/* Name & description */}
+      <div className="mt-6">
+        <h1 className="display text-4xl text-ink">{model.name[locale]}</h1>
+        <p className="mt-3 leading-relaxed text-muted">{model.description[locale]}</p>
+      </div>
 
-        <div className="mt-8 space-y-5">
-          <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-muted">{labels.colors}</p>
-            <div className="mt-2 flex gap-2">
-              {model.colors.map((c) => (
-                <button
-                  key={c.id}
-                  title={c.label[locale]}
-                  onClick={() => setSelectedId(c.id)}
-                  className={`h-6 w-6 rounded-full border-2 transition-all ${c.id === selectedId ? 'border-ink' : 'border-line'}`}
-                  style={{ background: c.hex }}
-                />
-              ))}
-            </div>
-          </div>
-          <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-muted">{labels.languages}</p>
-            <div className="mt-2 flex gap-2">
-              {model.languages.map((l) => (
-                <span key={l} className="rounded-full border border-line px-3 py-1 text-xs uppercase text-muted">
-                  {l === 'fr' ? 'FR' : 'العربية'}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-muted">{labels.price}</p>
-            <p className="display mt-1 text-3xl text-ink">{model.price.toLocaleString('fr-FR')} DZD</p>
-          </div>
+      {/* Languages */}
+      <div className="mt-6">
+        <p className="text-xs uppercase tracking-[0.3em] text-muted">{labels.languages}</p>
+        <div className="mt-2 flex gap-2">
+          {model.languages.map((l) => (
+            <span
+              key={l}
+              className="rounded-full border border-line px-4 py-1.5 text-xs uppercase tracking-wider text-ink"
+            >
+              {l === 'fr' ? 'Français' : 'العربية'}
+            </span>
+          ))}
         </div>
+      </div>
 
-        <div className="mt-9 flex flex-wrap gap-3">
-          <ButtonLink href={`/demo/${model.slug}?lang=fr&color=${selectedId}`} variant="outline">
-            {labels.demoFr}
-          </ButtonLink>
+      {/* Price box */}
+      <div className="mt-6 rounded-2xl border border-line p-5 flex gap-4 justify-between items-start">
+        <div>
+          <p className="display text-3xl text-ink">{model.price.toLocaleString('fr-FR')} DZD</p>
+          <p className="mt-1 text-xs text-muted uppercase tracking-wider">{labels.price}</p>
+        </div>
+        <ul className="text-sm text-muted space-y-1.5 text-right">
+          <li>✓ Lien personnalisé</li>
+          <li>✓ Livraison immédiate</li>
+          <li>✓ Support WhatsApp</li>
+        </ul>
+      </div>
+
+      {/* Demo buttons */}
+      <div className="mt-8">
+        <p className="text-center text-xs uppercase tracking-[0.3em] text-muted mb-4">
+          Voir la démo &mdash; نموذج الدعوة
+        </p>
+        <div className="space-y-3">
+          <a
+            href={`/fr/demo/${model.slug}?lang=fr&color=${selectedId}`}
+            className="flex items-center justify-between w-full rounded-2xl border border-line px-5 py-4 text-ink transition-colors hover:border-accent hover:text-accent"
+          >
+            <span className="text-sm font-medium">Version française</span>
+            <span className="text-xs text-muted">Voir en FR →</span>
+          </a>
           {model.languages.includes('ar') && (
-            <ButtonLink href={`/demo/${model.slug}?lang=ar&color=${selectedId}`} variant="outline">
-              {labels.demoAr}
-            </ButtonLink>
+            <a
+              href={`/ar/demo/${model.slug}?lang=ar&color=${selectedId}`}
+              className="flex items-center justify-between w-full rounded-2xl border border-line px-5 py-4 text-ink transition-colors hover:border-accent hover:text-accent"
+              dir="rtl"
+            >
+              <span className="text-sm font-medium">النسخة العربية</span>
+              <span className="text-xs text-muted">← مشاهدة</span>
+            </a>
           )}
         </div>
-        <div className="mt-4">
-          <ButtonLink href={labels.orderHref} variant="solid" className="w-full sm:w-auto">
-            {labels.order}
-          </ButtonLink>
-        </div>
+      </div>
+
+      {/* Order button */}
+      <div className="mt-6 mb-10">
+        <ButtonLink href={labels.orderHref} variant="solid" className="w-full justify-center">
+          {labels.order}
+        </ButtonLink>
       </div>
     </div>
   );

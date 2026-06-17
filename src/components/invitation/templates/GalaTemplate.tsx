@@ -1,6 +1,7 @@
 ﻿'use client';
 
 import React from 'react';
+import { MapBlock } from '../MapBlock';
 import type { ReactNode } from 'react';
 import GalaEnvelope from './GalaEnvelope';
 import type { InviteData, InviteStyle } from './InvitationTemplate';
@@ -15,8 +16,8 @@ const MONTHS_FR = [
   'JUILLET', 'AOÛT', 'SEPTEMBRE', 'OCTOBRE', 'NOVEMBRE', 'DÉCEMBRE',
 ];
 const MONTHS_AR = [
-  'جانفي', 'فيفري', 'مارس', 'أفريل', 'ماي', 'جوان',
-  'جويلية', 'أوت', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
+  'يناير', 'فيفري', 'مارس', 'أبريل', 'ماي', 'جوان',
+  'جويلية', 'آوت', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
 ];
 
 const DAYS_FR = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
@@ -30,7 +31,7 @@ const PROGRAMME_FR = [
 const PROGRAMME_AR = [
   { time: '18:00', label: 'مراسم النكاح' },
   { time: '19:00', label: 'العشاء والاحتفال' },
-  { time: '20:00', label: 'حفل الرقص' },
+  { time: '20:00', label: 'رقص جماعي' },
 ];
 const TEXT_LABELS = {
   fr: { programme: 'Programme', resumeTitle: 'Résumé', dateLabel: 'Date', venueLabel: 'Lieu', timeLabel: 'Heure' },
@@ -61,28 +62,28 @@ type Scheme = {
 
 const SCHEMES: Record<string, Scheme> = {
   burgundy: {
-    envelopeUp: '/templates/gala/upburgundyrosa.png', envelopeDown: '/templates/gala/downburgundyrosa.png',
+    envelopeUp: '/templates/gala/upburgundyrosa.webp', envelopeDown: '/templates/gala/downburgundyrosa.webp',
     accent: '#700e1f', accentLight: '#c07080',
     text: '#1a0508', dim: '#7a3040',
     bannerBg: '#180408', bannerText: '#f0d0d5',
     btnBg: '#700e1f', btnText: '#F7F0EA',
   },
   blue: {
-    envelopeUp: '/templates/gala/upblue001.png', envelopeDown: '/templates/gala/downblue001.png',
+    envelopeUp: '/templates/gala/upblue001.webp', envelopeDown: '/templates/gala/downblue001.webp',
     accent: '#0d2d6b', accentLight: '#7090d0',
     text: '#050d20', dim: '#304878',
     bannerBg: '#04081a', bannerText: '#c0d0f0',
     btnBg: '#0d2d6b', btnText: '#E8F0FF',
   },
   green: {
-    envelopeUp: '/templates/gala/upgreen002.png', envelopeDown: '/templates/gala/downgreen002.png',
+    envelopeUp: '/templates/gala/upgreen002.webp', envelopeDown: '/templates/gala/downgreen002.webp',
     accent: '#1a5c24', accentLight: '#6aaa74',
     text: '#081808', dim: '#2a5a32',
     bannerBg: '#060e08', bannerText: '#b0e0b8',
     btnBg: '#1a5c24', btnText: '#E8F8EA',
   },
   purple: {
-    envelopeUp: '/templates/gala/uppurple002.png', envelopeDown: '/templates/gala/downpurple002.png',
+    envelopeUp: '/templates/gala/uppurple002.webp', envelopeDown: '/templates/gala/downpurple002.webp',
     accent: '#4a1070', accentLight: '#9060c0',
     text: '#0e081a', dim: '#3a1860',
     bannerBg: '#080412', bannerText: '#c0a0e8',
@@ -141,19 +142,21 @@ export default function GalaTemplate({
   data,
   style,
   locale,
+  customImages,
 }: {
   data: InviteData;
   style: InviteStyle;
   locale: 'fr' | 'ar';
+  customImages?: Record<string, string>;
 }) {
   const isAr = locale === 'ar';
   const colorId = (style.colorId && SCHEMES[style.colorId]) ? style.colorId : 'burgundy';
   const s = SCHEMES[colorId];
   const lang = isAr ? 'AR' : 'FR';
-  const heroImage = `/templates/gala/TMP006${lang}${colorId.toUpperCase()}.png`;
+  const heroImage = `/templates/gala/TMP006${lang}${colorId.toUpperCase()}.webp`;
   const closingImage = (colorId === 'burgundy' && !isAr)
-    ? '/templates/gala/TMP0006FR2BURGUNDY.png'
-    : `/templates/gala/TMP006${lang}2${colorId.toUpperCase()}.png`;
+    ? '/templates/gala/TMP0006FR2BURGUNDY.webp'
+    : `/templates/gala/TMP006${lang}2${colorId.toUpperCase()}.webp`;
   const dir = isAr ? 'rtl' : 'ltr';
   const displayFont = isAr ? AR : FR;
   const bodyFont = isAr ? AR_BODY : FR_BODY;
@@ -165,7 +168,7 @@ export default function GalaTemplate({
   const monthLabel = isAr ? MONTHS_AR[month] : MONTHS_FR[month];
   const formattedDate = `${day} ${monthLabel} ${year}`;
   const tl = TEXT_LABELS[locale];
-  const programme = isAr ? PROGRAMME_AR : PROGRAMME_FR;
+  const programme = data.programme?.length ? data.programme : (isAr ? PROGRAMME_AR : PROGRAMME_FR);
   const DAYS = isAr ? DAYS_AR : DAYS_FR;
   const { weeks, highlight } = buildCalendar(data.date);
   const calMonthLabel = isAr ? `${MONTHS_AR[month]} ${year}` : `${MONTHS_FR[month]} ${year}`;
@@ -173,11 +176,11 @@ export default function GalaTemplate({
 
   return (
     <div dir={dir} style={{ background: '#ffffff', color: s.text, fontFamily: bodyFont }}>
-      <GalaEnvelope upSrc={s.envelopeUp} downSrc={s.envelopeDown} />
+      <GalaEnvelope upSrc={customImages?.envelopeUp ?? s.envelopeUp} downSrc={customImages?.envelopeDown ?? s.envelopeDown} />
 
       <div className="relative h-dvh w-full overflow-hidden" style={{ margin: 0 }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={heroImage} alt="" style={{ position: 'absolute', top: 0, left: '50%', height: '100%', width: 'auto', maxWidth: 'none', transform: 'translateX(-50%)' }} />
+        <img src={customImages?.heroImage ?? heroImage} alt="" style={{ position: 'absolute', top: 0, left: '50%', height: '100%', width: 'auto', maxWidth: 'none', transform: 'translateX(-50%)' }} />
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2" style={{ animation: 'scroll-reveal 0.5s ease 2s both, scroll-hint 1.6s ease-in-out 2.5s infinite' }}>
           <div className="flex flex-col items-center gap-1">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: '#fff' }} aria-hidden="true">
@@ -241,7 +244,7 @@ export default function GalaTemplate({
           </p>
           {data.time && (
             <p style={{ fontFamily: FR_BODY, fontSize: '12px', letterSpacing: '0.15em', color: s.bannerText, marginTop: '7px', opacity: 0.8 }}>
-              {isAr ? `ابتداءً من ${data.time}` : `À PARTIR DE ${data.time.toUpperCase()}`}
+              {isAr ? `اعتبارا من ${data.time}` : `À PARTIR DE ${data.time.toUpperCase()}`}
             </p>
           )}
         </div>
@@ -253,9 +256,7 @@ export default function GalaTemplate({
           {isAr ? 'الموقع' : 'Localisation'}
         </h2>
 
-        <iframe style={{ width: '100%', maxWidth: '380px', display: 'block', margin: '24px auto 0', borderRadius: '4px', border: 'none', boxShadow: '0 8px 24px rgba(0,0,0,0.12)' }}
-          title="Localisation" height="220" loading="lazy" referrerPolicy="no-referrer-when-downgrade"
-          src={`https://www.google.com/maps?q=${mapQuery}&z=13&output=embed`} />
+        <MapBlock mapUrl={data.mapUrl} mapLinkUrl={data.mapLinkUrl} />
 
         {(data.venue || data.city) && (
           <p style={{ fontFamily: bodyFont, fontSize: '18px', textAlign: 'center', marginTop: '16px', color: s.dim, letterSpacing: '0.05em', lineHeight: 1.45 }}>
@@ -322,7 +323,7 @@ export default function GalaTemplate({
       {/* Closing image — full width */}
       <div style={{ marginTop: '70px' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={closingImage} alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        <img src={customImages?.closingImage ?? closingImage} alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
       </div>
     </div>
   );

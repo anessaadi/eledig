@@ -10,7 +10,7 @@ export default async function Hero() {
         <div className="relative mx-auto aspect-[4/5] w-full max-w-sm">
           <div className="absolute inset-0 rounded-[2rem] border border-gold/50" />
           <div className="absolute inset-4 grid place-items-center rounded-[1.6rem] bg-ivory shadow-[0_10px_30px_rgba(0,0,0,0.04)]">
-            <Image src="/logo.png" alt="L'élégance digitale" width={210} height={210} priority />
+            <Image src="/logo.webp" alt="L'élégance digitale" width={210} height={210} priority />
           </div>
         </div>
         <div className="animate-fade-up">

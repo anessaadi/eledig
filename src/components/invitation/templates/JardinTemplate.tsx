@@ -1,6 +1,7 @@
 ﻿'use client';
 
 import React from 'react';
+import { MapBlock } from '../MapBlock';
 import type { ReactNode } from 'react';
 import JardinEnvelope from './JardinEnvelope';
 import type { InviteData, InviteStyle } from './InvitationTemplate';
@@ -15,8 +16,8 @@ const MONTHS_FR = [
   'JUILLET', 'AOÛT', 'SEPTEMBRE', 'OCTOBRE', 'NOVEMBRE', 'DÉCEMBRE',
 ];
 const MONTHS_AR = [
-  'جانفي', 'فيفري', 'مارس', 'أفريل', 'ماي', 'جوان',
-  'جويلية', 'أوت', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
+  'يناير', 'فيفري', 'مارس', 'أبريل', 'ماي', 'جوان',
+  'جويلية', 'آوت', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
 ];
 
 const DAYS_FR = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
@@ -30,7 +31,7 @@ const PROGRAMME_FR = [
 const PROGRAMME_AR = [
   { time: '18:00', label: 'مراسم النكاح' },
   { time: '19:00', label: 'العشاء والاحتفال' },
-  { time: '20:00', label: 'حفل الرقص' },
+  { time: '20:00', label: 'رقص جماعي' },
 ];
 
 const TEXT_LABELS = {
@@ -63,21 +64,21 @@ type Scheme = {
 const SCHEMES: Record<string, Scheme> = {
   burgundy: {
     pageBg: '#ffffff',
-    envelopeLeft: '/templates/jardin/left003burgundy.png', envelopeRight: '/templates/jardin/right002burgundy.png',
+    envelopeLeft: '/templates/jardin/left003burgundy.webp', envelopeRight: '/templates/jardin/right002burgundy.webp',
     accent: '#9b1410', accentLight: '#f5b0b0',
     text: '#1a0404', dim: '#6a3030',
     bannerBg: '#9b1410', bannerText: '#ffffff', btnText: '#ffffff',
   },
   blue: {
     pageBg: '#ffffff',
-    envelopeLeft: '/templates/jardin/left003blue.png', envelopeRight: '/templates/jardin/right002blue.png',
+    envelopeLeft: '/templates/jardin/left003blue.webp', envelopeRight: '/templates/jardin/right002blue.webp',
     accent: '#2f109b', accentLight: '#c0b0ff',
     text: '#0a0520', dim: '#4a3580',
     bannerBg: '#2f109b', bannerText: '#ffffff', btnText: '#ffffff',
   },
   purple: {
     pageBg: '#ffffff',
-    envelopeLeft: '/templates/jardin/left003purple.png', envelopeRight: '/templates/jardin/right002purple.png',
+    envelopeLeft: '/templates/jardin/left003purple.webp', envelopeRight: '/templates/jardin/right002purple.webp',
     accent: '#891e8c', accentLight: '#f5b0f8',
     text: '#180a18', dim: '#5a2a5c',
     bannerBg: '#891e8c', bannerText: '#ffffff', btnText: '#ffffff',
@@ -142,17 +143,19 @@ export default function JardinTemplate({
   data,
   style,
   locale,
+  customImages,
 }: {
   data: InviteData;
   style: InviteStyle;
   locale: 'fr' | 'ar';
+  customImages?: Record<string, string>;
 }) {
   const isAr = locale === 'ar';
   const colorId = (style.colorId && SCHEMES[style.colorId]) ? style.colorId : 'burgundy';
   const s = SCHEMES[colorId];
   const lang = isAr ? 'AR' : 'FR';
-  const heroImage = `/templates/jardin/TMP009${lang}1${colorId.toUpperCase()}.png`;
-  const closingImage = `/templates/jardin/TMP009${lang}2${colorId.toUpperCase()}.png`;
+  const heroImage = `/templates/jardin/TMP009${lang}1${colorId.toUpperCase()}.webp`;
+  const closingImage = `/templates/jardin/TMP009${lang}2${colorId.toUpperCase()}.webp`;
   const dir = isAr ? 'rtl' : 'ltr';
   const displayFont = isAr ? AR : FR;
   const bodyFont = isAr ? AR_BODY : FR_BODY;
@@ -164,7 +167,7 @@ export default function JardinTemplate({
   const monthLabel = isAr ? MONTHS_AR[month] : MONTHS_FR[month];
   const formattedDate = `${day} ${monthLabel} ${year}`;
   const tl = TEXT_LABELS[locale];
-  const programme = isAr ? PROGRAMME_AR : PROGRAMME_FR;
+  const programme = data.programme?.length ? data.programme : (isAr ? PROGRAMME_AR : PROGRAMME_FR);
   const DAYS = isAr ? DAYS_AR : DAYS_FR;
   const { weeks, highlight } = buildCalendar(data.date);
   const calMonthLabel = isAr ? `${MONTHS_AR[month]} ${year}` : `${MONTHS_FR[month]} ${year}`;
@@ -172,11 +175,11 @@ export default function JardinTemplate({
 
   return (
     <div dir={dir} style={{ background: s.pageBg, color: s.text, fontFamily: bodyFont }}>
-      <JardinEnvelope leftSrc={s.envelopeLeft} rightSrc={s.envelopeRight} />
+      <JardinEnvelope leftSrc={customImages?.envelopeLeft ?? s.envelopeLeft} rightSrc={customImages?.envelopeRight ?? s.envelopeRight} />
 
       <div className="relative h-dvh w-full overflow-hidden" style={{ margin: 0 }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={heroImage} alt="" style={{ position: 'absolute', top: 0, left: '50%', height: '100%', width: 'auto', maxWidth: 'none', transform: 'translateX(-50%)' }} />
+        <img src={customImages?.heroImage ?? heroImage} alt="" style={{ position: 'absolute', top: 0, left: '50%', height: '100%', width: 'auto', maxWidth: 'none', transform: 'translateX(-50%)' }} />
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2" style={{ animation: 'scroll-reveal 0.5s ease 2s both, scroll-hint 1.6s ease-in-out 2.5s infinite' }}>
           <div className="flex flex-col items-center gap-1">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: '#fff' }} aria-hidden="true">
@@ -240,7 +243,7 @@ export default function JardinTemplate({
           </p>
           {data.time && (
             <p style={{ fontFamily: FR_BODY, fontSize: '12px', letterSpacing: '0.15em', color: s.bannerText, marginTop: '7px', opacity: 0.8 }}>
-              {isAr ? `ابتداءً من ${data.time}` : `À PARTIR DE ${data.time.toUpperCase()}`}
+              {isAr ? `اعتبارا من ${data.time}` : `À PARTIR DE ${data.time.toUpperCase()}`}
             </p>
           )}
         </div>
@@ -252,9 +255,7 @@ export default function JardinTemplate({
           {isAr ? 'الموقع' : 'Localisation'}
         </h2>
 
-        <iframe style={{ width: '100%', maxWidth: '380px', display: 'block', margin: '24px auto 0', borderRadius: '4px', border: 'none', boxShadow: '0 8px 24px rgba(0,0,0,0.12)' }}
-          title="Localisation" height="220" loading="lazy" referrerPolicy="no-referrer-when-downgrade"
-          src={`https://www.google.com/maps?q=${mapQuery}&z=13&output=embed`} />
+        <MapBlock mapUrl={data.mapUrl} mapLinkUrl={data.mapLinkUrl} />
 
         {(data.venue || data.city) && (
           <p style={{ fontFamily: bodyFont, fontSize: '14px', textAlign: 'center', marginTop: '16px', color: s.dim, letterSpacing: '0.05em', lineHeight: 1.45 }}>
@@ -319,7 +320,7 @@ export default function JardinTemplate({
         {/* Closing image */}
         <div style={{ marginTop: '70px', maxWidth: '420px', margin: '70px auto 0' }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={closingImage} alt="Closing" style={{ width: '100%', height: 'auto' }} />
+          <img src={customImages?.closingImage ?? closingImage} alt="Closing" style={{ width: '100%', height: 'auto' }} />
         </div>
 
       </main>

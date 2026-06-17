@@ -8,6 +8,8 @@ export type ModelColor = {
   ink: string;   // invitation text (dark, legible)
 };
 
+export type ImageSlot = { key: string; label: string };
+
 export type Model = {
   slug: string;
   name: Bilingual;
@@ -17,7 +19,11 @@ export type Model = {
   variant: 'jardin' | 'royal-bordeaux' | 'islamic' | 'rosa' | 'elegance' | 'kabyle' | 'golden' | 'gala' | 'mariage' | 'galaxy';
   colors: ModelColor[];
   image?: string;         // path relative to /public, e.g. /models/layla.jpg
+  /** 3-digit number string used to derive product showcase images:
+   *  /productpics/template {productNum} {colorId}.webp */
+  productNum?: string;
   colorImages?: Record<string, { heroImage: string; closingImage: string; envelopeDown: string; envelopeUp: string }>;
+  imageSlots?: ImageSlot[];
 };
 
 // Soft French-stationery theme palettes (dot / background / text)
@@ -49,6 +55,7 @@ const C = (
 export const MODELS: Model[] = [
   {
     slug: 'jardin-blush',
+    productNum: '009',
     name: { fr: 'Jardin', ar: 'جاردان' },
     description: {
       fr: 'Enveloppe gauche-droite, palette naturelle inspirée des jardins en fleurs.',
@@ -63,9 +70,14 @@ export const MODELS: Model[] = [
       C('blue',     { fr: 'Bleu',     ar: 'أزرق' }),
       C('purple',   { fr: 'Violet',   ar: 'بنفسجي' }),
     ],
+    imageSlots: [
+      { key: 'heroImage',    label: 'Image héro' },
+      { key: 'closingImage', label: 'Image de fermeture' },
+    ],
   },
   {
     slug: 'galaxy',
+    productNum: '003',
     name: { fr: 'Galaxy', ar: 'غالاكسي' },
     description: {
       fr: 'Une vidéo galactique en fond, un voile bordeaux et une incrustation de texte cinématographique.',
@@ -80,9 +92,15 @@ export const MODELS: Model[] = [
       C('violet',   { fr: 'Violet',    ar: 'بنفسجي'   }),
       C('navy',     { fr: 'Bleu nuit', ar: 'أزرق ليلي' }),
     ],
+    imageSlots: [
+      { key: 'image1', label: 'Image 1 (héro)' },
+      { key: 'image2', label: 'Image 2 (milieu)' },
+      { key: 'image3', label: 'Image 3 (fermeture)' },
+    ],
   },
   {
     slug: 'mariage',
+    productNum: '010',
     name: { fr: 'Mariage', ar: 'زواج' },
     description: {
       fr: 'Un faire-part cinématographique avec vidéo plein écran, voile noir et touches dorées.',
@@ -95,9 +113,13 @@ export const MODELS: Model[] = [
     colors: [
       C('noir', { fr: 'Noir & Or', ar: 'أسود وذهبي' }),
     ],
+    imageSlots: [
+      { key: 'bottomImage', label: 'Image de fermeture' },
+    ],
   },
   {
     slug: 'kabyle',
+    productNum: '008',
     name: { fr: 'Kabyle', ar: 'قبايلي' },
     description: {
       fr: 'Un faire-part aux motifs géométriques berbères, dans une palette naturelle beige et terre.',
@@ -110,9 +132,14 @@ export const MODELS: Model[] = [
     colors: [
       C('beige', { fr: 'Beige', ar: 'بيج' }),
     ],
+    imageSlots: [
+      { key: 'heroImage',    label: 'Image héro' },
+      { key: 'closingImage', label: 'Image de fermeture' },
+    ],
   },
   {
     slug: 'golden',
+    productNum: '007',
     name: { fr: 'Golden', ar: 'غولدن' },
     description: {
       fr: 'Un faire-part luxueux aux reflets dorés, disponible en bordeaux chaud ou bleu saphir.',
@@ -128,9 +155,14 @@ export const MODELS: Model[] = [
       C('green',    { fr: 'Vert',     ar: 'أخضر' }),
       C('black',    { fr: 'Noir',     ar: 'أسود' }),
     ],
+    imageSlots: [
+      { key: 'heroImage',    label: 'Image héro' },
+      { key: 'closingImage', label: 'Image de fermeture' },
+    ],
   },
   {
     slug: 'gala',
+    productNum: '006',
     name: { fr: 'Gala', ar: 'غالا' },
     description: {
       fr: 'Élégance formelle pour un grand événement, en bordeaux profond ou bleu nuit.',
@@ -146,9 +178,14 @@ export const MODELS: Model[] = [
       C('green',    { fr: 'Vert',     ar: 'أخضر' }),
       C('purple',   { fr: 'Violet',   ar: 'بنفسجي' }),
     ],
+    imageSlots: [
+      { key: 'heroImage',    label: 'Image héro' },
+      { key: 'closingImage', label: 'Image de fermeture' },
+    ],
   },
   {
     slug: 'dentelle',
+    productNum: '001',
     name: { fr: 'Dentelle', ar: 'دونتال' },
     description: {
       fr: "Fond bordeaux profond avec animation d'enveloppe en images, typographie Cormorant, calendrier dynamique et image hero plein écran.",
@@ -164,9 +201,14 @@ export const MODELS: Model[] = [
       C('burgundy', { fr: 'Bordeaux', ar: 'بوردو' }),
       C('purple',   { fr: 'Violet',   ar: 'بنفسجي' }),
     ],
+    imageSlots: [
+      { key: 'heroImage',    label: 'Image héro' },
+      { key: 'closingImage', label: 'Image de fermeture' },
+    ],
   },
   {
     slug: 'rosa',
+    productNum: '004',
     name: { fr: 'Rosa', ar: 'روزا' },
     description: {
       fr: 'Un faire-part romantique aux teintes florales, disponible en bordeaux chaud ou bleu élégant.',
@@ -182,9 +224,14 @@ export const MODELS: Model[] = [
       C('purple',   { fr: 'Violet',   ar: 'بنفسجي' }),
       C('gold',     { fr: 'Or',       ar: 'ذهبي' }),
     ],
+    imageSlots: [
+      { key: 'heroImage',    label: 'Image héro' },
+      { key: 'closingImage', label: 'Image de fermeture' },
+    ],
   },
   {
     slug: 'elegance',
+    productNum: '005',
     name: { fr: 'Élégance', ar: 'اليجونص' },
     description: {
       fr: 'Un faire-part raffiné aux lignes épurées, disponible en bordeaux chaud ou bleu élégant.',
@@ -200,9 +247,14 @@ export const MODELS: Model[] = [
       C('green',    { fr: 'Vert',     ar: 'أخضر' }),
       C('purple',   { fr: 'Violet',   ar: 'بنفسجي' }),
     ],
+    imageSlots: [
+      { key: 'heroImage',    label: 'Image héro' },
+      { key: 'closingImage', label: 'Image de fermeture' },
+    ],
   },
   {
     slug: 'islamic-or',
+    productNum: '002',
     name: { fr: 'Islamique', ar: 'إسلامي' },
     image: '/templates/islamic/islamic.webp',
     description: {
@@ -216,6 +268,10 @@ export const MODELS: Model[] = [
       C('gold', { fr: 'Or',   ar: 'ذهبي' }),
       C('sky',  { fr: 'Ciel', ar: 'سماوي' }),
       C('pink', { fr: 'Rose', ar: 'وردي' }),
+    ],
+    imageSlots: [
+      { key: 'heroImage',    label: 'Image héro' },
+      { key: 'closingImage', label: 'Image de fermeture' },
     ],
   },
 ];

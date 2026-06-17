@@ -3,6 +3,7 @@
 import React from 'react';
 import type { ReactNode } from 'react';
 import GalaxyEnvelope from './GalaxyEnvelope';
+import { MapBlock } from '../MapBlock';
 import type { InviteData, InviteStyle } from './InvitationTemplate';
 
 const FR = 'var(--font-fr-display), Georgia, serif';
@@ -57,7 +58,7 @@ const SCHEMES: Record<string, Scheme> = {
     bannerText:  '#d8c0f0',
     btnBg:       '#3D0A60',
     btnText:     '#F0E8FF',
-    envelopeUp:  '/templates/galaxy/uppurple001.png',
+    envelopeUp:  '/templates/galaxy/uppurple001.webp',
   },
   navy: {
     pageBg:      'linear-gradient(180deg, #0d1a30 0%, #081123 100%)',
@@ -70,7 +71,7 @@ const SCHEMES: Record<string, Scheme> = {
     bannerText:  '#b0d0f0',
     btnBg:       '#0A1840',
     btnText:     '#E8F0FF',
-    envelopeUp:  '/templates/galaxy/upnavy001.png',
+    envelopeUp:  '/templates/galaxy/upnavy001.webp',
   },
 };
 
@@ -146,10 +147,12 @@ export default function GalaxyTemplate({
   data,
   style,
   locale,
+  customImages,
 }: {
   data: InviteData;
   style: InviteStyle;
   locale: 'fr' | 'ar';
+  customImages?: Record<string, string>;
 }) {
   const isAr = locale === 'ar';
   const colorId = style.colorId ?? 'burgundy';
@@ -167,14 +170,11 @@ export default function GalaxyTemplate({
 
   const formattedDate = `${String(day).padStart(2, '0')}/${String(month + 1).padStart(2, '0')}/${year}`;
   const tl = TEXT_LABELS[locale];
-  const programme = isAr ? PROGRAMME_AR : PROGRAMME_FR;
-  const mapQuery = encodeURIComponent(
-    [data.venue, data.city].filter(Boolean).join(', ') || 'Casablanca, Morocco'
-  );
+  const programme = data.programme?.length ? data.programme : (isAr ? PROGRAMME_AR : PROGRAMME_FR);
 
   return (
     <div dir={dir} style={{ background: s.pageBg, color: s.text, fontFamily: bodyFont }}>
-      <GalaxyEnvelope upSrc={s.envelopeUp} />
+      <GalaxyEnvelope upSrc={customImages?.envelopeUp ?? s.envelopeUp} />
 
       {/* ── Hero — rotated horizontal video ─────────────────────────────── */}
       <div style={{ position: 'relative', height: '100dvh', width: '100%', overflow: 'hidden' }}>
@@ -205,7 +205,7 @@ export default function GalaxyTemplate({
         {/* Text overlay image (covers full screen, no rotation) */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={`/templates/galaxy/tmp003${isAr ? 'AR' : 'FR'}1textoverlay.png`}
+          src={customImages?.image1 ?? `/templates/galaxy/tmp003${isAr ? 'AR' : 'FR'}1textoverlay.webp`}
           alt=""
           style={{
             position: 'absolute',
@@ -238,7 +238,7 @@ export default function GalaxyTemplate({
       {/* ── Second image — locale + color aware ─────────────────────────── */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={`/templates/galaxy/TMP003${isAr ? 'AR' : 'FR'}2${colorId.toUpperCase()}.png`}
+        src={customImages?.image2 ?? `/templates/galaxy/TMP003${isAr ? 'AR' : 'FR'}2${colorId.toUpperCase()}.webp`}
         alt=""
         style={{ width: '100%', maxWidth: '420px', display: 'block', margin: '40px auto 0', borderRadius: '4px', padding: '0 48px', boxSizing: 'border-box' }}
       />
@@ -284,20 +284,14 @@ export default function GalaxyTemplate({
               </p>
             )}
             {data.city && (
-              <p style={{ fontFamily: bodyFont, fontSize: '11px', letterSpacing: '0.18em', color: s.dim, marginBottom: '20px' }}>
+              <p style={{ fontFamily: bodyFont, fontSize: '11px', letterSpacing: '0.18em', color: s.dim }}>
                 {data.city.toUpperCase()}
               </p>
             )}
-            <a
-              href={`https://maps.google.com/?q=${mapQuery}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ fontFamily: bodyFont, fontSize: '11px', letterSpacing: '0.14em', color: s.accent, textDecoration: 'none', border: `1px solid ${s.accent}`, padding: '9px 22px', borderRadius: '2px', display: 'inline-block' }}
-            >
-              {isAr ? 'عرض الاتجاهات' : "VOIR LA LOCALISATION"}
-            </a>
           </div>
         )}
+
+        <MapBlock mapUrl={data.mapUrl} mapLinkUrl={data.mapLinkUrl} />
 
         {/* Programme */}
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '44px' }}>
@@ -363,7 +357,7 @@ export default function GalaxyTemplate({
       <div style={{ marginTop: '70px' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={`/templates/galaxy/TMP003${isAr ? 'AR' : 'FR'}3${colorId.toUpperCase()}.png`}
+          src={customImages?.image3 ?? `/templates/galaxy/TMP003${isAr ? 'AR' : 'FR'}3${colorId.toUpperCase()}.webp`}
           alt=""
           style={{ width: '100%', height: 'auto', display: 'block' }}
         />

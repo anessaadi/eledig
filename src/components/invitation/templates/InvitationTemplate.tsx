@@ -17,8 +17,9 @@ export type InviteData = {
   time: string;
   venue: string;
   city: string;
-  message: string;
-  rsvpPhone: string;
+  mapUrl?: string;
+  mapLinkUrl?: string;
+  programme?: Array<{ time: string; label: string }>;
 };
 
 export type InviteStyle = {
@@ -43,53 +44,72 @@ function formatDate(iso: string, locale: 'fr' | 'ar') {
 }
 
 // One template component, four visual variants driven by `style.variant`.
+async function resolveShortMapUrl(url: string): Promise<{ mapUrl: string; mapLinkUrl: string }> {
+  if (url.includes('/maps/embed') || /@-?\d+\.\d+,-?\d+\.\d+/.test(url)) return { mapUrl: url, mapLinkUrl: url };
+  try {
+    const res = await fetch(url, { redirect: 'follow', headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' } });
+    const finalUrl = res.url;
+    if (/@-?\d+\.\d+,-?\d+\.\d+/.test(finalUrl)) return { mapUrl: finalUrl, mapLinkUrl: url };
+  } catch {}
+  return { mapUrl: url, mapLinkUrl: url };
+}
+
 export default async function InvitationTemplate({
   data,
   style,
   locale,
+  customImages,
 }: {
   data: InviteData;
   style: InviteStyle;
   locale: 'fr' | 'ar';
+  customImages?: Record<string, string>;
 }) {
+  // Resolve short map links and preserve original URL for click navigation
+  let resolvedData = data;
+  if (data.mapUrl && !data.mapLinkUrl) {
+    const { mapUrl, mapLinkUrl } = await resolveShortMapUrl(data.mapUrl);
+    resolvedData = { ...data, mapUrl, mapLinkUrl };
+  }
+
   if (style.variant === 'royal-bordeaux') {
-    return <RoyalBordeauxTemplate data={data} style={style} locale={locale} />;
+    return <RoyalBordeauxTemplate data={resolvedData} style={style} locale={locale} customImages={customImages} />;
   }
 
   if (style.variant === 'islamic') {
-    return <IslamicTemplate data={data} style={style} locale={locale} />;
+    return <IslamicTemplate data={resolvedData} style={style} locale={locale} customImages={customImages} />;
   }
 
   if (style.variant === 'rosa') {
-    return <RosaTemplate data={data} style={style} locale={locale} />;
+    return <RosaTemplate data={resolvedData} style={style} locale={locale} customImages={customImages} />;
   }
 
   if (style.variant === 'elegance') {
-    return <EleganceTemplate data={data} style={style} locale={locale} />;
+    return <EleganceTemplate data={resolvedData} style={style} locale={locale} customImages={customImages} />;
   }
 
   if (style.variant === 'jardin') {
-    return <JardinTemplate data={data} style={style} locale={locale} />;
+    return <JardinTemplate data={resolvedData} style={style} locale={locale} customImages={customImages} />;
   }
 
   if (style.variant === 'kabyle') {
-    return <KabyleTemplate data={data} style={style} locale={locale} />;
+    return <KabyleTemplate data={resolvedData} style={style} locale={locale} customImages={customImages} />;
   }
 
   if (style.variant === 'golden') {
-    return <GoldenTemplate data={data} style={style} locale={locale} />;
+    return <GoldenTemplate data={resolvedData} style={style} locale={locale} customImages={customImages} />;
   }
 
   if (style.variant === 'gala') {
-    return <GalaTemplate data={data} style={style} locale={locale} />;
+    return <GalaTemplate data={resolvedData} style={style} locale={locale} customImages={customImages} />;
   }
 
   if (style.variant === 'mariage') {
-    return <MariageTemplate data={data} style={style} locale={locale} />;
+    return <MariageTemplate data={resolvedData} style={style} locale={locale} customImages={customImages} />;
   }
 
   if (style.variant === 'galaxy') {
-    return <GalaxyTemplate data={data} style={style} locale={locale} />;
+    return <GalaxyTemplate data={resolvedData} style={style} locale={locale} customImages={customImages} />;
   }
 
   const t = await getTranslations('invitation');
@@ -132,19 +152,6 @@ export default async function InvitationTemplate({
           </div>
         </div>
 
-        {data.message && (
-          <p className="mt-10 max-w-md text-base italic" style={{ opacity: 0.85 }}>
-            “{data.message}”
-          </p>
-        )}
-
-        {data.rsvpPhone && (
-          <a href={`tel:${data.rsvpPhone}`}
-             className="mt-10 inline-block rounded-full border px-7 py-3 text-sm uppercase tracking-[0.25em]"
-             style={{ borderColor: style.accent, color: style.ink }}>
-            {t('rsvp')}
-          </a>
-        )}
       </div>
     </div>
   );

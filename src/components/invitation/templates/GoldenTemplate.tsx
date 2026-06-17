@@ -1,6 +1,7 @@
 ﻿'use client';
 
 import React from 'react';
+import { MapBlock } from '../MapBlock';
 import type { ReactNode } from 'react';
 import GoldenEnvelope from './GoldenEnvelope';
 import type { InviteData, InviteStyle } from './InvitationTemplate';
@@ -15,8 +16,8 @@ const MONTHS_FR = [
   'JUILLET', 'AOÛT', 'SEPTEMBRE', 'OCTOBRE', 'NOVEMBRE', 'DÉCEMBRE',
 ];
 const MONTHS_AR = [
-  'جانفي', 'فيفري', 'مارس', 'أفريل', 'ماي', 'جوان',
-  'جويلية', 'أوت', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
+  'يناير', 'فيفري', 'مارس', 'أبريل', 'ماي', 'جوان',
+  'جويلية', 'آوت', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
 ];
 
 const DAYS_FR = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
@@ -30,7 +31,7 @@ const PROGRAMME_FR = [
 const PROGRAMME_AR = [
   { time: '18:00', label: 'مراسم النكاح' },
   { time: '19:00', label: 'العشاء والاحتفال' },
-  { time: '20:00', label: 'حفل الرقص' },
+  { time: '20:00', label: 'رقص جماعي' },
 ];
 const TEXT_LABELS = {
   fr: { programme: 'Programme', resumeTitle: 'Résumé', dateLabel: 'Date', venueLabel: 'Lieu', timeLabel: 'Heure' },
@@ -62,28 +63,28 @@ type Scheme = {
 const SCHEMES: Record<string, Scheme> = {
   burgundy: {
     pageBg: 'linear-gradient(180deg, #fdf8ee 0%, #f0e4c0 100%)',
-    envelopeUp: '/templates/golden/UP004.png', envelopeDown: '/templates/golden/DOWN004.png',
+    envelopeUp: '/templates/golden/UP004.webp', envelopeDown: '/templates/golden/DOWN004.webp',
     accent: '#c9a055', accentLight: '#e8d098',
     text: '#2a1800', dim: '#7a5a20',
     bannerBg: '#2d0c0f', bannerText: '#f0d898', btnText: '#0e0800',
   },
   blue: {
     pageBg: 'linear-gradient(180deg, #fdf8ee 0%, #f0e4c0 100%)',
-    envelopeUp: '/templates/golden/UP004.png', envelopeDown: '/templates/golden/DOWN004.png',
+    envelopeUp: '/templates/golden/UP004.webp', envelopeDown: '/templates/golden/DOWN004.webp',
     accent: '#c9a055', accentLight: '#e8d098',
     text: '#0c1840', dim: '#3060a8',
     bannerBg: '#0c0a2d', bannerText: '#f0d898', btnText: '#020608',
   },
   green: {
     pageBg: 'linear-gradient(180deg, #fdf8ee 0%, #f0e4c0 100%)',
-    envelopeUp: '/templates/golden/UP004.png', envelopeDown: '/templates/golden/DOWN004.png',
+    envelopeUp: '/templates/golden/UP004.webp', envelopeDown: '/templates/golden/DOWN004.webp',
     accent: '#c9a055', accentLight: '#e8d098',
     text: '#0e2010', dim: '#2a5020',
     bannerBg: '#0a1a0c', bannerText: '#f0d898', btnText: '#050e04',
   },
   black: {
     pageBg: 'linear-gradient(180deg, #fdf8ee 0%, #f0e4c0 100%)',
-    envelopeUp: '/templates/golden/UP004.png', envelopeDown: '/templates/golden/DOWN004.png',
+    envelopeUp: '/templates/golden/UP004.webp', envelopeDown: '/templates/golden/DOWN004.webp',
     accent: '#c9a055', accentLight: '#e8d098',
     text: '#2a1800', dim: '#7a5a20',
     bannerBg: '#0d0808', bannerText: '#f0d898', btnText: '#0e0800',
@@ -143,17 +144,19 @@ export default function GoldenTemplate({
   data,
   style,
   locale,
+  customImages,
 }: {
   data: InviteData;
   style: InviteStyle;
   locale: 'fr' | 'ar';
+  customImages?: Record<string, string>;
 }) {
   const isAr = locale === 'ar';
   const colorId = (style.colorId && SCHEMES[style.colorId]) ? style.colorId : 'burgundy';
   const s = SCHEMES[colorId];
   const lang = isAr ? 'AR' : 'FR';
-  const heroImage = `/templates/golden/TMP007${lang}${colorId.toUpperCase()}.png`;
-  const closingImage = `/templates/golden/TMP007${lang}2${colorId.toUpperCase()}.png`;
+  const heroImage = `/templates/golden/TMP007${lang}${colorId.toUpperCase()}.webp`;
+  const closingImage = `/templates/golden/TMP007${lang}2${colorId.toUpperCase()}.webp`;
   const dir = isAr ? 'rtl' : 'ltr';
   const displayFont = isAr ? AR : FR;
   const bodyFont = isAr ? AR_BODY : FR_BODY;
@@ -165,7 +168,7 @@ export default function GoldenTemplate({
   const monthLabel = isAr ? MONTHS_AR[month] : MONTHS_FR[month];
   const formattedDate = `${day} ${monthLabel} ${year}`;
   const tl = TEXT_LABELS[locale];
-  const programme = isAr ? PROGRAMME_AR : PROGRAMME_FR;
+  const programme = data.programme?.length ? data.programme : (isAr ? PROGRAMME_AR : PROGRAMME_FR);
   const DAYS = isAr ? DAYS_AR : DAYS_FR;
   const { weeks, highlight } = buildCalendar(data.date);
   const calMonthLabel = isAr ? `${MONTHS_AR[month]} ${year}` : `${MONTHS_FR[month]} ${year}`;
@@ -173,11 +176,11 @@ export default function GoldenTemplate({
 
   return (
     <div dir={dir} style={{ background: s.pageBg, color: s.text, fontFamily: bodyFont }}>
-      <GoldenEnvelope upSrc={s.envelopeUp} downSrc={s.envelopeDown} />
+      <GoldenEnvelope upSrc={customImages?.envelopeUp ?? s.envelopeUp} downSrc={customImages?.envelopeDown ?? s.envelopeDown} />
 
       <div className="relative w-full">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={heroImage} alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        <img src={customImages?.heroImage ?? heroImage} alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2" style={{ animation: 'scroll-reveal 0.5s ease 2s both, scroll-hint 1.6s ease-in-out 2.5s infinite' }}>
           <div className="flex flex-col items-center gap-1">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: '#f5e8c0' }} aria-hidden="true">
@@ -241,7 +244,7 @@ export default function GoldenTemplate({
           </p>
           {data.time && (
             <p style={{ fontFamily: FR_BODY, fontSize: '12px', letterSpacing: '0.15em', color: s.bannerText, marginTop: '7px', opacity: 0.8 }}>
-              {isAr ? `ابتداءً من ${data.time}` : `À PARTIR DE ${data.time.toUpperCase()}`}
+              {isAr ? `اعتبارا من ${data.time}` : `À PARTIR DE ${data.time.toUpperCase()}`}
             </p>
           )}
         </div>
@@ -253,9 +256,7 @@ export default function GoldenTemplate({
           {isAr ? 'الموقع' : 'Localisation'}
         </h2>
 
-        <iframe style={{ width: '100%', maxWidth: '380px', display: 'block', margin: '24px auto 0', borderRadius: '4px', border: 'none', boxShadow: '0 8px 24px rgba(0,0,0,0.12)' }}
-          title="Localisation" height="220" loading="lazy" referrerPolicy="no-referrer-when-downgrade"
-          src={`https://www.google.com/maps?q=${mapQuery}&z=13&output=embed`} />
+        <MapBlock mapUrl={data.mapUrl} mapLinkUrl={data.mapLinkUrl} />
 
         {(data.venue || data.city) && (
           <p style={{ fontFamily: bodyFont, fontSize: '14px', textAlign: 'center', marginTop: '16px', color: s.dim, letterSpacing: '0.05em', lineHeight: 1.45 }}>
@@ -322,7 +323,7 @@ export default function GoldenTemplate({
       {/* Closing image — full width */}
       <div style={{ marginTop: '70px' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={closingImage} alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        <img src={customImages?.closingImage ?? closingImage} alt="" style={{ width: '100%', height: 'auto', display: 'block' }} />
       </div>
     </div>
   );

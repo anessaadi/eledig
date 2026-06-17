@@ -30,6 +30,8 @@ export async function POST(req: Request) {
     ink: color.ink,
     accent: color.hex,
     locale: b.locale === 'ar' ? 'ar' : 'fr',
+    active: true,
+    images: {},
     data: {
       bride: String(b.bride),
       groom: String(b.groom),
