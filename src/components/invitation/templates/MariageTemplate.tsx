@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
 import { MapBlock } from '../MapBlock';
 import type { ReactNode } from 'react';
 import MariageEnvelope from './MariageEnvelope';
@@ -140,22 +140,17 @@ export default function MariageTemplate({
   const bodyFont = isAr ? AR_BODY : FR_BODY;
 
   const ready = useInvitationReady();
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
-  useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
-    v.muted = true;
-    v.setAttribute('muted', '');
-    v.setAttribute('playsinline', '');
-    v.setAttribute('webkit-playsinline', '');
-    const tryPlay = () => v.play().catch(() => {});
-    v.addEventListener('loadedmetadata', tryPlay, { once: true });
-    v.load();
-    return () => v.removeEventListener('loadedmetadata', tryPlay);
+  const setVideoRef = useCallback((el: HTMLVideoElement | null) => {
+    videoRef.current = el;
+    if (!el) return;
+    el.muted = true;
+    el.setAttribute('muted', '');
+    el.setAttribute('playsinline', '');
+    el.setAttribute('webkit-playsinline', '');
   }, []);
 
-  // Retry when loading overlay is gone — iOS blocks play() on covered elements
   useEffect(() => {
     if (!ready) return;
     videoRef.current?.play().catch(() => {});
@@ -185,12 +180,13 @@ export default function MariageTemplate({
       <div style={{ position: 'relative', height: '100dvh', width: '100%', overflow: 'hidden' }}>
         {/* Video background */}
         <video
-          ref={videoRef}
+          ref={setVideoRef}
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
+          poster="/templates/mariage/temphafla.webp"
           style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
         >
           <source src="/templates/mariage/weddingvideo.mp4" type="video/mp4" />

@@ -1,6 +1,6 @@
 ﻿'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
 import GalaxyEnvelope from './GalaxyEnvelope';
 import { MapBlock } from '../MapBlock';
 import type { InviteData, InviteStyle } from './InvitationTemplate';
@@ -137,22 +137,21 @@ export default function GalaxyTemplate({
   const s = SCHEMES[colorId] ?? SCHEMES.burgundy;
 
   const ready = useInvitationReady();
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
-  useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
-    v.muted = true;
-    v.setAttribute('muted', '');
-    v.setAttribute('playsinline', '');
-    v.setAttribute('webkit-playsinline', '');
-    const tryPlay = () => v.play().catch(() => {});
-    v.addEventListener('loadedmetadata', tryPlay, { once: true });
-    v.load();
-    return () => v.removeEventListener('loadedmetadata', tryPlay);
+  // Callback ref: sets muted on the DOM node the instant it is created,
+  // before iOS evaluates autoplay eligibility (React's muted prop is not
+  // serialized as an HTML attribute during SSR, so iOS sees unmuted).
+  const setVideoRef = useCallback((el: HTMLVideoElement | null) => {
+    videoRef.current = el;
+    if (!el) return;
+    el.muted = true;
+    el.setAttribute('muted', '');
+    el.setAttribute('playsinline', '');
+    el.setAttribute('webkit-playsinline', '');
   }, []);
 
-  // Retry when the loading overlay is gone — iOS blocks play() on covered elements
+  // Retry play when the loading overlay is gone and the video is visible
   useEffect(() => {
     if (!ready) return;
     videoRef.current?.play().catch(() => {});
@@ -191,12 +190,13 @@ export default function GalaxyTemplate({
           ...(hue !== 0 && { filter: `hue-rotate(${hue}deg)` }),
         }}>
           <video
-            ref={videoRef}
+            ref={setVideoRef}
             autoPlay
             muted
             loop
             playsInline
             preload="auto"
+            poster="/templates/galaxy/tempgalaxy.webp"
             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
           >
             <source src="/templates/galaxy/galaxyvideo.mp4" type="video/mp4" />
