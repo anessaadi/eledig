@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import type { Model } from '@/data/models';
+import ModelCardImage from './ModelCardImage';
 
 export default async function ModelCard({ model, locale }: { model: Model; locale: 'fr' | 'ar' }) {
   const t = await getTranslations('models');
@@ -12,7 +13,14 @@ export default async function ModelCard({ model, locale }: { model: Model; local
       {/* Thumbnail */}
       <Link href={`/modeles/${model.slug}`} className="block">
         <div className="relative aspect-[4/5] overflow-hidden rounded-xl">
-          {model.image ? (
+          {model.productNum ? (
+            <ModelCardImage
+              productNum={model.productNum}
+              colors={model.colors}
+              name={model.name[locale]}
+              fallback={model.image ?? '/logo.webp'}
+            />
+          ) : model.image ? (
             <Image
               src={model.image}
               alt={model.name[locale]}
@@ -47,7 +55,7 @@ export default async function ModelCard({ model, locale }: { model: Model; local
 
         {/* Price + details link */}
         <div className="mt-2 flex items-center justify-between">
-          <span className="text-xs font-semibold text-accent">{model.price.toLocaleString()} DZD</span>
+          <span className="text-base font-bold text-accent">{model.price.toLocaleString()} {locale === 'ar' ? 'دج' : 'DZD'}</span>
           <Link
             href={`/modeles/${model.slug}`}
             className="text-xs text-accent transition-opacity hover:opacity-70"

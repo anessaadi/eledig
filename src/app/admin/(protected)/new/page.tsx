@@ -30,11 +30,20 @@ type State = {
   error: string;
 };
 
-const DEFAULT_PROGRAMME: ProgrammeItem[] = [
-  { time: '18h00', label: '' },
-  { time: '19h00', label: '' },
-  { time: '20h00', label: '' },
-];
+const DEFAULT_PROGRAMME: Record<'fr' | 'ar', ProgrammeItem[]> = {
+  fr: [
+    { time: '10h00', label: 'Début de la soirée' },
+    { time: '12h00', label: 'Le Dîner' },
+    { time: '14h00', label: 'Le Cortège' },
+    { time: '20h00', label: 'Clôture de la soirée' },
+  ],
+  ar: [
+    { time: '10h00', label: 'بداية الحفلة' },
+    { time: '12h00', label: 'الأكل' },
+    { time: '14h00', label: 'الكورتاج' },
+    { time: '20h00', label: 'نهاية الحفلة' },
+  ],
+};
 
 const INIT: State = {
   step: 1,
@@ -49,7 +58,7 @@ const INIT: State = {
   city: '',
   rsvpPhone: '',
   mapUrl: '',
-  programme: DEFAULT_PROGRAMME.map((p) => ({ ...p })),
+  programme: DEFAULT_PROGRAMME.fr.map((p) => ({ ...p })),
   deleteAfterDays: 7,
   imageFiles: {},
   imagePreviews: {},
@@ -289,7 +298,7 @@ export default function NewInvitationPage() {
 
             <div className="flex gap-3">
               <BackBtn onClick={() => set({ step: 1 })} />
-              <NextBtn onClick={() => set({ step: 3 })}>Suivant →</NextBtn>
+              <NextBtn onClick={() => set({ step: 3, programme: DEFAULT_PROGRAMME[s.locale].map((p) => ({ ...p })) })}>Suivant →</NextBtn>
             </div>
           </div>
         )}
@@ -344,7 +353,7 @@ export default function NewInvitationPage() {
             </div>
 
             <div className="mb-4">
-              <Label>Programme (optionnel — laisser vide pour utiliser le programme par défaut)</Label>
+              <Label>Programme</Label>
               <div className="flex flex-col gap-2 mt-2">
                 {s.programme.map((item, i) => (
                   <div key={i} className="flex gap-2 items-center">

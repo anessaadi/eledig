@@ -34,7 +34,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} dir={dir} className={`${fontVars} ${localeClass}`}>
-      <body className="min-h-screen bg-cream text-ink">
+      <body className="min-h-screen bg-cream text-ink site-layout">
         <NextIntlClientProvider messages={messages}>
           <Navbar locale={locale} />
           <main>{children}</main>

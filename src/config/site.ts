@@ -1,6 +1,6 @@
 export const site = {
   name: "L'élégance digitale",
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP ?? '213000000000',
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP ?? '213696512637',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
   social: {
     instagram: 'https://instagram.com/elegance.digitale',

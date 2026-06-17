@@ -123,13 +123,23 @@ export default function ProductDetail({
       {/* Price box */}
       <div className="mt-6 rounded-2xl border border-line p-5 flex gap-4 justify-between items-start">
         <div>
-          <p className="display text-3xl text-ink">{model.price.toLocaleString('fr-FR')} DZD</p>
-          <p className="mt-1 text-xs text-muted uppercase tracking-wider">{labels.price}</p>
+          <p className="display text-5xl text-ink">{model.price.toLocaleString('fr-FR')}</p>
+          <p className="mt-1 text-sm text-muted font-medium">DZD</p>
         </div>
         <ul className="text-sm text-muted space-y-1.5 text-right">
-          <li>✓ Lien personnalisé</li>
-          <li>✓ Livraison immédiate</li>
-          <li>✓ Support WhatsApp</li>
+          {locale === 'ar' ? (
+            <>
+              <li>✓ رابط شخصي</li>
+              <li>✓ التوصيل خلال 24 ساعة</li>
+              <li>✓ دعم واتساب</li>
+            </>
+          ) : (
+            <>
+              <li>✓ Lien personnalisé</li>
+              <li>✓ Livraison sous 24h</li>
+              <li>✓ Support WhatsApp</li>
+            </>
+          )}
         </ul>
       </div>
 

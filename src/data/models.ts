@@ -64,7 +64,7 @@ export const MODELS: Model[] = [
     price: 8900,
     languages: ['fr', 'ar'],
     variant: 'jardin',
-    image: '/templates/jardin/templatecard.webp',
+    image: '/templates/jardin/tempjardin.webp',
     colors: [
       C('burgundy', { fr: 'Bordeaux', ar: 'بوردو' }),
       C('blue',     { fr: 'Bleu',     ar: 'أزرق' }),
@@ -86,7 +86,7 @@ export const MODELS: Model[] = [
     price: 8900,
     languages: ['fr', 'ar'],
     variant: 'galaxy',
-    image: '/templates/galaxy/templatecard.webp',
+    image: '/templates/galaxy/tempgalaxy.webp',
     colors: [
       C('burgundy', { fr: 'Bordeaux',  ar: 'بوردو'    }),
       C('violet',   { fr: 'Violet',    ar: 'بنفسجي'   }),
@@ -101,7 +101,7 @@ export const MODELS: Model[] = [
   {
     slug: 'mariage',
     productNum: '010',
-    name: { fr: 'Mariage', ar: 'زواج' },
+    name: { fr: 'Hafla', ar: 'حفلة' },
     description: {
       fr: 'Un faire-part cinématographique avec vidéo plein écran, voile noir et touches dorées.',
       ar: 'دعوة سينمائية بفيديو بملء الشاشة، وطبقة سوداء شفافة، ولمسات ذهبية.',
@@ -109,7 +109,7 @@ export const MODELS: Model[] = [
     price: 8900,
     languages: ['fr', 'ar'],
     variant: 'mariage',
-    image: '/templates/mariage/templatecard.webp',
+    image: '/templates/mariage/temphafla.webp',
     colors: [
       C('noir', { fr: 'Noir & Or', ar: 'أسود وذهبي' }),
     ],
@@ -128,7 +128,7 @@ export const MODELS: Model[] = [
     price: 8900,
     languages: ['fr', 'ar'],
     variant: 'kabyle',
-    image: '/templates/kabyle/template.webp',
+    image: '/templates/kabyle/tempkabyle.webp',
     colors: [
       C('beige', { fr: 'Beige', ar: 'بيج' }),
     ],
@@ -148,7 +148,7 @@ export const MODELS: Model[] = [
     price: 8900,
     languages: ['fr', 'ar'],
     variant: 'golden',
-    image: '/templates/golden/templatecard.webp',
+    image: '/templates/golden/tempgolden.webp',
     colors: [
       C('burgundy', { fr: 'Bordeaux', ar: 'بوردو' }),
       C('blue',     { fr: 'Bleu',     ar: 'أزرق' }),
@@ -171,7 +171,7 @@ export const MODELS: Model[] = [
     price: 8900,
     languages: ['fr', 'ar'],
     variant: 'gala',
-    image: '/templates/gala/templatecard.webp',
+    image: '/templates/gala/tempgala.webp',
     colors: [
       C('burgundy', { fr: 'Bordeaux', ar: 'بوردو' }),
       C('blue',     { fr: 'Bleu',     ar: 'أزرق' }),
@@ -194,7 +194,7 @@ export const MODELS: Model[] = [
     price: 8900,
     languages: ['fr', 'ar'],
     variant: 'royal-bordeaux',
-    image: '/templates/royal-bordeaux/dentelle.webp',
+    image: '/templates/royal-bordeaux/tempdentelle.webp',
     colors: [
       C('green',    { fr: 'Vert',     ar: 'أخضر' }),
       C('blue',     { fr: 'Bleu',     ar: 'أزرق' }),
@@ -217,7 +217,7 @@ export const MODELS: Model[] = [
     price: 8900,
     languages: ['fr', 'ar'],
     variant: 'rosa',
-    image: '/templates/rosa/rosatemplate.webp',
+    image: '/templates/rosa/temprosa.webp',
     colors: [
       C('burgundy', { fr: 'Bordeaux', ar: 'بوردو' }),
       C('blue',     { fr: 'Bleu',     ar: 'أزرق' }),
@@ -232,7 +232,7 @@ export const MODELS: Model[] = [
   {
     slug: 'elegance',
     productNum: '005',
-    name: { fr: 'Élégance', ar: 'اليجونص' },
+    name: { fr: 'Élégance', ar: 'فخامة' },
     description: {
       fr: 'Un faire-part raffiné aux lignes épurées, disponible en bordeaux chaud ou bleu élégant.',
       ar: 'دعوة راقية بخطوط أنيقة، متاحة بدرجة البوردو الدافئة أو الأزرق الأنيق.',
@@ -240,7 +240,7 @@ export const MODELS: Model[] = [
     price: 8900,
     languages: ['fr', 'ar'],
     variant: 'elegance',
-    image: '/templates/elegance/elegancetemplate.webp',
+    image: '/templates/elegance/tempelegance.webp',
     colors: [
       C('burgundy', { fr: 'Bordeaux', ar: 'بوردو' }),
       C('blue',     { fr: 'Bleu',     ar: 'أزرق' }),
@@ -256,7 +256,7 @@ export const MODELS: Model[] = [
     slug: 'islamic-or',
     productNum: '002',
     name: { fr: 'Islamique', ar: 'إسلامي' },
-    image: '/templates/islamic/islamic.webp',
+    image: '/templates/islamic/tempislamic.webp',
     description: {
       fr: "Inspiré de l'architecture islamique : arc en ogive, calligraphie Bismillah, arabesques et deux palettes — or chaud ou bleu ciel.",
       ar: 'مستوحى من الفن الإسلامي: قوس مدبب، خط البسملة، زخارف عربية، ولونان — ذهبي أو سماوي.',

@@ -14,9 +14,7 @@ export default async function Footer() {
           <p className="max-w-md text-muted">{t('tagline')}</p>
           <div className="divider-gold w-40" />
           <div className="flex gap-7 text-sm uppercase tracking-[0.12em] text-muted">
-            <a href={site.social.instagram} className="transition-colors hover:text-accent">Instagram</a>
-            <a href={site.social.tiktok} className="transition-colors hover:text-accent">TikTok</a>
-            <a href={site.social.facebook} className="transition-colors hover:text-accent">Facebook</a>
+            <a href="https://www.instagram.com/boutique.wardi" target="_blank" rel="noreferrer" className="transition-colors hover:text-accent">Instagram</a>
           </div>
           <p className="mt-4 text-xs text-muted/80">
             © {year} L&apos;élégance digitale. {t('rights')}

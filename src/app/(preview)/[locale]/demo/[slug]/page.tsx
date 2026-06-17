@@ -13,12 +13,28 @@ export function generateStaticParams() {
 
 // Sample data so people can preview the experience.
 const SAMPLE = {
-  fr: { bride: 'Amel', groom: 'Yanis', venue: 'Salle Les Jardins', city: 'Tlemcen',
-        message: "C'est avec joie que nous vous invitons à partager ce moment unique.",
-        time: '12h00', rsvpPhone: '+213000000000' },
-  ar: { bride: 'أمل', groom: 'يانيس', venue: 'قاعة الحدائق', city: 'تلمسان',
-        message: 'يسعدنا أن ندعوكم لمشاركتنا هذه اللحظة المميزة.',
-        time: '12:00', rsvpPhone: '+213000000000' },
+  fr: {
+    bride: 'Amel', groom: 'Yanis', venue: 'Salle Les Jardins', city: 'Tlemcen',
+    message: "C'est avec joie que nous vous invitons à partager ce moment unique.",
+    time: '10:00', rsvpPhone: '+213000000000',
+    programme: [
+      { time: '10h00', label: 'Début de la soirée' },
+      { time: '12h00', label: 'Le Dîner' },
+      { time: '14h00', label: 'Le Cortège' },
+      { time: '20h00', label: 'Clôture de la soirée' },
+    ],
+  },
+  ar: {
+    bride: 'أمل', groom: 'يانيس', venue: 'قاعة الحدائق', city: 'تلمسان',
+    message: 'يسعدنا أن ندعوكم لمشاركتنا هذه اللحظة المميزة.',
+    time: '10:00', rsvpPhone: '+213000000000',
+    programme: [
+      { time: '10h00', label: 'بداية الحفلة' },
+      { time: '12h00', label: 'الأكل' },
+      { time: '14h00', label: 'الكورتاج' },
+      { time: '20h00', label: 'نهاية الحفلة' },
+    ],
+  },
 };
 
 export default async function DemoPage({

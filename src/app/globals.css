@@ -71,6 +71,14 @@ body {
 .locale-ar h1, .locale-ar h2, .locale-ar h3, .locale-ar .display {
   font-family: var(--font-ar-display), 'Times New Roman', serif;
 }
+/* Site pages only: Aref Ruqaa for Arabic titles */
+.locale-ar .site-layout h1,
+.locale-ar .site-layout h2,
+.locale-ar .site-layout h3,
+.locale-ar .site-layout .display {
+  font-family: var(--font-aref-ruqaa), serif;
+  font-weight: 400;
+}
 
 /* Thin champagne-gold divider */
 .divider-gold {
