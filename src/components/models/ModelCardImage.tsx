@@ -13,19 +13,30 @@ export default function ModelCardImage({
   name: string;
 }) {
   const [index, setIndex] = useState(0);
-  const [ready, setReady] = useState(false);
   const loadedRef = useRef(0);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  function startSlideshow() {
+    if (intervalRef.current || colors.length <= 1) return;
+    intervalRef.current = setInterval(
+      () => setIndex((i) => (i + 1) % colors.length),
+      3500,
+    );
+  }
 
   function onImageLoad() {
     loadedRef.current += 1;
-    if (loadedRef.current >= colors.length) setReady(true);
+    if (loadedRef.current >= colors.length) startSlideshow();
   }
 
   useEffect(() => {
-    if (!ready || colors.length <= 1) return;
-    const id = setInterval(() => setIndex((i) => (i + 1) % colors.length), 3000);
-    return () => clearInterval(id);
-  }, [ready, colors.length]);
+    // Fallback: start after 4s even if some images never fire onLoad
+    const fallback = setTimeout(startSlideshow, 4000);
+    return () => {
+      clearTimeout(fallback);
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, []);
 
   return (
     <>
