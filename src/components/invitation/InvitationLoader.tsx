@@ -72,18 +72,29 @@ export default function InvitationLoader({
 
       {!overlayGone && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center"
           style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 9999,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
             background: bg,
             opacity: ready ? 0 : 1,
             transition: 'opacity 0.5s ease-out',
             pointerEvents: ready ? 'none' : 'auto',
           }}
         >
-          <div
-            className="h-10 w-10 rounded-full border-2 border-transparent animate-spin"
-            style={{ borderTopColor: accent, borderRightColor: accent + '44' }}
-          />
+          <style>{`@keyframes _loader-spin { to { transform: rotate(360deg); } }`}</style>
+          <div style={{
+            width: 40,
+            height: 40,
+            borderRadius: '50%',
+            border: '2px solid transparent',
+            borderTopColor: accent,
+            borderRightColor: accent + '44',
+            animation: '_loader-spin 0.75s linear infinite',
+          }} />
         </div>
       )}
     </InvitationReadyContext.Provider>

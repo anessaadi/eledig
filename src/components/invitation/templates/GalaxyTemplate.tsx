@@ -1,6 +1,6 @@
 ﻿'use client';
 
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import GalaxyEnvelope from './GalaxyEnvelope';
 import { MapBlock } from '../MapBlock';
@@ -158,6 +158,11 @@ export default function GalaxyTemplate({
   const colorId = style.colorId ?? 'burgundy';
   const hue = HUE[colorId] ?? 0;
   const s = SCHEMES[colorId] ?? SCHEMES.burgundy;
+
+  const videoRef = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    videoRef.current?.play().catch(() => {});
+  }, []);
   const dir = isAr ? 'rtl' : 'ltr';
   const displayFont = isAr ? AR : FR;
   const bodyFont = isAr ? AR_BODY : FR_BODY;
@@ -192,10 +197,12 @@ export default function GalaxyTemplate({
           ...(hue !== 0 && { filter: `hue-rotate(${hue}deg)` }),
         }}>
           <video
+            ref={videoRef}
             autoPlay
             muted
             loop
             playsInline
+            preload="auto"
             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
           >
             <source src="/templates/galaxy/galaxyvideo.mp4" type="video/mp4" />
