@@ -1,4 +1,4 @@
-import { Playfair_Display, Cormorant, El_Messiri } from 'next/font/google';
+import { Playfair_Display, Cormorant, El_Messiri, Amiri } from 'next/font/google';
 import localFont from 'next/font/local';
 
 export const playfair = Playfair_Display({
@@ -14,10 +14,9 @@ export const cormorant = Cormorant({
   display: 'swap',
 });
 
-export const zain = localFont({
-  src: './fonts/zain-mob-long300.ttf',
-  weight: '400',
-  style: 'normal',
+export const zain = Amiri({
+  subsets: ['arabic'],
+  weight: ['700'],
   variable: '--font-ar-display',
   display: 'swap',
 });
