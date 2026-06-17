@@ -99,45 +99,6 @@ export const MODELS: Model[] = [
     ],
   },
   {
-    slug: 'mariage',
-    productNum: '010',
-    name: { fr: 'Hafla', ar: 'حفلة' },
-    description: {
-      fr: 'Un faire-part cinématographique avec vidéo plein écran, voile noir et touches dorées.',
-      ar: 'دعوة سينمائية بفيديو بملء الشاشة، وطبقة سوداء شفافة، ولمسات ذهبية.',
-    },
-    price: 8900,
-    languages: ['fr', 'ar'],
-    variant: 'mariage',
-    image: '/templates/mariage/temphafla.webp',
-    colors: [
-      C('noir', { fr: 'Noir & Or', ar: 'أسود وذهبي' }),
-    ],
-    imageSlots: [
-      { key: 'bottomImage', label: 'Image de fermeture' },
-    ],
-  },
-  {
-    slug: 'kabyle',
-    productNum: '008',
-    name: { fr: 'Kabyle', ar: 'قبايلي' },
-    description: {
-      fr: 'Un faire-part aux motifs géométriques berbères, dans une palette naturelle beige et terre.',
-      ar: 'دعوة بزخارف هندسية أمازيغية في لوحة ألوان بيج وطيني طبيعية.',
-    },
-    price: 8900,
-    languages: ['fr', 'ar'],
-    variant: 'kabyle',
-    image: '/templates/kabyle/tempkabyle.webp',
-    colors: [
-      C('beige', { fr: 'Beige', ar: 'بيج' }),
-    ],
-    imageSlots: [
-      { key: 'heroImage',    label: 'Image héro' },
-      { key: 'closingImage', label: 'Image de fermeture' },
-    ],
-  },
-  {
     slug: 'golden',
     productNum: '007',
     name: { fr: 'Golden', ar: 'غولدن' },
@@ -268,6 +229,45 @@ export const MODELS: Model[] = [
       C('gold', { fr: 'Or',   ar: 'ذهبي' }),
       C('sky',  { fr: 'Ciel', ar: 'سماوي' }),
       C('pink', { fr: 'Rose', ar: 'وردي' }),
+    ],
+    imageSlots: [
+      { key: 'heroImage',    label: 'Image héro' },
+      { key: 'closingImage', label: 'Image de fermeture' },
+    ],
+  },
+  {
+    slug: 'mariage',
+    productNum: '010',
+    name: { fr: 'Hafla', ar: 'حفلة' },
+    description: {
+      fr: 'Un faire-part cinématographique avec vidéo plein écran, voile noir et touches dorées.',
+      ar: 'دعوة سينمائية بفيديو بملء الشاشة، وطبقة سوداء شفافة، ولمسات ذهبية.',
+    },
+    price: 8900,
+    languages: ['fr', 'ar'],
+    variant: 'mariage',
+    image: '/templates/mariage/temphafla.webp',
+    colors: [
+      C('noir', { fr: 'Noir & Or', ar: 'أسود وذهبي' }),
+    ],
+    imageSlots: [
+      { key: 'bottomImage', label: 'Image de fermeture' },
+    ],
+  },
+  {
+    slug: 'kabyle',
+    productNum: '008',
+    name: { fr: 'Kabyle', ar: 'قبايلي' },
+    description: {
+      fr: 'Un faire-part aux motifs géométriques berbères, dans une palette naturelle beige et terre.',
+      ar: 'دعوة بزخارف هندسية أمازيغية في لوحة ألوان بيج وطيني طبيعية.',
+    },
+    price: 8900,
+    languages: ['fr', 'ar'],
+    variant: 'kabyle',
+    image: '/templates/kabyle/tempkabyle.webp',
+    colors: [
+      C('beige', { fr: 'Beige', ar: 'بيج' }),
     ],
     imageSlots: [
       { key: 'heroImage',    label: 'Image héro' },
