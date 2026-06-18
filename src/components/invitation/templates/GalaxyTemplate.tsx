@@ -76,16 +76,16 @@ const SCHEMES: Record<string, Scheme> = {
 };
 
 const PROGRAMME_FR = [
-  { time: '12h00', label: 'Début des festivités' },
-  { time: '14h00', label: 'Déjeuner' },
-  { time: '17h00', label: 'Cortège nuptial' },
-  { time: '19h00', label: 'Début de soirée' },
+  { time: '10h00', label: 'Début de la soirée' },
+  { time: '12h00', label: 'Le Dîner' },
+  { time: '14h00', label: 'Le Cortège' },
+  { time: '20h00', label: 'Clôture de la soirée' },
 ];
 const PROGRAMME_AR = [
-  { time: '12h00', label: 'بداية الحفلة' },
-  { time: '14h00', label: 'الأكل' },
-  { time: '17h00', label: 'كورتاج' },
-  { time: '19h00', label: 'بداية الحفلة' },
+  { time: '10h00', label: 'بداية الحفلة' },
+  { time: '12h00', label: 'الأكل' },
+  { time: '14h00', label: 'الكورتاج' },
+  { time: '20h00', label: 'نهاية الحفلة' },
 ];
 
 const TEXT_LABELS = {
@@ -199,10 +199,10 @@ export default function GalaxyTemplate({
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
           style={{ animation: 'scroll-reveal 0.5s ease 2s both, scroll-hint 1.6s ease-in-out 2.5s infinite' }}
         >
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: s.accentLight }} aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: '#ffffff' }} aria-hidden="true">
             <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: s.accentLight, opacity: 0.5 }} className="-mt-4" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: '#ffffff', opacity: 0.5 }} className="-mt-4" aria-hidden="true">
             <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>

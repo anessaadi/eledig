@@ -35,14 +35,16 @@ const DAYS_FR = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
 const DAYS_AR = ['أحد', 'إثنين', 'ثلاثاء', 'أربعاء', 'خميس', 'جمعة', 'سبت'];
 
 const PROGRAMME_FR = [
-  { time: '18h00', label: 'Cérémonie de Nikah' },
-  { time: '19h00', label: 'Dîner & Fête' },
-  { time: '20h00', label: 'Soirée dansante' },
+  { time: '10h00', label: 'Début de la soirée' },
+  { time: '12h00', label: 'Le Dîner' },
+  { time: '14h00', label: 'Le Cortège' },
+  { time: '20h00', label: 'Clôture de la soirée' },
 ];
 const PROGRAMME_AR = [
-  { time: '18:00', label: 'مراسم النكاح' },
-  { time: '19:00', label: 'العشاء والاحتفال' },
-  { time: '20:00', label: 'رقص جماعي' },
+  { time: '10h00', label: 'بداية الحفلة' },
+  { time: '12h00', label: 'الأكل' },
+  { time: '14h00', label: 'الكورتاج' },
+  { time: '20h00', label: 'نهاية الحفلة' },
 ];
 const TEXT_LABELS = {
   fr: { programme: 'Programme', resumeTitle: 'Résumé', dateLabel: 'Date', venueLabel: 'Lieu', timeLabel: 'Heure' },
@@ -126,6 +128,7 @@ function Flower({ color }: { color: string }) {
 
 export default function MariageTemplate({
   data,
+  style: _style,
   locale,
   customImages,
 }: {

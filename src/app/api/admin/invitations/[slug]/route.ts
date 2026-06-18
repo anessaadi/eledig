@@ -11,11 +11,14 @@ function deny() {
 
 async function resolveMapUrl(url: string): Promise<string> {
   if (!url) return url;
-  if (url.includes('/maps/embed') || (url.includes('@') && url.includes('google.com/maps'))) return url;
+  if (url.includes('/maps/embed') || url.includes('output=embed')) return url;
+  if (url.includes('@') && url.includes('google.com/maps')) return url;
   try {
     const res = await fetch(url, { redirect: 'follow', headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' } });
     const finalUrl = res.url;
     if (finalUrl.includes('@') || finalUrl.includes('?q=')) return finalUrl;
+    const placeMatch = finalUrl.match(/\/maps\/place\/([^/?]+)/);
+    if (placeMatch) return `https://maps.google.com/maps?q=${placeMatch[1]}&output=embed`;
   } catch {}
   return url;
 }
@@ -50,10 +53,10 @@ export async function PUT(req: NextRequest, { params }: Params) {
       bride:     b.bride     !== undefined ? String(b.bride)     : existing.data.bride,
       groom:     b.groom     !== undefined ? String(b.groom)     : existing.data.groom,
       date:      b.date      !== undefined ? new Date(String(b.date)).toISOString() : existing.data.date,
-      time:      b.time      !== undefined ? String(b.time)      : existing.data.time,
-      venue:     b.venue     !== undefined ? String(b.venue)     : existing.data.venue,
-      city:      b.city      !== undefined ? String(b.city)      : existing.data.city,
-      rsvpPhone: b.rsvpPhone !== undefined ? (b.rsvpPhone || undefined) : existing.data.rsvpPhone,
+      time:      b.time      !== undefined ? (String(b.time).trim()      || undefined) : existing.data.time,
+      venue:     b.venue     !== undefined ? (String(b.venue).trim()     || undefined) : existing.data.venue,
+      city:      b.city      !== undefined ? (String(b.city).trim()      || undefined) : existing.data.city,
+      rsvpPhone: b.rsvpPhone !== undefined ? (String(b.rsvpPhone).trim() || undefined) : existing.data.rsvpPhone,
       mapUrl:    resolvedMapUrl,
       mapLinkUrl,
       programme: Array.isArray(b.programme) ? b.programme : existing.data.programme,

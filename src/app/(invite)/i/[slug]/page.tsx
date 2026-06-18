@@ -28,11 +28,25 @@ export default async function LiveInvitation({ params: { slug } }: { params: { s
 
   const envelopeUrls = getEnvelopeImageUrls(inv.variant, inv.colorId);
 
+  const DEFAULT_LOCATION = {
+    fr: { venue: 'Salle Des Fêtes Afrah', city: 'Tlemcen' },
+    ar: { venue: 'قاعة الأفراح', city: 'تلمسان' },
+  };
+  const DEFAULT_MAP_URL = 'https://maps.app.goo.gl/eqmiEQgZVXqsC6G57';
+  const loc = DEFAULT_LOCATION[inv.locale];
+  const data = {
+    ...inv.data,
+    venue:      inv.data.venue      || loc.venue,
+    city:       inv.data.city       || loc.city,
+    mapUrl:     inv.data.mapUrl     || DEFAULT_MAP_URL,
+    mapLinkUrl: inv.data.mapLinkUrl || DEFAULT_MAP_URL,
+  };
+
   const template = (
     <InvitationLoader bg={inv.bg} accent={inv.accent} waitFor={envelopeUrls}>
       <InvitationTemplate
         locale={inv.locale}
-        data={inv.data}
+        data={data}
         style={{ variant: inv.variant, bg: inv.bg, ink: inv.ink, accent: inv.accent, colorId: inv.colorId }}
         customImages={inv.images}
       />

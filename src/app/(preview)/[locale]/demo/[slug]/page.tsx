@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import ReactDOM from 'react-dom';
 import { MODELS, getModel } from '@/data/models';
 import { getEnvelopeImageUrls } from '@/lib/envelopePreloads';
@@ -14,9 +14,10 @@ export function generateStaticParams() {
 // Sample data so people can preview the experience.
 const SAMPLE = {
   fr: {
-    bride: 'Amel', groom: 'Yanis', venue: 'Salle Les Jardins', city: 'Tlemcen',
+    bride: 'Amel', groom: 'Yanis', venue: 'Salle Des Fêtes Afrah', city: 'Tlemcen',
     message: "C'est avec joie que nous vous invitons à partager ce moment unique.",
     time: '10:00', rsvpPhone: '+213000000000',
+    mapUrl: 'https://maps.app.goo.gl/TzSydGsCSKUuQ8Mu6',
     programme: [
       { time: '10h00', label: 'Début de la soirée' },
       { time: '12h00', label: 'Le Dîner' },
@@ -25,9 +26,10 @@ const SAMPLE = {
     ],
   },
   ar: {
-    bride: 'أمل', groom: 'يانيس', venue: 'قاعة الحدائق', city: 'تلمسان',
+    bride: 'أمل', groom: 'يانيس', venue: 'قاعة الأفراح', city: 'تلمسان',
     message: 'يسعدنا أن ندعوكم لمشاركتنا هذه اللحظة المميزة.',
     time: '10:00', rsvpPhone: '+213000000000',
+    mapUrl: 'https://maps.app.goo.gl/TzSydGsCSKUuQ8Mu6',
     programme: [
       { time: '10h00', label: 'بداية الحفلة' },
       { time: '12h00', label: 'الأكل' },
@@ -44,7 +46,7 @@ export default async function DemoPage({
   params: { locale: 'fr' | 'ar'; slug: string };
   searchParams: { lang?: string; color?: string };
 }) {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const model = getModel(slug);
   if (!model) notFound();
 

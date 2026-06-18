@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { MapBlock } from '../MapBlock';
-import type { ReactNode } from 'react';
 import JardinEnvelope from './JardinEnvelope';
 import type { InviteData, InviteStyle } from './InvitationTemplate';
 
@@ -24,14 +23,16 @@ const DAYS_FR = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
 const DAYS_AR = ['أحد', 'إثنين', 'ثلاثاء', 'أربعاء', 'خميس', 'جمعة', 'سبت'];
 
 const PROGRAMME_FR = [
-  { time: '18h00', label: 'Cérémonie de Nikah' },
-  { time: '19h00', label: 'Dîner & Fête' },
-  { time: '20h00', label: 'Soirée dansante' },
+  { time: '10h00', label: 'Début de la soirée' },
+  { time: '12h00', label: 'Le Dîner' },
+  { time: '14h00', label: 'Le Cortège' },
+  { time: '20h00', label: 'Clôture de la soirée' },
 ];
 const PROGRAMME_AR = [
-  { time: '18:00', label: 'مراسم النكاح' },
-  { time: '19:00', label: 'العشاء والاحتفال' },
-  { time: '20:00', label: 'رقص جماعي' },
+  { time: '10h00', label: 'بداية الحفلة' },
+  { time: '12h00', label: 'الأكل' },
+  { time: '14h00', label: 'الكورتاج' },
+  { time: '20h00', label: 'نهاية الحفلة' },
 ];
 
 const TEXT_LABELS = {
@@ -101,27 +102,6 @@ function LeafDivider({ color }: { color: string }) {
   );
 }
 
-function JardinFrame({ color, children }: { color: string; children: ReactNode }) {
-  return (
-    <div style={{ position: 'relative', padding: '34px 26px' }}>
-      <svg viewBox="0 0 320 180" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} preserveAspectRatio="none" aria-hidden="true">
-        <rect x="8" y="8" width="304" height="164" rx="16" ry="16" fill="none" stroke={color} strokeWidth="1.5" opacity="0.6" />
-        {/* leaf corner ornaments */}
-        {([[8, 8], [312, 8], [8, 172], [312, 172]] as [number, number][]).map(([cx, cy], i) => {
-          const sx = cx === 8 ? 1 : -1;
-          const sy = cy === 8 ? 1 : -1;
-          return (
-            <g key={i}>
-              <path d={`M${cx},${cy} Q${cx + sx * 10},${cy + sy * 4} ${cx + sx * 6},${cy + sy * 10}`} fill={color} opacity="0.4" />
-              <circle cx={cx} cy={cy} r="2.5" fill={color} opacity="0.6" />
-            </g>
-          );
-        })}
-      </svg>
-      <div style={{ position: 'relative', zIndex: 1 }}>{children}</div>
-    </div>
-  );
-}
 
 function Flower({ color }: { color: string }) {
   return (
@@ -171,7 +151,6 @@ export default function JardinTemplate({
   const DAYS = isAr ? DAYS_AR : DAYS_FR;
   const { weeks, highlight } = buildCalendar(data.date);
   const calMonthLabel = isAr ? `${MONTHS_AR[month]} ${year}` : `${MONTHS_FR[month]} ${year}`;
-  const mapQuery = encodeURIComponent([data.venue, data.city].filter(Boolean).join(', ') || 'Casablanca, Morocco');
 
   return (
     <div dir={dir} style={{ background: s.pageBg, color: s.text, fontFamily: bodyFont }}>
@@ -182,10 +161,10 @@ export default function JardinTemplate({
         <img src={customImages?.heroImage ?? heroImage} alt="" style={{ position: 'absolute', top: 0, left: '50%', height: '100%', width: 'auto', maxWidth: 'none', transform: 'translateX(-50%)' }} />
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2" style={{ animation: 'scroll-reveal 0.5s ease 2s both, scroll-hint 1.6s ease-in-out 2.5s infinite' }}>
           <div className="flex flex-col items-center gap-1">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: '#fff' }} aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: '#000' }} aria-hidden="true">
               <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: '#fff', opacity: 0.5 }} className="-mt-4" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: '#000', opacity: 0.5 }} className="-mt-4" aria-hidden="true">
               <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>

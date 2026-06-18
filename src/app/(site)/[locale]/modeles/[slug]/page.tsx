@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { MODELS, getModel } from '@/data/models';
 import { Link } from '@/i18n/navigation';
 import { whatsappLink } from '@/config/site';
@@ -14,7 +14,7 @@ export default async function ProductPage({
 }: {
   params: { locale: 'fr' | 'ar'; slug: string };
 }) {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const model = getModel(slug);
   if (!model) notFound();
   const t = await getTranslations('product');

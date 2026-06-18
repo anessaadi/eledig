@@ -12,16 +12,16 @@ const FR = 'var(--font-fr-display), Georgia, serif';
 const FR_BODY = 'var(--font-fr-body), Georgia, serif';
 
 const PROGRAMME_FR = [
-  { time: '12h00', label: 'Début des festivités' },
-  { time: '14h00', label: 'Déjeuner' },
-  { time: '17h00', label: 'Cortège nuptial' },
-  { time: '19h00', label: 'Début de soirée' },
+  { time: '10h00', label: 'Début de la soirée' },
+  { time: '12h00', label: 'Le Dîner' },
+  { time: '14h00', label: 'Le Cortège' },
+  { time: '20h00', label: 'Clôture de la soirée' },
 ];
 const PROGRAMME_AR = [
-  { time: '12h00', label: 'بداية الحفلة' },
-  { time: '14h00', label: 'وليمة' },
-  { time: '17h00', label: 'الموكب' },
-  { time: '19h00', label: 'بداية السهرة' },
+  { time: '10h00', label: 'بداية الحفلة' },
+  { time: '12h00', label: 'الأكل' },
+  { time: '14h00', label: 'الكورتاج' },
+  { time: '20h00', label: 'نهاية الحفلة' },
 ];
 
 const TEXT_LABELS = {
@@ -188,7 +188,7 @@ export default function EleganceTemplate({
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: '#fff' }} aria-hidden="true">
               <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: '#fff', opacity: 0.5 }} className="-mt-4" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: '#fff' }} className="-mt-4" aria-hidden="true">
               <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>

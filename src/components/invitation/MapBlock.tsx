@@ -12,7 +12,7 @@ export function MapBlock({ mapUrl, mapLinkUrl }: { mapUrl?: string; mapLinkUrl?:
   const linkUrl = mapLinkUrl ?? mapUrl;
   if (!mapUrl) return null;
 
-  if (mapUrl.includes('/maps/embed')) {
+  if (mapUrl.includes('/maps/embed') || mapUrl.includes('output=embed')) {
     return (
       <iframe
         src={mapUrl}

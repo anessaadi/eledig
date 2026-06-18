@@ -18,9 +18,9 @@ export type Invitation = {
     bride: string;
     groom: string;
     date: string;
-    time: string;
-    venue: string;
-    city: string;
+    time?: string;
+    venue?: string;
+    city?: string;
     message?: string;
     rsvpPhone?: string;
     mapUrl?: string;

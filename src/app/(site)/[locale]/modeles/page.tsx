@@ -1,10 +1,10 @@
-import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { MODELS } from '@/data/models';
 import ModelCard from '@/components/models/ModelCard';
 import Reveal from '@/components/ui/Reveal';
 
 export default async function ModelesPage({ params: { locale } }: { params: { locale: 'fr' | 'ar' } }) {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const t = await getTranslations('models');
   return (
     <div className="mx-auto max-w-6xl px-5 py-16">

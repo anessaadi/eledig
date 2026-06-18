@@ -17,11 +17,14 @@ export async function GET(req: NextRequest) {
 
 async function resolveMapUrl(url: string): Promise<string> {
   if (!url) return url;
-  if (url.includes('/maps/embed') || url.includes('@') && url.includes('google.com/maps')) return url;
+  if (url.includes('/maps/embed') || url.includes('output=embed')) return url;
+  if (url.includes('@') && url.includes('google.com/maps')) return url;
   try {
     const res = await fetch(url, { redirect: 'follow', headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' } });
     const finalUrl = res.url;
     if (finalUrl.includes('@') || finalUrl.includes('?q=')) return finalUrl;
+    const placeMatch = finalUrl.match(/\/maps\/place\/([^/?]+)/);
+    if (placeMatch) return `https://maps.google.com/maps?q=${placeMatch[1]}&output=embed`;
   } catch {}
   return url;
 }
@@ -57,12 +60,12 @@ export async function POST(req: NextRequest) {
       bride:     String(b.bride),
       groom:     String(b.groom),
       date:      weddingDate.toISOString(),
-      time:      String(b.time ?? ''),
-      venue:     String(b.venue ?? ''),
-      city:      String(b.city ?? ''),
-      rsvpPhone: b.rsvpPhone ? String(b.rsvpPhone) : undefined,
-      mapUrl:    b.mapUrl ? await resolveMapUrl(String(b.mapUrl)) : undefined,
-      mapLinkUrl: b.mapUrl ? String(b.mapUrl) : undefined,
+      time:      b.time?.trim() || undefined,
+      venue:     b.venue?.trim() || undefined,
+      city:      b.city?.trim() || undefined,
+      rsvpPhone: b.rsvpPhone?.trim() || undefined,
+      mapUrl:    b.mapUrl?.trim() ? await resolveMapUrl(String(b.mapUrl)) : undefined,
+      mapLinkUrl: b.mapUrl?.trim() || undefined,
       programme: Array.isArray(b.programme) ? b.programme : undefined,
     },
     weddingDate: weddingDate.toISOString(),

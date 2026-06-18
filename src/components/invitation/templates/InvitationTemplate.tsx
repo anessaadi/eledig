@@ -14,9 +14,9 @@ export type InviteData = {
   bride: string;
   groom: string;
   date: string;
-  time: string;
-  venue: string;
-  city: string;
+  time?: string;
+  venue?: string;
+  city?: string;
   mapUrl?: string;
   mapLinkUrl?: string;
   programme?: Array<{ time: string; label: string }>;

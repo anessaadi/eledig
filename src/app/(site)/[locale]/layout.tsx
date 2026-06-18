@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
+import { getMessages, setRequestLocale } from 'next-intl/server';
 import '../../globals.css';
 import { routing } from '@/i18n/routing';
 import { playfair, cormorant, zain, elMessiri, komediaBlack, arefRuqaa } from '@/app/fonts';
@@ -25,7 +25,7 @@ export default async function LocaleLayout({
   params: { locale: string };
 }) {
   if (!routing.locales.includes(locale as 'fr' | 'ar')) notFound();
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   const messages = await getMessages();
   const dir = locale === 'ar' ? 'rtl' : 'ltr';

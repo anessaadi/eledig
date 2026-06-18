@@ -185,10 +185,10 @@ export default function RosaTemplate({
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
           style={{ animation: 'scroll-reveal 0.5s ease 2s both, scroll-hint 1.6s ease-in-out 2.5s infinite' }}
         >
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: CREAM }} aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: DIM }} aria-hidden="true">
             <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: CREAM, opacity: 0.5 }} className="-mt-4" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style={{ color: DIM, opacity: 0.5 }} className="-mt-4" aria-hidden="true">
             <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
