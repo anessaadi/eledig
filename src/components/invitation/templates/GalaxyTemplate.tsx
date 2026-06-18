@@ -199,7 +199,7 @@ export default function GalaxyTemplate({
           preload="auto"
           style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
         >
-          <source src="/templates/galaxy/galaxyvideo.mp4" type="video/mp4" />
+          <source src="/templates/galaxy/galaxyvideo.webm" type="video/webm" />
         </video>
         </div>
 
