@@ -100,8 +100,8 @@ export default function DashboardClient({
 
       {/* ── SIMPLE TABLE ── */}
       {!showDetails && (
-        <div className="rounded-xl border border-gray-800 overflow-hidden">
-          <table className="w-full text-sm">
+        <div className="rounded-xl border border-gray-800 overflow-x-auto">
+          <table className="w-full text-sm min-w-[900px]">
             <thead>
               <tr className="border-b border-gray-800 bg-gray-900/60">
                 <th className="px-4 py-3 text-left text-xs uppercase tracking-wider text-gray-500 font-medium">Couple</th>
