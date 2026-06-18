@@ -1,0 +1,2614 @@
+[
+  {
+    "slug": "DU1N5rfxJVwkCl4Y",
+    "variant": "royal-bordeaux",
+    "colorId": "green",
+    "bg": "#E8F5E9",
+    "ink": "#1b5e20",
+    "accent": "#2e7d32",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781771046357-heroImage.webp"
+    },
+    "data": {
+      "bride": "Ania",
+      "groom": "Farouk",
+      "date": "2026-08-17T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-17T00:00:00.000Z",
+    "expiresAt": "2026-08-24T00:00:00.000Z",
+    "createdAt": "2026-06-18T08:24:06.809Z"
+  },
+  {
+    "slug": "HHSBnga7DBuA08zS",
+    "variant": "royal-bordeaux",
+    "colorId": "blue",
+    "bg": "#EEF2FF",
+    "ink": "#1E3A8A",
+    "accent": "#1a56db",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781771125842-heroImage.webp"
+    },
+    "data": {
+      "bride": "Ania",
+      "groom": "Farouk",
+      "date": "2026-08-17T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-17T00:00:00.000Z",
+    "expiresAt": "2026-08-24T00:00:00.000Z",
+    "createdAt": "2026-06-18T08:25:27.039Z"
+  },
+  {
+    "slug": "-PcgOgSQLzqLD6x2",
+    "variant": "royal-bordeaux",
+    "colorId": "burgundy",
+    "bg": "#FDF2F4",
+    "ink": "#6B1228",
+    "accent": "#9b1c3e",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781771174022-heroImage.webp"
+    },
+    "data": {
+      "bride": "Ania",
+      "groom": "Farouk",
+      "date": "2026-08-17T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-17T00:00:00.000Z",
+    "expiresAt": "2026-08-24T00:00:00.000Z",
+    "createdAt": "2026-06-18T08:26:14.959Z"
+  },
+  {
+    "slug": "KGG-Bz2k61P_vP68",
+    "variant": "royal-bordeaux",
+    "colorId": "purple",
+    "bg": "#F3E5F5",
+    "ink": "#4a148c",
+    "accent": "#7b1fa2",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781771221500-heroImage.webp"
+    },
+    "data": {
+      "bride": "Ania",
+      "groom": "Farouk",
+      "date": "2026-08-17T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-17T00:00:00.000Z",
+    "expiresAt": "2026-08-24T00:00:00.000Z",
+    "createdAt": "2026-06-18T08:27:02.606Z"
+  },
+  {
+    "slug": "vxFNaKasuNa5iupj",
+    "variant": "royal-bordeaux",
+    "colorId": "green",
+    "bg": "#E8F5E9",
+    "ink": "#1b5e20",
+    "accent": "#2e7d32",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781771671502-heroImage.webp"
+    },
+    "data": {
+      "bride": "Ania",
+      "groom": "Farouk",
+      "date": "2026-08-17T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-17T00:00:00.000Z",
+    "expiresAt": "2026-08-24T00:00:00.000Z",
+    "createdAt": "2026-06-18T08:34:33.080Z"
+  },
+  {
+    "slug": "nhk-Qh5w5sGBWi9T",
+    "variant": "royal-bordeaux",
+    "colorId": "blue",
+    "bg": "#EEF2FF",
+    "ink": "#1E3A8A",
+    "accent": "#1a56db",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781771763819-heroImage.webp"
+    },
+    "data": {
+      "bride": "Ania",
+      "groom": "Farouk",
+      "date": "2026-08-17T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-17T00:00:00.000Z",
+    "expiresAt": "2026-08-24T00:00:00.000Z",
+    "createdAt": "2026-06-18T08:36:04.660Z"
+  },
+  {
+    "slug": "orLI9BynloWtCcwA",
+    "variant": "royal-bordeaux",
+    "colorId": "burgundy",
+    "bg": "#FDF2F4",
+    "ink": "#6B1228",
+    "accent": "#9b1c3e",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781771798737-heroImage.webp"
+    },
+    "data": {
+      "bride": "Ania",
+      "groom": "Farouk",
+      "date": "2026-08-17T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-17T00:00:00.000Z",
+    "expiresAt": "2026-08-24T00:00:00.000Z",
+    "createdAt": "2026-06-18T08:36:39.555Z"
+  },
+  {
+    "slug": "AhouQnVPqzvV0FSU",
+    "variant": "royal-bordeaux",
+    "colorId": "purple",
+    "bg": "#F3E5F5",
+    "ink": "#4a148c",
+    "accent": "#7b1fa2",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781771875349-heroImage.webp"
+    },
+    "data": {
+      "bride": "Ania",
+      "groom": "Farouk",
+      "date": "2026-08-17T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-18T00:00:00.000Z",
+    "expiresAt": "2026-08-25T00:00:00.000Z",
+    "createdAt": "2026-06-18T08:37:56.444Z"
+  },
+  {
+    "slug": "hDyydAo9ood9ww88",
+    "variant": "islamic",
+    "colorId": "gold",
+    "bg": "#F7F2EA",
+    "ink": "#6B5A3C",
+    "accent": "#C8B08A",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781772068123-heroImage.webp",
+      "closingImage": "/uploads/1781772215193-closingImage.webp"
+    },
+    "data": {
+      "bride": "Rabia",
+      "groom": "Yazid",
+      "date": "2026-07-25T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-07-25T00:00:00.000Z",
+    "expiresAt": "2026-08-01T00:00:00.000Z",
+    "createdAt": "2026-06-18T08:41:09.195Z"
+  },
+  {
+    "slug": "ZmFqayrMFHV0CW0v",
+    "variant": "islamic",
+    "colorId": "sky",
+    "bg": "#E8F4F8",
+    "ink": "#091e30",
+    "accent": "#3a8aad",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781772107260-heroImage.webp",
+      "closingImage": "/uploads/1781772195975-closingImage.webp"
+    },
+    "data": {
+      "bride": "Rabia",
+      "groom": "Yazid",
+      "date": "2026-07-25T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-07-25T00:00:00.000Z",
+    "expiresAt": "2026-08-01T00:00:00.000Z",
+    "createdAt": "2026-06-18T08:41:48.366Z"
+  },
+  {
+    "slug": "h-3hmoRd6I9wQD9W",
+    "variant": "islamic",
+    "colorId": "pink",
+    "bg": "#FDF0F4",
+    "ink": "#5a1028",
+    "accent": "#c06080",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781772139063-heroImage.webp",
+      "closingImage": "/uploads/1781772182975-closingImage.webp"
+    },
+    "data": {
+      "bride": "Rabia",
+      "groom": "Yazid",
+      "date": "2026-07-25T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-07-25T00:00:00.000Z",
+    "expiresAt": "2026-08-01T00:00:00.000Z",
+    "createdAt": "2026-06-18T08:42:20.028Z"
+  },
+  {
+    "slug": "aJK269YkTrCTDtHE",
+    "variant": "islamic",
+    "colorId": "gold",
+    "bg": "#F7F2EA",
+    "ink": "#6B5A3C",
+    "accent": "#C8B08A",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781772291793-heroImage.webp",
+      "closingImage": "/uploads/1781772292085-closingImage.webp"
+    },
+    "data": {
+      "bride": "Rabia",
+      "groom": "Yazid",
+      "date": "2026-07-25T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-07-25T00:00:00.000Z",
+    "expiresAt": "2026-08-01T00:00:00.000Z",
+    "createdAt": "2026-06-18T08:44:52.886Z"
+  },
+  {
+    "slug": "IF8trDcoNcxomDDD",
+    "variant": "islamic",
+    "colorId": "sky",
+    "bg": "#E8F4F8",
+    "ink": "#091e30",
+    "accent": "#3a8aad",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781772333743-heroImage.webp",
+      "closingImage": "/uploads/1781772334022-closingImage.webp"
+    },
+    "data": {
+      "bride": "Rabia",
+      "groom": "Yazid",
+      "date": "2026-07-25T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-07-25T00:00:00.000Z",
+    "expiresAt": "2026-08-01T00:00:00.000Z",
+    "createdAt": "2026-06-18T08:45:35.257Z"
+  },
+  {
+    "slug": "8D1lrXv2LQy0O5Y_",
+    "variant": "islamic",
+    "colorId": "pink",
+    "bg": "#FDF0F4",
+    "ink": "#5a1028",
+    "accent": "#c06080",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781772395499-heroImage.webp",
+      "closingImage": "/uploads/1781772395795-closingImage.webp"
+    },
+    "data": {
+      "bride": "Rabia",
+      "groom": "Yazid",
+      "date": "2026-07-25T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-07-25T00:00:00.000Z",
+    "expiresAt": "2026-08-01T00:00:00.000Z",
+    "createdAt": "2026-06-18T08:46:36.741Z"
+  },
+  {
+    "slug": "yB7JMV2uM7HGZvIu",
+    "variant": "galaxy",
+    "colorId": "burgundy",
+    "bg": "#FDF2F4",
+    "ink": "#6B1228",
+    "accent": "#9b1c3e",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "image1": "/uploads/1781772655149-image1.webp",
+      "image2": "/uploads/1781772655378-image2.webp"
+    },
+    "data": {
+      "bride": "Hayat",
+      "groom": "Houssam",
+      "date": "2026-08-14T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-14T00:00:00.000Z",
+    "expiresAt": "2026-08-21T00:00:00.000Z",
+    "createdAt": "2026-06-18T08:50:57.049Z"
+  },
+  {
+    "slug": "6zvWO_Q-lDf8zd0q",
+    "variant": "galaxy",
+    "colorId": "violet",
+    "bg": "#F0E8FF",
+    "ink": "#3a1060",
+    "accent": "#7040c0",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "image1": "/uploads/1781772717303-image1.webp",
+      "image2": "/uploads/1781772717573-image2.webp"
+    },
+    "data": {
+      "bride": "Hayat",
+      "groom": "Houssem",
+      "date": "2026-08-14T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-14T00:00:00.000Z",
+    "expiresAt": "2026-08-21T00:00:00.000Z",
+    "createdAt": "2026-06-18T08:51:58.573Z"
+  },
+  {
+    "slug": "vuYLij25ZhfYdSEK",
+    "variant": "galaxy",
+    "colorId": "navy",
+    "bg": "#EDF0F8",
+    "ink": "#072b60",
+    "accent": "#072b60",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "image1": "/uploads/1781772753120-image1.webp",
+      "image2": "/uploads/1781772753379-image2.webp"
+    },
+    "data": {
+      "bride": "Hayat",
+      "groom": "Houssem",
+      "date": "2026-08-14T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-14T00:00:00.000Z",
+    "expiresAt": "2026-08-21T00:00:00.000Z",
+    "createdAt": "2026-06-18T08:52:34.526Z"
+  },
+  {
+    "slug": "M2BerLGKWkedE_WW",
+    "variant": "galaxy",
+    "colorId": "burgundy",
+    "bg": "#FDF2F4",
+    "ink": "#6B1228",
+    "accent": "#9b1c3e",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "image1": "/uploads/1781772833352-image1.webp",
+      "image2": "/uploads/1781772833621-image2.webp"
+    },
+    "data": {
+      "bride": "Hayat",
+      "groom": "Houssem",
+      "date": "2026-08-14T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-14T00:00:00.000Z",
+    "expiresAt": "2026-08-21T00:00:00.000Z",
+    "createdAt": "2026-06-18T08:53:54.541Z"
+  },
+  {
+    "slug": "b18eoGYEnvSAFVFW",
+    "variant": "galaxy",
+    "colorId": "violet",
+    "bg": "#F0E8FF",
+    "ink": "#3a1060",
+    "accent": "#7040c0",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "image1": "/uploads/1781772888367-image1.webp",
+      "image2": "/uploads/1781772888630-image2.webp"
+    },
+    "data": {
+      "bride": "Hayat",
+      "groom": "Houssem",
+      "date": "2026-08-14T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-14T00:00:00.000Z",
+    "expiresAt": "2026-08-21T00:00:00.000Z",
+    "createdAt": "2026-06-18T08:54:49.360Z"
+  },
+  {
+    "slug": "MFm-822Ezyd_-EaX",
+    "variant": "galaxy",
+    "colorId": "navy",
+    "bg": "#EDF0F8",
+    "ink": "#072b60",
+    "accent": "#072b60",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "image1": "/uploads/1781772946136-image1.webp",
+      "image2": "/uploads/1781772946401-image2.webp"
+    },
+    "data": {
+      "bride": "Hayat",
+      "groom": "Houssem",
+      "date": "2026-08-14T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-14T00:00:00.000Z",
+    "expiresAt": "2026-08-21T00:00:00.000Z",
+    "createdAt": "2026-06-18T08:55:47.385Z"
+  },
+  {
+    "slug": "sn13Sj_r3mSiUF5i",
+    "variant": "rosa",
+    "colorId": "burgundy",
+    "bg": "#FDF2F4",
+    "ink": "#6B1228",
+    "accent": "#9b1c3e",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781775125982-heroImage.webp"
+    },
+    "data": {
+      "bride": "Djafer",
+      "groom": "Layla",
+      "date": "2026-08-06T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-06T00:00:00.000Z",
+    "expiresAt": "2026-08-13T00:00:00.000Z",
+    "createdAt": "2026-06-18T09:32:07.027Z"
+  },
+  {
+    "slug": "39hJtyhtC9UMB0Ou",
+    "variant": "rosa",
+    "colorId": "blue",
+    "bg": "#EEF2FF",
+    "ink": "#1E3A8A",
+    "accent": "#1a56db",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781775157780-heroImage.webp"
+    },
+    "data": {
+      "bride": "Djafer",
+      "groom": "Layla",
+      "date": "2026-08-06T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-06T00:00:00.000Z",
+    "expiresAt": "2026-08-13T00:00:00.000Z",
+    "createdAt": "2026-06-18T09:32:38.895Z"
+  },
+  {
+    "slug": "dFQdXEtgf3Gk1-DF",
+    "variant": "rosa",
+    "colorId": "purple",
+    "bg": "#F3E5F5",
+    "ink": "#4a148c",
+    "accent": "#7b1fa2",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781775200020-heroImage.webp"
+    },
+    "data": {
+      "bride": "Djafer",
+      "groom": "Layla",
+      "date": "2026-08-06T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-06T00:00:00.000Z",
+    "expiresAt": "2026-08-13T00:00:00.000Z",
+    "createdAt": "2026-06-18T09:33:20.852Z"
+  },
+  {
+    "slug": "YLavzh38kIuuTNcM",
+    "variant": "rosa",
+    "colorId": "gold",
+    "bg": "#F7F2EA",
+    "ink": "#6B5A3C",
+    "accent": "#C8B08A",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781775324109-heroImage.webp"
+    },
+    "data": {
+      "bride": "Djafer",
+      "groom": "Layla",
+      "date": "2026-08-06T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-06T00:00:00.000Z",
+    "expiresAt": "2026-08-13T00:00:00.000Z",
+    "createdAt": "2026-06-18T09:35:25.154Z"
+  },
+  {
+    "slug": "-q0ceXYWj4IrD7yd",
+    "variant": "rosa",
+    "colorId": "burgundy",
+    "bg": "#FDF2F4",
+    "ink": "#6B1228",
+    "accent": "#9b1c3e",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781775368305-heroImage.webp"
+    },
+    "data": {
+      "bride": "Djafer",
+      "groom": "Layla",
+      "date": "2026-08-06T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-06T00:00:00.000Z",
+    "expiresAt": "2026-08-13T00:00:00.000Z",
+    "createdAt": "2026-06-18T09:36:09.632Z"
+  },
+  {
+    "slug": "-vTgwl5Awlv5Q73b",
+    "variant": "rosa",
+    "colorId": "blue",
+    "bg": "#EEF2FF",
+    "ink": "#1E3A8A",
+    "accent": "#1a56db",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781775410505-heroImage.webp"
+    },
+    "data": {
+      "bride": "Djafer",
+      "groom": "Layla",
+      "date": "2026-08-06T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-06T00:00:00.000Z",
+    "expiresAt": "2026-08-13T00:00:00.000Z",
+    "createdAt": "2026-06-18T09:36:51.383Z"
+  },
+  {
+    "slug": "73C32p5LPDgnF5rT",
+    "variant": "rosa",
+    "colorId": "purple",
+    "bg": "#F3E5F5",
+    "ink": "#4a148c",
+    "accent": "#7b1fa2",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781775447074-heroImage.webp"
+    },
+    "data": {
+      "bride": "Djafer",
+      "groom": "Layla",
+      "date": "2026-08-06T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-06T00:00:00.000Z",
+    "expiresAt": "2026-08-13T00:00:00.000Z",
+    "createdAt": "2026-06-18T09:37:27.866Z"
+  },
+  {
+    "slug": "mPPlnkIUesTLCfEC",
+    "variant": "rosa",
+    "colorId": "gold",
+    "bg": "#F7F2EA",
+    "ink": "#6B5A3C",
+    "accent": "#C8B08A",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781775484096-heroImage.webp"
+    },
+    "data": {
+      "bride": "Djafer",
+      "groom": "Layla",
+      "date": "2026-08-06T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-06T00:00:00.000Z",
+    "expiresAt": "2026-08-13T00:00:00.000Z",
+    "createdAt": "2026-06-18T09:38:05.201Z"
+  },
+  {
+    "slug": "9QM_jRxRYCKzwQTg",
+    "variant": "elegance",
+    "colorId": "burgundy",
+    "bg": "#FDF2F4",
+    "ink": "#6B1228",
+    "accent": "#9b1c3e",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781775592875-heroImage.webp"
+    },
+    "data": {
+      "bride": "Nada",
+      "groom": "Omar",
+      "date": "2026-08-05T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-05T00:00:00.000Z",
+    "expiresAt": "2026-08-12T00:00:00.000Z",
+    "createdAt": "2026-06-18T09:39:53.853Z"
+  },
+  {
+    "slug": "HyZghgvhULiTvxnS",
+    "variant": "elegance",
+    "colorId": "blue",
+    "bg": "#EEF2FF",
+    "ink": "#1E3A8A",
+    "accent": "#1a56db",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781775647924-heroImage.webp"
+    },
+    "data": {
+      "bride": "Nada",
+      "groom": "Omar",
+      "date": "2026-08-05T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-05T00:00:00.000Z",
+    "expiresAt": "2026-08-12T00:00:00.000Z",
+    "createdAt": "2026-06-18T09:40:48.770Z"
+  },
+  {
+    "slug": "yl31TDQy_vwkP9kw",
+    "variant": "elegance",
+    "colorId": "green",
+    "bg": "#E8F5E9",
+    "ink": "#1b5e20",
+    "accent": "#2e7d32",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781775688389-heroImage.webp"
+    },
+    "data": {
+      "bride": "Nada",
+      "groom": "Omar",
+      "date": "2026-08-05T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-05T00:00:00.000Z",
+    "expiresAt": "2026-08-12T00:00:00.000Z",
+    "createdAt": "2026-06-18T09:41:29.146Z"
+  },
+  {
+    "slug": "-qxk8jfWWAPdSCW8",
+    "variant": "elegance",
+    "colorId": "purple",
+    "bg": "#F3E5F5",
+    "ink": "#4a148c",
+    "accent": "#7b1fa2",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781775758284-heroImage.webp"
+    },
+    "data": {
+      "bride": "Nada",
+      "groom": "Omar",
+      "date": "2026-08-05T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-05T00:00:00.000Z",
+    "expiresAt": "2026-08-12T00:00:00.000Z",
+    "createdAt": "2026-06-18T09:42:39.189Z"
+  },
+  {
+    "slug": "aR4ipoBGaldJaUcV",
+    "variant": "elegance",
+    "colorId": "burgundy",
+    "bg": "#FDF2F4",
+    "ink": "#6B1228",
+    "accent": "#9b1c3e",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781775858139-heroImage.webp"
+    },
+    "data": {
+      "bride": "Nada",
+      "groom": "Omar",
+      "date": "2026-08-05T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-05T00:00:00.000Z",
+    "expiresAt": "2026-08-12T00:00:00.000Z",
+    "createdAt": "2026-06-18T09:44:19.273Z"
+  },
+  {
+    "slug": "UqI5RyuFBB1SBMF6",
+    "variant": "elegance",
+    "colorId": "blue",
+    "bg": "#EEF2FF",
+    "ink": "#1E3A8A",
+    "accent": "#1a56db",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781775907508-heroImage.webp"
+    },
+    "data": {
+      "bride": "Nada",
+      "groom": "Omar",
+      "date": "2026-08-05T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-05T00:00:00.000Z",
+    "expiresAt": "2026-08-12T00:00:00.000Z",
+    "createdAt": "2026-06-18T09:45:08.540Z"
+  },
+  {
+    "slug": "XJISWobqljYfIlIj",
+    "variant": "elegance",
+    "colorId": "green",
+    "bg": "#E8F5E9",
+    "ink": "#1b5e20",
+    "accent": "#2e7d32",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781775943595-heroImage.webp"
+    },
+    "data": {
+      "bride": "Nada",
+      "groom": "Omar",
+      "date": "2026-08-05T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-05T00:00:00.000Z",
+    "expiresAt": "2026-08-12T00:00:00.000Z",
+    "createdAt": "2026-06-18T09:45:44.742Z"
+  },
+  {
+    "slug": "ysDejaX8HLX0jEA8",
+    "variant": "elegance",
+    "colorId": "purple",
+    "bg": "#F3E5F5",
+    "ink": "#4a148c",
+    "accent": "#7b1fa2",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781775981798-heroImage.webp"
+    },
+    "data": {
+      "bride": "Nada",
+      "groom": "Omar",
+      "date": "2026-08-05T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-05T00:00:00.000Z",
+    "expiresAt": "2026-08-12T00:00:00.000Z",
+    "createdAt": "2026-06-18T09:46:22.980Z"
+  },
+  {
+    "slug": "yGICE4luBnxgeIOh",
+    "variant": "kabyle",
+    "colorId": "beige",
+    "bg": "#FDF8EF",
+    "ink": "#3d2810",
+    "accent": "#8b5e3c",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781776129504-heroImage.webp"
+    },
+    "data": {
+      "bride": "Maria",
+      "groom": "Idir",
+      "date": "2027-07-27T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2027-07-27T00:00:00.000Z",
+    "expiresAt": "2027-08-03T00:00:00.000Z",
+    "createdAt": "2026-06-18T09:48:50.429Z"
+  },
+  {
+    "slug": "VOPTPLrDH-AKJ1aw",
+    "variant": "kabyle",
+    "colorId": "beige",
+    "bg": "#FDF8EF",
+    "ink": "#3d2810",
+    "accent": "#8b5e3c",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781776176989-heroImage.webp"
+    },
+    "data": {
+      "bride": "Maria",
+      "groom": "Idir",
+      "date": "2026-07-27T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-07-27T00:00:00.000Z",
+    "expiresAt": "2026-08-03T00:00:00.000Z",
+    "createdAt": "2026-06-18T09:49:37.943Z"
+  },
+  {
+    "slug": "dPQ5xMG073C1FqxJ",
+    "variant": "mariage",
+    "colorId": "noir",
+    "bg": "#111111",
+    "ink": "#ffffff",
+    "accent": "#c9a055",
+    "locale": "fr",
+    "active": true,
+    "images": {},
+    "data": {
+      "bride": "Amel",
+      "groom": "Yanis",
+      "date": "2026-08-09T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-09T00:00:00.000Z",
+    "expiresAt": "2026-08-16T00:00:00.000Z",
+    "createdAt": "2026-06-18T09:51:30.446Z"
+  },
+  {
+    "slug": "Yq_242ETutnNQBca",
+    "variant": "mariage",
+    "colorId": "noir",
+    "bg": "#111111",
+    "ink": "#ffffff",
+    "accent": "#c9a055",
+    "locale": "ar",
+    "active": true,
+    "images": {},
+    "data": {
+      "bride": "أمال",
+      "groom": "ينيس",
+      "date": "2026-08-09T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-09T00:00:00.000Z",
+    "expiresAt": "2026-08-16T00:00:00.000Z",
+    "createdAt": "2026-06-18T09:52:50.768Z"
+  },
+  {
+    "slug": "5bHZlgNbZPgLuNzu",
+    "variant": "gala",
+    "colorId": "burgundy",
+    "bg": "#FDF2F4",
+    "ink": "#6B1228",
+    "accent": "#9b1c3e",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781777135972-heroImage.webp"
+    },
+    "data": {
+      "bride": "Meriem",
+      "groom": "Nabil",
+      "date": "2026-08-17T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-17T00:00:00.000Z",
+    "expiresAt": "2026-08-24T00:00:00.000Z",
+    "createdAt": "2026-06-18T10:05:37.491Z"
+  },
+  {
+    "slug": "PAylHmmJElSZY9Ai",
+    "variant": "gala",
+    "colorId": "blue",
+    "bg": "#EEF2FF",
+    "ink": "#1E3A8A",
+    "accent": "#1a56db",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781777180317-heroImage.webp"
+    },
+    "data": {
+      "bride": "Meriem",
+      "groom": "Nabil",
+      "date": "2026-08-17T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-17T00:00:00.000Z",
+    "expiresAt": "2026-08-24T00:00:00.000Z",
+    "createdAt": "2026-06-18T10:06:21.387Z"
+  },
+  {
+    "slug": "rCs7TNbJ0wCGCL6t",
+    "variant": "gala",
+    "colorId": "green",
+    "bg": "#E8F5E9",
+    "ink": "#1b5e20",
+    "accent": "#2e7d32",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781777220373-heroImage.webp"
+    },
+    "data": {
+      "bride": "Meriem",
+      "groom": "Nabil",
+      "date": "2026-08-17T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-17T00:00:00.000Z",
+    "expiresAt": "2026-08-24T00:00:00.000Z",
+    "createdAt": "2026-06-18T10:07:01.585Z"
+  },
+  {
+    "slug": "ffaXpMVDG5-3UT3F",
+    "variant": "gala",
+    "colorId": "purple",
+    "bg": "#F3E5F5",
+    "ink": "#4a148c",
+    "accent": "#7b1fa2",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781777270607-heroImage.webp"
+    },
+    "data": {
+      "bride": "Meriem",
+      "groom": "Nabil",
+      "date": "2026-08-17T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-17T00:00:00.000Z",
+    "expiresAt": "2026-08-24T00:00:00.000Z",
+    "createdAt": "2026-06-18T10:07:51.817Z"
+  },
+  {
+    "slug": "KQ5KG69ih34wzjoG",
+    "variant": "gala",
+    "colorId": "burgundy",
+    "bg": "#FDF2F4",
+    "ink": "#6B1228",
+    "accent": "#9b1c3e",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781777519184-heroImage.webp"
+    },
+    "data": {
+      "bride": "Meriem",
+      "groom": "Nabil",
+      "date": "2026-08-17T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-17T00:00:00.000Z",
+    "expiresAt": "2026-08-24T00:00:00.000Z",
+    "createdAt": "2026-06-18T10:08:48.832Z"
+  },
+  {
+    "slug": "AkBhFSLnkakePeng",
+    "variant": "gala",
+    "colorId": "blue",
+    "bg": "#EEF2FF",
+    "ink": "#1E3A8A",
+    "accent": "#1a56db",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781777495677-heroImage.webp"
+    },
+    "data": {
+      "bride": "Meriem",
+      "groom": "Nabil",
+      "date": "2026-08-17T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-17T00:00:00.000Z",
+    "expiresAt": "2026-08-24T00:00:00.000Z",
+    "createdAt": "2026-06-18T10:09:34.724Z"
+  },
+  {
+    "slug": "qJ7Zy1JbJ_B7Ihqv",
+    "variant": "gala",
+    "colorId": "green",
+    "bg": "#E8F5E9",
+    "ink": "#1b5e20",
+    "accent": "#2e7d32",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781777408258-heroImage.webp"
+    },
+    "data": {
+      "bride": "Meriem",
+      "groom": "Nabil",
+      "date": "2026-08-17T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-17T00:00:00.000Z",
+    "expiresAt": "2026-08-24T00:00:00.000Z",
+    "createdAt": "2026-06-18T10:10:09.430Z"
+  },
+  {
+    "slug": "_SRg99heXRfd2N2L",
+    "variant": "gala",
+    "colorId": "purple",
+    "bg": "#F3E5F5",
+    "ink": "#4a148c",
+    "accent": "#7b1fa2",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781777455444-heroImage.webp"
+    },
+    "data": {
+      "bride": "Meriem",
+      "groom": "Nabil",
+      "date": "2026-08-17T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-17T00:00:00.000Z",
+    "expiresAt": "2026-08-24T00:00:00.000Z",
+    "createdAt": "2026-06-18T10:10:56.392Z"
+  },
+  {
+    "slug": "T3rgdpNlwGof8nlL",
+    "variant": "jardin",
+    "colorId": "burgundy",
+    "bg": "#FDF2F4",
+    "ink": "#6B1228",
+    "accent": "#9b1c3e",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781777620309-heroImage.webp"
+    },
+    "data": {
+      "bride": "Nour",
+      "groom": "Mohamed",
+      "date": "2026-08-12T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-12T00:00:00.000Z",
+    "expiresAt": "2026-08-19T00:00:00.000Z",
+    "createdAt": "2026-06-18T10:13:41.477Z"
+  },
+  {
+    "slug": "jaWDaRP4Ac1uMnl7",
+    "variant": "jardin",
+    "colorId": "blue",
+    "bg": "#EEF2FF",
+    "ink": "#1E3A8A",
+    "accent": "#1a56db",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781777672278-heroImage.webp"
+    },
+    "data": {
+      "bride": "Nour",
+      "groom": "Mohamed",
+      "date": "2026-08-12T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-12T00:00:00.000Z",
+    "expiresAt": "2026-08-19T00:00:00.000Z",
+    "createdAt": "2026-06-18T10:14:33.450Z"
+  },
+  {
+    "slug": "cHH4LApFgSPb4Lev",
+    "variant": "jardin",
+    "colorId": "purple",
+    "bg": "#F3E5F5",
+    "ink": "#4a148c",
+    "accent": "#7b1fa2",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781777712377-heroImage.webp"
+    },
+    "data": {
+      "bride": "Nour",
+      "groom": "Mohamed",
+      "date": "2026-08-12T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-12T00:00:00.000Z",
+    "expiresAt": "2026-08-19T00:00:00.000Z",
+    "createdAt": "2026-06-18T10:15:13.170Z"
+  },
+  {
+    "slug": "WXSXS03WjDG0aDVj",
+    "variant": "jardin",
+    "colorId": "burgundy",
+    "bg": "#FDF2F4",
+    "ink": "#6B1228",
+    "accent": "#9b1c3e",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781777753035-heroImage.webp"
+    },
+    "data": {
+      "bride": "Nour",
+      "groom": "Mohamed",
+      "date": "2026-08-12T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-12T00:00:00.000Z",
+    "expiresAt": "2026-08-19T00:00:00.000Z",
+    "createdAt": "2026-06-18T10:15:54.053Z"
+  },
+  {
+    "slug": "Zg41qWNB6td-xSpj",
+    "variant": "jardin",
+    "colorId": "blue",
+    "bg": "#EEF2FF",
+    "ink": "#1E3A8A",
+    "accent": "#1a56db",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781777817143-heroImage.webp"
+    },
+    "data": {
+      "bride": "Nour",
+      "groom": "Mohamed",
+      "date": "2026-08-12T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-12T00:00:00.000Z",
+    "expiresAt": "2026-08-19T00:00:00.000Z",
+    "createdAt": "2026-06-18T10:16:58.068Z"
+  },
+  {
+    "slug": "rRnY0R3H4SYZ5osg",
+    "variant": "jardin",
+    "colorId": "purple",
+    "bg": "#F3E5F5",
+    "ink": "#4a148c",
+    "accent": "#7b1fa2",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781777848405-heroImage.webp"
+    },
+    "data": {
+      "bride": "Nour",
+      "groom": "Mohamed",
+      "date": "2026-08-12T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-12T00:00:00.000Z",
+    "expiresAt": "2026-08-19T00:00:00.000Z",
+    "createdAt": "2026-06-18T10:17:29.483Z"
+  },
+  {
+    "slug": "QJ30uounZ4GNWD4l",
+    "variant": "golden",
+    "colorId": "burgundy",
+    "bg": "#FDF2F4",
+    "ink": "#6B1228",
+    "accent": "#9b1c3e",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781777933574-heroImage.webp"
+    },
+    "data": {
+      "bride": "Aya",
+      "groom": "Djamel",
+      "date": "2026-08-27T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-27T00:00:00.000Z",
+    "expiresAt": "2026-09-03T00:00:00.000Z",
+    "createdAt": "2026-06-18T10:18:54.411Z"
+  },
+  {
+    "slug": "i1OfIzIG9eFw3Z9j",
+    "variant": "golden",
+    "colorId": "blue",
+    "bg": "#EEF2FF",
+    "ink": "#1E3A8A",
+    "accent": "#1a56db",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781777980218-heroImage.webp"
+    },
+    "data": {
+      "bride": "Aya",
+      "groom": "Djamel",
+      "date": "2026-08-27T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-27T00:00:00.000Z",
+    "expiresAt": "2026-09-03T00:00:00.000Z",
+    "createdAt": "2026-06-18T10:19:41.151Z"
+  },
+  {
+    "slug": "vc0rDanLB_EhVOO2",
+    "variant": "golden",
+    "colorId": "green",
+    "bg": "#E8F5E9",
+    "ink": "#1b5e20",
+    "accent": "#2e7d32",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781778034033-heroImage.webp"
+    },
+    "data": {
+      "bride": "Aya",
+      "groom": "Djamel",
+      "date": "2026-08-27T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-27T00:00:00.000Z",
+    "expiresAt": "2026-09-03T00:00:00.000Z",
+    "createdAt": "2026-06-18T10:20:35.006Z"
+  },
+  {
+    "slug": "3P2LEVspd4YbWjYP",
+    "variant": "golden",
+    "colorId": "black",
+    "bg": "#111111",
+    "ink": "#c9a055",
+    "accent": "#111111",
+    "locale": "fr",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781778074426-heroImage.webp"
+    },
+    "data": {
+      "bride": "Aya",
+      "groom": "Djamel",
+      "date": "2026-08-27T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "Début de la soirée"
+        },
+        {
+          "time": "12h00",
+          "label": "Le Dîner"
+        },
+        {
+          "time": "14h00",
+          "label": "Le Cortège"
+        },
+        {
+          "time": "20h00",
+          "label": "Clôture de la soirée"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-27T00:00:00.000Z",
+    "expiresAt": "2026-09-03T00:00:00.000Z",
+    "createdAt": "2026-06-18T10:21:15.824Z"
+  },
+  {
+    "slug": "EoaUb4IMSEChoCXW",
+    "variant": "golden",
+    "colorId": "burgundy",
+    "bg": "#FDF2F4",
+    "ink": "#6B1228",
+    "accent": "#9b1c3e",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781778145200-heroImage.webp"
+    },
+    "data": {
+      "bride": "Aya",
+      "groom": "Djamel",
+      "date": "2026-08-27T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-27T00:00:00.000Z",
+    "expiresAt": "2026-09-03T00:00:00.000Z",
+    "createdAt": "2026-06-18T10:22:26.024Z"
+  },
+  {
+    "slug": "bJ65AAme_jVcD4zz",
+    "variant": "golden",
+    "colorId": "blue",
+    "bg": "#EEF2FF",
+    "ink": "#1E3A8A",
+    "accent": "#1a56db",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781778182381-heroImage.webp"
+    },
+    "data": {
+      "bride": "Aya",
+      "groom": "Djamel",
+      "date": "2026-08-27T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-27T00:00:00.000Z",
+    "expiresAt": "2026-09-03T00:00:00.000Z",
+    "createdAt": "2026-06-18T10:23:03.182Z"
+  },
+  {
+    "slug": "ibaFhjGYO6nwpZsG",
+    "variant": "golden",
+    "colorId": "green",
+    "bg": "#E8F5E9",
+    "ink": "#1b5e20",
+    "accent": "#2e7d32",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781778214558-heroImage.webp"
+    },
+    "data": {
+      "bride": "Aya",
+      "groom": "Djamel",
+      "date": "2026-08-27T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-27T00:00:00.000Z",
+    "expiresAt": "2026-09-03T00:00:00.000Z",
+    "createdAt": "2026-06-18T10:23:35.575Z"
+  },
+  {
+    "slug": "Com5blOG6zDcDg6l",
+    "variant": "golden",
+    "colorId": "black",
+    "bg": "#111111",
+    "ink": "#c9a055",
+    "accent": "#111111",
+    "locale": "ar",
+    "active": true,
+    "images": {
+      "heroImage": "/uploads/1781778255230-heroImage.webp"
+    },
+    "data": {
+      "bride": "Aya",
+      "groom": "Djamel",
+      "date": "2026-08-27T00:00:00.000Z",
+      "time": "10:00",
+      "mapUrl": "https://www.google.com/maps/place/Salle+Des+F%C3%AAtes+Afrah+Tlemcen/@34.9080603,-1.3246193,17z/data=!3m1!4b1!4m6!3m5!1s0xd78c9030f5e4e63:0xfca1d3369f9acbed!8m2!3d34.9080603!4d-1.3246193!16s%2Fg%2F11cjkpjydy?entry=tts&g_ep=EgoyMDI2MDYxNi4wIPu8ASoASAFQAw%3D%3D&skid=0c7afd83-9b50-40cf-be76-23a2a1427d5b",
+      "mapLinkUrl": "https://maps.app.goo.gl/eqmiEQgZVXqsC6G57",
+      "programme": [
+        {
+          "time": "10h00",
+          "label": "بداية الحفلة"
+        },
+        {
+          "time": "12h00",
+          "label": "الأكل"
+        },
+        {
+          "time": "14h00",
+          "label": "الكورتاج"
+        },
+        {
+          "time": "20h00",
+          "label": "نهاية الحفلة"
+        }
+      ]
+    },
+    "weddingDate": "2026-08-27T00:00:00.000Z",
+    "expiresAt": "2026-09-03T00:00:00.000Z",
+    "createdAt": "2026-06-18T10:24:16.204Z"
+  }
+]
