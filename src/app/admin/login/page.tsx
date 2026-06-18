@@ -46,6 +46,9 @@ export default function LoginPage() {
           placeholder="Mot de passe"
           required
           autoFocus
+          autoCapitalize="none"
+          autoCorrect="off"
+          autoComplete="current-password"
           className="w-full rounded-lg bg-gray-900 border border-gray-700 px-4 py-3 text-gray-100 placeholder-gray-600 focus:border-gray-500 focus:outline-none transition-colors"
         />
         {error && <p className="text-sm text-red-400">{error}</p>}
