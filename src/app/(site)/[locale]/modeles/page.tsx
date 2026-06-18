@@ -13,7 +13,7 @@ export default async function ModelesPage({ params: { locale } }: { params: { lo
         <p className="mt-3 text-muted">{t('subtitle')}</p>
         <div className="divider-gold mx-auto mt-6 w-24" />
       </Reveal>
-      <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 lg:grid-cols-5 lg:gap-5">
+      <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 lg:gap-6">
         {MODELS.map((m, i) => (
           <Reveal key={m.slug} delay={i * 0.06}>
             <ModelCard model={m} locale={locale} />
