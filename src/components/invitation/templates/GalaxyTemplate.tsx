@@ -1,6 +1,6 @@
 ﻿'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import GalaxyEnvelope from './GalaxyEnvelope';
 import { MapBlock } from '../MapBlock';
 import type { InviteData, InviteStyle } from './InvitationTemplate';
@@ -137,26 +137,6 @@ export default function GalaxyTemplate({
   const s = SCHEMES[colorId] ?? SCHEMES.burgundy;
 
   const ready = useInvitationReady();
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  // useEffect(() => {
-  //   const v = videoRef.current;
-  //   if (!v) return;
-  //   v.muted = true;
-  //   v.setAttribute('muted', '');
-  //   v.setAttribute('playsinline', '');
-  //   v.setAttribute('webkit-playsinline', '');
-  //   const tryPlay = () => v.play().catch(() => {});
-  //   v.addEventListener('loadedmetadata', tryPlay, { once: true });
-  //   v.load();
-  //   return () => v.removeEventListener('loadedmetadata', tryPlay);
-  // }, []);
-
-  // Retry when the loading overlay is gone — iOS blocks play() on covered elements
-  // useEffect(() => {
-  //   if (!ready) return;
-  //   videoRef.current?.play().catch(() => {});
-  // }, [ready]);
   const dir = isAr ? 'rtl' : 'ltr';
   const displayFont = isAr ? AR : FR;
   const bodyFont = isAr ? AR_BODY : FR_BODY;
@@ -190,17 +170,12 @@ export default function GalaxyTemplate({
           overflow: 'hidden',
           ...(hue !== 0 && { filter: `hue-rotate(${hue}deg)` }),
         }}>
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/templates/galaxy/galaxyvideo.gif"
+          alt=""
           style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-        >
-          <source src="/templates/galaxy/galaxyvideo.webm" type="video/webm" />
-        </video>
+        />
         </div>
 
         {/* Text overlay image (covers full screen, no rotation) */}
